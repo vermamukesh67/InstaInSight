@@ -7,7 +7,6 @@
 //
 
 #import "LoginWebViewVC.h"
-#import "InstagramKit.h"
 
 @interface LoginWebViewVC ()
 
@@ -19,13 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.webView.scrollView.bounces = NO;
+    /*
+UIActivityIndicatorView *actbar=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+[actbar setHidesWhenStopped:YES];*/
 
-    
-    
-    
-    
-    NSURL *authURL = [[InstagramEngine sharedEngine] authorizationURL];
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:_actView]];
+    InstagramKitLoginScope scope = InstagramKitLoginScopeBasic |InstagramKitLoginScopeRelationships | InstagramKitLoginScopeComments | InstagramKitLoginScopeLikes | InstagramKitLoginScopePublicContent | InstagramKitLoginScopeFollowerList;
+
+    NSURL *authURL = [[InstagramEngine sharedEngine] authorizationURLForScope:scope];
     [self.webView loadRequest:[NSURLRequest requestWithURL:authURL]];
 }
 
@@ -40,17 +40,21 @@
     if ([[InstagramEngine sharedEngine] receivedValidAccessTokenFromURL:request.URL error:&error])
     {
         NSLog(@"shouldStartLoadWithRequest");
+        [self.actView stopAnimating];
+        if ([[[InstagramEngine sharedEngine] accessToken] length]>0) {
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }
-    [self.actView stopAnimating];
+    
     return YES;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [self.actView startAnimating];
+   [self.actView startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self.actView stopAnimating];
     NSLog(@"webViewDidFinishLoad");
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

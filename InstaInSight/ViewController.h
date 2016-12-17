@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+{
+    __weak IBOutlet UIActivityIndicatorView *actView;
+    __weak IBOutlet UIButton *btnLogin;
+    
+}
 - (IBAction)btnLoginTapped:(id)sender;
 
 @end

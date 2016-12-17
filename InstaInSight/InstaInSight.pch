@@ -1,0 +1,17 @@
+//
+//  InstaInSight.pch
+//  InstaInSight
+//
+//  Created by Verma Mukesh on 17/12/16.
+//  Copyright © 2016 Mukesh Verma. All rights reserved.
+//
+
+#ifndef InstaInSight_pch
+#define InstaInSight_pch
+
+#import "Constant.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* InstaInSight_pch */

@@ -1,3 +1,4 @@
+
 //
 //  ViewController.m
 //  InstaInSight
@@ -8,6 +9,7 @@
 
 #import "ViewController.h"
 #import "LoginWebViewVC.h"
+#import "AppTabBarVC.h"
 
 @interface ViewController ()
 
@@ -18,6 +20,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSLog(@"appClientID=%@",[[InstagramEngine sharedEngine] appClientID]);
+    NSLog(@"appRedirectURL=%@",[[InstagramEngine sharedEngine] appRedirectURL]);
+    NSLog(@"accessToken=%@",[[InstagramEngine sharedEngine] accessToken]);
+    
+    if ([[[InstagramEngine sharedEngine] accessToken] length]>0) {
+        
+        [actView startAnimating];
+        [btnLogin setTitle:@"Please Wait.." forState:UIControlStateNormal];
+        
+        [[InstagramEngine sharedEngine] getSelfUserDetailsWithSuccess:^(InstagramUser * _Nonnull user) {
+            
+            [actView stopAnimating];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [[InstaUser sharedUserInstance] setObjInstaUser:user];
+                UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AppTabBarVC"];
+                [[APP_DELEGATE window] setRootViewController:viewController];
+                [[APP_DELEGATE window] makeKeyAndVisible];
+            });
+            
+        } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+            
+        }];
+       
+    }
 }
 
 

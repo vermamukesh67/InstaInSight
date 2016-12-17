@@ -6,63 +6,73 @@
 	<dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>InstagramKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-InstaInSight.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-InstaInSightTests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-InstaInSightUITests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>UICKeyChainStore.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3D08B409BA2BBE027DE802ADC4454541</key>
+		<key>05DCD66B8EB8D822274DC8738FB5AA89</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A89BE0C04A39F82DC41C4AF5B215EEB</key>
+		<key>2F2702EE64ECA503552E95EB208BB4E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>5ADF95CE21EAB94338335B1EE466BEB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B3986ABF7A3F356322D8AA00C91A9D2</key>
+		<key>9532A1421A3E917649B428E149DFBC83</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A83A7FACC7D490CCF0D222460DE7AF48</key>
+		<key>9E033EDB5EC0819481B0546434FA577B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8C328417024B231BC438C89F07B70AE</key>
+		<key>A6DE5773559ED6B4E053F3421E2EAE12</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8E7A49617321CFE457A3159303F3FBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
