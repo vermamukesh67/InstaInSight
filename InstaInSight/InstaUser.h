@@ -12,5 +12,6 @@
 
 + (instancetype _Nonnull)sharedUserInstance;
 @property (nonatomic,strong) InstagramUser * _Nonnull objInstaUser;
+@property(nonatomic,strong,) NSString *instaUserId;
 
 @end

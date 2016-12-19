@@ -14,7 +14,9 @@
 #import "InstaUser.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
-//UIImageView+WebCache.h
+#import "HelperMethod.h"
+
+
 
 #define UIViewParentController(__view) ({ \
 UIResponder *__responder = __view; \

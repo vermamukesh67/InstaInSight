@@ -41,6 +41,11 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [[InstaUser sharedUserInstance] setObjInstaUser:user];
+                NSArray *arrUsers=[[[InstagramEngine sharedEngine] accessToken] componentsSeparatedByString:@"."];
+                if (arrUsers.count>0) {
+                     [[InstaUser sharedUserInstance] setInstaUserId:[arrUsers firstObject]];
+                }
+               
                 UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AppTabBarVC"];
                 [[APP_DELEGATE window] setRootViewController:viewController];
                 [[APP_DELEGATE window] makeKeyAndVisible];

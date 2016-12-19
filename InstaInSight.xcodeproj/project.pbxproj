@@ -22,6 +22,10 @@
 		C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49381E0541C70094F749 /* FreeUserVC.m */; };
 		C04D493C1E0541DC0094F749 /* PaidUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D493B1E0541DC0094F749 /* PaidUserVC.m */; };
 		C04D493F1E0559820094F749 /* InstaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D493E1E0559820094F749 /* InstaUser.m */; };
+		C04D49421E0583EC0094F749 /* NewFollowerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49411E0583EC0094F749 /* NewFollowerVC.m */; };
+		C04D49451E0584010094F749 /* NewFollowingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49441E0584010094F749 /* NewFollowingVC.m */; };
+		C04D49481E0588FB0094F749 /* HelperMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49471E0588FB0094F749 /* HelperMethod.m */; };
+		C04D494C1E083DAF0094F749 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D494B1E083DAF0094F749 /* UserCell.m */; };
 		F68951D505D58E06DB49CAF0 /* libPods-InstaInSight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFECD8CF6155A8FC1FCF7CD5 /* libPods-InstaInSight.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +81,14 @@
 		C04D493B1E0541DC0094F749 /* PaidUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaidUserVC.m; sourceTree = "<group>"; };
 		C04D493D1E0559820094F749 /* InstaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaUser.h; sourceTree = "<group>"; };
 		C04D493E1E0559820094F749 /* InstaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstaUser.m; sourceTree = "<group>"; };
+		C04D49401E0583EC0094F749 /* NewFollowerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFollowerVC.h; sourceTree = "<group>"; };
+		C04D49411E0583EC0094F749 /* NewFollowerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFollowerVC.m; sourceTree = "<group>"; };
+		C04D49431E0584010094F749 /* NewFollowingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFollowingVC.h; sourceTree = "<group>"; };
+		C04D49441E0584010094F749 /* NewFollowingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFollowingVC.m; sourceTree = "<group>"; };
+		C04D49461E0588FB0094F749 /* HelperMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperMethod.h; sourceTree = "<group>"; };
+		C04D49471E0588FB0094F749 /* HelperMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperMethod.m; sourceTree = "<group>"; };
+		C04D494A1E083DAF0094F749 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		C04D494B1E083DAF0094F749 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		DFECD8CF6155A8FC1FCF7CD5 /* libPods-InstaInSight.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaInSight.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34C036098706E5DABEA2E68 /* Pods-InstaInSight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSight/Pods-InstaInSight.debug.xcconfig"; sourceTree = "<group>"; };
 		E4FB74F9F48119FDB633AE08 /* Pods-InstaInSightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightUITests/Pods-InstaInSightUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +167,7 @@
 				7EA1FB1B1E03C517001BC519 /* Assets.xcassets */,
 				7EA1FB1D1E03C517001BC519 /* LaunchScreen.storyboard */,
 				7EA1FB201E03C517001BC519 /* Info.plist */,
+				C04D49491E0832E50094F749 /* Supporting Views */,
 				7EA1FB0F1E03C517001BC519 /* Supporting Files */,
 			);
 			path = InstaInSight;
@@ -168,6 +181,8 @@
 				C04D49361E053C980094F749 /* InstaInSight.pch */,
 				C04D493D1E0559820094F749 /* InstaUser.h */,
 				C04D493E1E0559820094F749 /* InstaUser.m */,
+				C04D49461E0588FB0094F749 /* HelperMethod.h */,
+				C04D49471E0588FB0094F749 /* HelperMethod.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -203,6 +218,10 @@
 				C04D49381E0541C70094F749 /* FreeUserVC.m */,
 				C04D493A1E0541DC0094F749 /* PaidUserVC.h */,
 				C04D493B1E0541DC0094F749 /* PaidUserVC.m */,
+				C04D49401E0583EC0094F749 /* NewFollowerVC.h */,
+				C04D49411E0583EC0094F749 /* NewFollowerVC.m */,
+				C04D49431E0584010094F749 /* NewFollowingVC.h */,
+				C04D49441E0584010094F749 /* NewFollowingVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +234,15 @@
 				1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C04D49491E0832E50094F749 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				C04D494A1E083DAF0094F749 /* UserCell.h */,
+				C04D494B1E083DAF0094F749 /* UserCell.m */,
+			);
+			name = "Supporting Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,10 +532,14 @@
 				C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */,
 				7EA1FB141E03C517001BC519 /* AppDelegate.m in Sources */,
 				7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */,
+				C04D494C1E083DAF0094F749 /* UserCell.m in Sources */,
 				C04D493F1E0559820094F749 /* InstaUser.m in Sources */,
+				C04D49451E0584010094F749 /* NewFollowingVC.m in Sources */,
 				C04D493C1E0541DC0094F749 /* PaidUserVC.m in Sources */,
 				7EA1FB111E03C517001BC519 /* main.m in Sources */,
 				C04D49341E053BB90094F749 /* AppTabBarVC.m in Sources */,
+				C04D49481E0588FB0094F749 /* HelperMethod.m in Sources */,
+				C04D49421E0583EC0094F749 /* NewFollowerVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

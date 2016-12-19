@@ -7,6 +7,8 @@
 //
 
 #import "FreeUserVC.h"
+#import "NewFollowerVC.h"
+#import "NewFollowingVC.h"
 
 @interface FreeUserVC ()
 
@@ -18,8 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //[[imgProfileView layer] setCornerRadius:imgProfileView.frame.size.width/2];
-    //[imgProfileView setClipsToBounds:YES];
+    
     
     [lblName setText:[[[InstaUser sharedUserInstance] objInstaUser] username]];
     [lblFollowerCount setText:[NSString stringWithFormat:@"%li",[[[InstaUser sharedUserInstance] objInstaUser] followsCount]]];
@@ -36,6 +37,13 @@
         [NSDictionary dictionaryWithObjectsAndKeys:@"Likes Graph",@"title",@"NewFollowers",@"imgName", nil],
                 
                 nil];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [[imgProfileView layer] setCornerRadius:imgProfileView.frame.size.width/2];
+    [imgProfileView setClipsToBounds:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +68,32 @@
     [cell.imageView setImage:[UIImage imageNamed:[diccData objectForKey:@"imgName"]]];
     [cell.textLabel setText:[diccData objectForKey:@"title"]];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+            NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowerVC"];
+            [self.navigationController pushViewController:objScr animated:YES];
+        }
+           
+            break;
+        case 1:
+        {
+            NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowingVC"];
+            [self.navigationController pushViewController:objScr animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
 }
 
 /*
