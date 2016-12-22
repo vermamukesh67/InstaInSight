@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@import GoogleMobileAds;
 
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,GADInterstitialDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
+- (void)createAndLoadInterstitial;
 
 @end
 

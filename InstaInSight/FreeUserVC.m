@@ -39,6 +39,11 @@
                 nil];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [APP_DELEGATE createAndLoadInterstitial];
+}
+
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
