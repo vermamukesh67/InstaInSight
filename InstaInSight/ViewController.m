@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [FIRAnalytics setScreenName:@"Login Screen" screenClass:@"ViewController"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -57,6 +59,8 @@
        
     }
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {

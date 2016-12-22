@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @import GoogleMobileAds;
+@import Firebase;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,GADInterstitialDelegate>
 

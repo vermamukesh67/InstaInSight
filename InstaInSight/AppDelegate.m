@@ -19,14 +19,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-   
-    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
-    self.interstitial.delegate=self;
-    GADRequest *request = [GADRequest request];
-    // Request test ads on devices you specify. Your test device ID is printed to the console when
-    // an ad request is made.
-    request.testDevices = @[ kGADSimulatorID, @"2077ef9a63d2b398840261c8221a0c9a" ];
-    [self.interstitial loadRequest:request];
+    // Use Firebase library to configure APIs
+    [FIRApp configure];
+    
+    [self PrepareAdv];
+    /*
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", self.title],
+                                     kFIRParameterItemName:self.title,
+                                     kFIRParameterContentType:@"image"
+                                     }]; */
+    
     return YES;
 }
 
@@ -57,6 +61,17 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)PrepareAdv
+{
+    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+    self.interstitial.delegate=self;
+    GADRequest *request = [GADRequest request];
+    // Request test ads on devices you specify. Your test device ID is printed to the console when
+    // an ad request is made.
+    request.testDevices = @[ kGADSimulatorID, @"2077ef9a63d2b398840261c8221a0c9a" ];
+    [self.interstitial loadRequest:request];
+}
+
 - (void)createAndLoadInterstitial {
     
   
@@ -80,6 +95,7 @@
 /// Called just after dismissing an interstitial and it has animated off the screen.
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad
 {
+    [self PrepareAdv];
     [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
 }
 

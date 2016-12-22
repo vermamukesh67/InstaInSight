@@ -22,6 +22,8 @@
     arrFollowing=[[NSMutableArray alloc] init];
     [tblFollowing setHidden:YES];
     [self GetFollowings];
+    
+    [FIRAnalytics setScreenName:@"NewFollowing" screenClass:@"NewFollowingVC"];
 }
 
 - (void)didReceiveMemoryWarning {

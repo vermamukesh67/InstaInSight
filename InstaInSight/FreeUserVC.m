@@ -37,6 +37,10 @@
         [NSDictionary dictionaryWithObjectsAndKeys:@"Likes Graph",@"title",@"NewFollowers",@"imgName", nil],
                 
                 nil];
+    
+    [FIRAnalytics setScreenName:@"FreeUser" screenClass:@"FreeUserVC"];
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
