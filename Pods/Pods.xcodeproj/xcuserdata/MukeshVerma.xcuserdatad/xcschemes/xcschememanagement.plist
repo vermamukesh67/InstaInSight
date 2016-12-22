@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>InstagramKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UICKeyChainStore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3D08B409BA2BBE027DE802ADC4454541</key>
+		<key>12D0BE9AB489DA96C874BA686EAC1EEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A89BE0C04A39F82DC41C4AF5B215EEB</key>
+		<key>3D08B409BA2BBE027DE802ADC4454541</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A1D27CA3BC01DF50D5D1B17369560714</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A83A7FACC7D490CCF0D222460DE7AF48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C8C328417024B231BC438C89F07B70AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF89FF666D8E2300AA8415F83625668B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

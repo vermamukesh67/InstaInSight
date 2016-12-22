@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [FIRAnalytics setScreenName:@"PaidUser" screenClass:@"PaidUserVC"];
 }
 
 - (void)didReceiveMemoryWarning {

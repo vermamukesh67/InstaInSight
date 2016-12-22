@@ -16,6 +16,8 @@
 		7EA1FB2A1E03C517001BC519 /* InstaInSightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB291E03C517001BC519 /* InstaInSightTests.m */; };
 		7EA1FB351E03C517001BC519 /* InstaInSightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB341E03C517001BC519 /* InstaInSightUITests.m */; };
 		7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB441E040DDB001BC519 /* LoginWebViewVC.m */; };
+		7ED6C5551E0BF83800329E98 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED6C5541E0BF83800329E98 /* AdSupport.framework */; };
+		7ED6C5571E0BFA0F00329E98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */; };
 		856A2020960220428C2AA51F /* libPods-InstaInSightTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6204F4D92F3FE2A9001AC864 /* libPods-InstaInSightTests.a */; };
 		A5BC34930E83EA73E76D6AF0 /* libPods-InstaInSightUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */; };
 		C04D49341E053BB90094F749 /* AppTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49331E053BB90094F749 /* AppTabBarVC.m */; };
@@ -68,6 +70,8 @@
 		7EA1FB361E03C517001BC519 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EA1FB431E040DDB001BC519 /* LoginWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewVC.h; sourceTree = "<group>"; };
 		7EA1FB441E040DDB001BC519 /* LoginWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewVC.m; sourceTree = "<group>"; };
+		7ED6C5541E0BF83800329E98 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93A79B55ADC026A90BC0969D /* Pods-InstaInSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightTests/Pods-InstaInSightTests.release.xcconfig"; sourceTree = "<group>"; };
 		A64E167DDC60D1CC4FE34586 /* Pods-InstaInSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightUITests/Pods-InstaInSightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B545FDC3256975B37B741FA5 /* Pods-InstaInSight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSight.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSight/Pods-InstaInSight.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED6C5551E0BF83800329E98 /* AdSupport.framework in Frameworks */,
 				F68951D505D58E06DB49CAF0 /* libPods-InstaInSight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +181,7 @@
 		7EA1FB0F1E03C517001BC519 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */,
 				7EA1FB101E03C517001BC519 /* main.m */,
 				C04D49351E053C2A0094F749 /* Constant.h */,
 				C04D49361E053C980094F749 /* InstaInSight.pch */,
@@ -229,6 +235,7 @@
 		BCDD52BD5C77448B8021B649 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ED6C5541E0BF83800329E98 /* AdSupport.framework */,
 				DFECD8CF6155A8FC1FCF7CD5 /* libPods-InstaInSight.a */,
 				6204F4D92F3FE2A9001AC864 /* libPods-InstaInSightTests.a */,
 				1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */,
@@ -321,7 +328,6 @@
 				TargetAttributes = {
 					7EA1FB0B1E03C517001BC519 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = DNTJZJWJQC;
 						ProvisioningStyle = Automatic;
 					};
 					7EA1FB241E03C517001BC519 = {
@@ -364,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EA1FB1F1E03C517001BC519 /* LaunchScreen.storyboard in Resources */,
+				7ED6C5571E0BFA0F00329E98 /* GoogleService-Info.plist in Resources */,
 				7EA1FB1C1E03C517001BC519 /* Assets.xcassets in Resources */,
 				7EA1FB1A1E03C517001BC519 /* Main.storyboard in Resources */,
 			);
@@ -413,7 +420,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4CAE08FD70D7214106EF6FFC /* [CP] Copy Pods Resources */ = {
@@ -458,7 +465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7194A7C2E4852ADA84DE6FFA /* [CP] Copy Pods Resources */ = {
@@ -488,7 +495,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CD32F6BC694FE4711CC63E8F /* [CP] Embed Pods Frameworks */ = {
@@ -689,13 +696,14 @@
 			baseConfigurationReference = E34C036098706E5DABEA2E68 /* Pods-InstaInSight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DNTJZJWJQC;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = InstaInSight/InstaInSight.pch;
 				INFOPLIST_FILE = InstaInSight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hungama.InstaInSight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.InstaSigntTest.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -705,13 +713,14 @@
 			baseConfigurationReference = B545FDC3256975B37B741FA5 /* Pods-InstaInSight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DNTJZJWJQC;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = InstaInSight/InstaInSight.pch;
 				INFOPLIST_FILE = InstaInSight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hungama.InstaInSight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.InstaSigntTest.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

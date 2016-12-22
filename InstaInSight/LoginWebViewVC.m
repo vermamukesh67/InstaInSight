@@ -27,6 +27,8 @@ UIActivityIndicatorView *actbar=[[UIActivityIndicatorView alloc] initWithActivit
 
     NSURL *authURL = [[InstagramEngine sharedEngine] authorizationURLForScope:scope];
     [self.webView loadRequest:[NSURLRequest requestWithURL:authURL]];
+    
+    [FIRAnalytics setScreenName:@"LoginScreen_WebView" screenClass:@"LoginWebViewVC"];
 }
 
 - (void)didReceiveMemoryWarning {

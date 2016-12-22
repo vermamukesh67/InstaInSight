@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Use Firebase library to configure APIs
+    [FIRApp configure];
+    
+    [self PrepareAdv];
+    /*
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", self.title],
+                                     kFIRParameterItemName:self.title,
+                                     kFIRParameterContentType:@"image"
+                                     }]; */
+    
     return YES;
 }
 
@@ -45,6 +59,44 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)PrepareAdv
+{
+    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+    self.interstitial.delegate=self;
+    GADRequest *request = [GADRequest request];
+    // Request test ads on devices you specify. Your test device ID is printed to the console when
+    // an ad request is made.
+    request.testDevices = @[ kGADSimulatorID, @"2077ef9a63d2b398840261c8221a0c9a" ];
+    [self.interstitial loadRequest:request];
+}
+
+- (void)createAndLoadInterstitial {
+    
+  
+     NSLog(@"root view controller = %@",[self.window rootViewController]);
+    if (self.interstitial.isReady) {
+        NSLog(@"root view controller = %@",[self.window rootViewController]);
+        [self.interstitial presentFromRootViewController:[self.window rootViewController]];
+    } else {
+        NSLog(@"Ad wasn't ready");
+        [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
+    }
+    
+}
+
+/// Called before the interstitial is to be animated off the screen.
+- (void)interstitialWillDismissScreen:(GADInterstitial *)ad
+{
+    
+}
+
+/// Called just after dismissing an interstitial and it has animated off the screen.
+- (void)interstitialDidDismissScreen:(GADInterstitial *)ad
+{
+    [self PrepareAdv];
+    [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
 }
 
 

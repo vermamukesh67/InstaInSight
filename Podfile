@@ -10,6 +10,8 @@ target 'InstaInSight' do
 pod 'InstagramKit', '~> 3.0'
 pod 'InstagramKit/UICKeyChainStore'
 pod 'SDWebImage', '~>3.8'
+pod 'Firebase/Core'
+pod 'Firebase/AdMob'
 
   target 'InstaInSightTests' do
     inherit! :search_paths
