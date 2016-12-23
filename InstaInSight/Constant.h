@@ -15,6 +15,7 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 #import "HelperMethod.h"
+#import "CoreDataManager.h"
 
 
 
@@ -42,5 +43,7 @@ __responder = [__responder nextResponder]; \
 #define ShowNetworkIndicatorVisible(value)  [UIApplication sharedApplication].networkActivityIndicatorVisible=value
 #define ShowHideStatusBarVisible(value) [[UIApplication sharedApplication] setStatusBarHidden:value]
 #define COLOR_WITH_RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+
+#define MANAGED_OBJECT_CONTEXT [[CoreDataManager sharedInstance] managedObjectContext]
 
 #endif /* Constant_h */
