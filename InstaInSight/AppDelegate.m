@@ -75,14 +75,14 @@
 - (void)createAndLoadInterstitial {
     
   
-     NSLog(@"root view controller = %@",[self.window rootViewController]);
-    if (self.interstitial.isReady) {
-        NSLog(@"root view controller = %@",[self.window rootViewController]);
-        [self.interstitial presentFromRootViewController:[self.window rootViewController]];
-    } else {
-        NSLog(@"Ad wasn't ready");
-        [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
-    }
+//     NSLog(@"root view controller = %@",[self.window rootViewController]);
+//    if (self.interstitial.isReady) {
+//        NSLog(@"root view controller = %@",[self.window rootViewController]);
+//        [self.interstitial presentFromRootViewController:[self.window rootViewController]];
+//    } else {
+//        NSLog(@"Ad wasn't ready");
+//        [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
+//    }
     
 }
 
@@ -96,7 +96,7 @@
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad
 {
     [self PrepareAdv];
-    [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
+    //[self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
 }
 
 
