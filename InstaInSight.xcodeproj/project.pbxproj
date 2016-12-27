@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E2B844F1E0D427A002832FF /* Followers+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2B84491E0D427A002832FF /* Followers+CoreDataProperties.m */; };
-		7E2B84511E0D427A002832FF /* Followings+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2B844D1E0D427A002832FF /* Followings+CoreDataProperties.m */; };
+		7E8B684C1E1294CF0062ED6D /* Followings+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B68451E1294CF0062ED6D /* Followings+CoreDataClass.m */; };
+		7E8B684D1E1294CF0062ED6D /* Followings+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B68471E1294CF0062ED6D /* Followings+CoreDataProperties.m */; };
+		7E8B684E1E1294CF0062ED6D /* Followers+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B68491E1294CF0062ED6D /* Followers+CoreDataClass.m */; };
+		7E8B684F1E1294CF0062ED6D /* Followers+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B684B1E1294CF0062ED6D /* Followers+CoreDataProperties.m */; };
 		7E9BE49B1E0D225100E2189D /* InstaInSight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BE4991E0D225100E2189D /* InstaInSight.xcdatamodeld */; };
 		7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */; };
 		7E9BE4B81E0D2C6A00E2189D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */; };
@@ -57,14 +59,14 @@
 		1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaInSightUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBD95005150DD90476ED163 /* Pods-InstaInSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightTests/Pods-InstaInSightTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6204F4D92F3FE2A9001AC864 /* libPods-InstaInSightTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaInSightTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E2B84461E0D427A002832FF /* Followers+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Followers+CoreDataClass.h"; sourceTree = "<group>"; };
-		7E2B84471E0D427A002832FF /* Followers+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Followers+CoreDataClass.m"; sourceTree = "<group>"; };
-		7E2B84481E0D427A002832FF /* Followers+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Followers+CoreDataProperties.h"; sourceTree = "<group>"; };
-		7E2B84491E0D427A002832FF /* Followers+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Followers+CoreDataProperties.m"; sourceTree = "<group>"; };
-		7E2B844A1E0D427A002832FF /* Followings+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Followings+CoreDataClass.h"; sourceTree = "<group>"; };
-		7E2B844B1E0D427A002832FF /* Followings+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Followings+CoreDataClass.m"; sourceTree = "<group>"; };
-		7E2B844C1E0D427A002832FF /* Followings+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Followings+CoreDataProperties.h"; sourceTree = "<group>"; };
-		7E2B844D1E0D427A002832FF /* Followings+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Followings+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7E8B68441E1294CF0062ED6D /* Followings+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Followings+CoreDataClass.h"; sourceTree = "<group>"; };
+		7E8B68451E1294CF0062ED6D /* Followings+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Followings+CoreDataClass.m"; sourceTree = "<group>"; };
+		7E8B68461E1294CF0062ED6D /* Followings+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Followings+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7E8B68471E1294CF0062ED6D /* Followings+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Followings+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7E8B68481E1294CF0062ED6D /* Followers+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Followers+CoreDataClass.h"; sourceTree = "<group>"; };
+		7E8B68491E1294CF0062ED6D /* Followers+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Followers+CoreDataClass.m"; sourceTree = "<group>"; };
+		7E8B684A1E1294CF0062ED6D /* Followers+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Followers+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7E8B684B1E1294CF0062ED6D /* Followers+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Followers+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7E9BE49A1E0D225100E2189D /* InstaInSight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstaInSight.xcdatamodel; sourceTree = "<group>"; };
 		7E9BE4B41E0D2B3C00E2189D /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
@@ -161,14 +163,14 @@
 		7E9BE4981E0D222200E2189D /* CoreDataBase Model */ = {
 			isa = PBXGroup;
 			children = (
-				7E2B84461E0D427A002832FF /* Followers+CoreDataClass.h */,
-				7E2B84471E0D427A002832FF /* Followers+CoreDataClass.m */,
-				7E2B84481E0D427A002832FF /* Followers+CoreDataProperties.h */,
-				7E2B84491E0D427A002832FF /* Followers+CoreDataProperties.m */,
-				7E2B844A1E0D427A002832FF /* Followings+CoreDataClass.h */,
-				7E2B844B1E0D427A002832FF /* Followings+CoreDataClass.m */,
-				7E2B844C1E0D427A002832FF /* Followings+CoreDataProperties.h */,
-				7E2B844D1E0D427A002832FF /* Followings+CoreDataProperties.m */,
+				7E8B68441E1294CF0062ED6D /* Followings+CoreDataClass.h */,
+				7E8B68451E1294CF0062ED6D /* Followings+CoreDataClass.m */,
+				7E8B68461E1294CF0062ED6D /* Followings+CoreDataProperties.h */,
+				7E8B68471E1294CF0062ED6D /* Followings+CoreDataProperties.m */,
+				7E8B68481E1294CF0062ED6D /* Followers+CoreDataClass.h */,
+				7E8B68491E1294CF0062ED6D /* Followers+CoreDataClass.m */,
+				7E8B684A1E1294CF0062ED6D /* Followers+CoreDataProperties.h */,
+				7E8B684B1E1294CF0062ED6D /* Followers+CoreDataProperties.m */,
 				7E9BE4991E0D225100E2189D /* InstaInSight.xcdatamodeld */,
 				7E9BE4B41E0D2B3C00E2189D /* CoreDataManager.h */,
 				7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */,
@@ -573,16 +575,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E8B684C1E1294CF0062ED6D /* Followings+CoreDataClass.m in Sources */,
 				7EA1FB171E03C517001BC519 /* ViewController.m in Sources */,
-				7E2B844F1E0D427A002832FF /* Followers+CoreDataProperties.m in Sources */,
 				C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */,
 				7E9BE49B1E0D225100E2189D /* InstaInSight.xcdatamodeld in Sources */,
+				7E8B684E1E1294CF0062ED6D /* Followers+CoreDataClass.m in Sources */,
 				7EA1FB141E03C517001BC519 /* AppDelegate.m in Sources */,
 				7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */,
-				7E2B84511E0D427A002832FF /* Followings+CoreDataProperties.m in Sources */,
 				C04D494C1E083DAF0094F749 /* UserCell.m in Sources */,
 				C04D493F1E0559820094F749 /* InstaUser.m in Sources */,
 				C04D49451E0584010094F749 /* NewFollowingVC.m in Sources */,
+				7E8B684D1E1294CF0062ED6D /* Followings+CoreDataProperties.m in Sources */,
+				7E8B684F1E1294CF0062ED6D /* Followers+CoreDataProperties.m in Sources */,
 				C04D493C1E0541DC0094F749 /* PaidUserVC.m in Sources */,
 				7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */,
 				7EA1FB111E03C517001BC519 /* main.m in Sources */,

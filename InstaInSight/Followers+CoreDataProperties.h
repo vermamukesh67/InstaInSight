@@ -2,7 +2,7 @@
 //  Followers+CoreDataProperties.h
 //  InstaInSight
 //
-//  Created by Mukesh Verma on 23/12/16.
+//  Created by Mukesh Verma on 27/12/16.
 //  Copyright © 2016 Mukesh Verma. All rights reserved.
 //  This file was automatically generated and should not be edited.
 //
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, copy) NSString *followerId;
 @property (nullable, nonatomic, copy) NSString *fullName;
+@property (nonatomic) int16_t isNew;
 @property (nullable, nonatomic, copy) NSString *profilePictureURL;
 @property (nullable, nonatomic, copy) NSString *userName;
 

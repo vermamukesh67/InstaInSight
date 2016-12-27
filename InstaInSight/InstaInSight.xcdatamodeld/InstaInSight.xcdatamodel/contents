@@ -3,17 +3,19 @@
     <entity name="Followers" representedClassName="Followers" syncable="YES" codeGenerationType="class">
         <attribute name="followerId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isNew" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="profilePictureURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Followings" representedClassName="Followings" syncable="YES" codeGenerationType="class">
         <attribute name="followingId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isNew" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="profilePictureURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Followers" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Followings" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="Followers" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Followings" positionX="-54" positionY="-9" width="128" height="120"/>
     </elements>
 </model>

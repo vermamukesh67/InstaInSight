@@ -53,6 +53,7 @@ NSString *const kText = @"text";
 
 NSString *const kUsername = @"username";
 NSString *const kFullName = @"full_name";
+NSString *const kuserId = @"id";
 NSString *const kFirstName = @"first_name";
 NSString *const kLastName = @"last_name";
 NSString *const kProfilePictureURL = @"profile_picture";

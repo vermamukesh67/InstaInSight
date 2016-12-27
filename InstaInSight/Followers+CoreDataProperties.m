@@ -2,7 +2,7 @@
 //  Followers+CoreDataProperties.m
 //  InstaInSight
 //
-//  Created by Mukesh Verma on 23/12/16.
+//  Created by Mukesh Verma on 27/12/16.
 //  Copyright © 2016 Mukesh Verma. All rights reserved.
 //  This file was automatically generated and should not be edited.
 //
@@ -17,6 +17,7 @@
 
 @dynamic followerId;
 @dynamic fullName;
+@dynamic isNew;
 @dynamic profilePictureURL;
 @dynamic userName;
 
