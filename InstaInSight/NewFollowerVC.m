@@ -8,6 +8,7 @@
 
 #import "NewFollowerVC.h"
 #import "UserCell.h"
+//#import "Followers+CoreDataProperties.h"
 
 @interface NewFollowerVC ()
 
@@ -40,6 +41,11 @@
         NSLog(@"users = %@",users);
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+//            [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                [Followers saveFollowersList:obj];
+//            }];
+            
             
             arrFollowers=[[NSMutableArray alloc] initWithArray:users];
             [tblFollowers setHidden:NO];

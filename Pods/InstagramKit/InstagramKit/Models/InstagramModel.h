@@ -58,6 +58,7 @@ INSTAGRAMKIT_EXTERN NSString *const kCreator;
 INSTAGRAMKIT_EXTERN NSString *const kText;
 
 INSTAGRAMKIT_EXTERN NSString *const kUsername;
+INSTAGRAMKIT_EXTERN NSString *const kuserId;
 INSTAGRAMKIT_EXTERN NSString *const kFullName;
 INSTAGRAMKIT_EXTERN NSString *const kFirstName;
 INSTAGRAMKIT_EXTERN NSString *const kLastName;

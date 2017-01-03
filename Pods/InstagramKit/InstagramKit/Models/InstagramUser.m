@@ -24,6 +24,7 @@
 @interface InstagramUser()
 
 @property (nonatomic, copy) NSString *username;
+@property (nonatomic, copy) NSString *userId;
 @property (nonatomic, copy) NSString *fullName;
 @property (nonatomic, strong) NSURL *profilePictureURL;
 @property (nonatomic, copy) NSString *bio;
@@ -49,6 +50,7 @@
 {
     self.username = [[NSString alloc] initWithString:info[kUsername]];
     self.fullName = [[NSString alloc] initWithString:info[kFullName]];
+    self.userId = [[NSString alloc] initWithString:info[kFullName]];
     
     self.profilePictureURL = (IKNotNull(info[kProfilePictureURL])) ? [[NSURL alloc] initWithString:info[kProfilePictureURL]] : nil;
     self.bio = (IKNotNull(info[kBio])) ? [[NSString alloc] initWithString:info[kBio]] : nil;

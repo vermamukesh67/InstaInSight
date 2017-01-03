@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Followers : NSManagedObject
 
-+ (Followers *)saveFollowersList:(NSMutableDictionary *)dataDict;
++ (Followers *)saveFollowersList:(InstagramUser *)objInstaUser;
 + (Followers *)fetchFollowersById:(NSString *)userId;
 + (Followers *)fetchFollowersDetails;
 +(BOOL)DeleteFollowersDetails;
-+(id)CreateDemoObjectWithoutSaving:(NSMutableDictionary *)dataDict;
++(id)CreateDemoObjectWithoutSaving:(InstagramUser *)objInstaUser;
 
 @end
 

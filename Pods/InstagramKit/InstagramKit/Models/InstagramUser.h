@@ -32,6 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *username;
 
 /**
+ *  User's unique username.
+ */
+@property (nonatomic, copy, readonly) NSString *userId;
+
+/**
  *  User's full name.
  */
 @property (nonatomic, copy, readonly, nullable) NSString *fullName;
