@@ -1,5 +1,5 @@
 //
-//  Followers+CoreDataProperties.m
+//  Following+CoreDataProperties.m
 //  InstaInSight
 //
 //  Created by Verma Mukesh on 03/01/17.
@@ -9,14 +9,14 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Followers+CoreDataProperties.h"
+#import "Following+CoreDataProperties.h"
 
-@implementation Followers (CoreDataProperties)
+@implementation Following (CoreDataProperties)
 
-@dynamic followerId;
+@dynamic followingId;
 @dynamic fullName;
+@dynamic isNew;
 @dynamic profilePictureURL;
 @dynamic userName;
-@dynamic isNew;
 
 @end
