@@ -16,7 +16,8 @@
 #import "UIImageView+WebCache.h"
 #import "HelperMethod.h"
 #import "CoreDataManager.h"
-
+#import "Following+CoreDataProperties.h"
+#import "Followers+CoreDataProperties.h"
 
 
 #define UIViewParentController(__view) ({ \

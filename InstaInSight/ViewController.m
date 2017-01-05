@@ -27,15 +27,18 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self.navigationController.navigationBar setHidden:YES];
     NSLog(@"appClientID=%@",[[InstagramEngine sharedEngine] appClientID]);
     NSLog(@"appRedirectURL=%@",[[InstagramEngine sharedEngine] appRedirectURL]);
     NSLog(@"accessToken=%@",[[InstagramEngine sharedEngine] accessToken]);
     
+    
     if ([[[InstagramEngine sharedEngine] accessToken] length]>0) {
         
         [actView startAnimating];
-        [btnLogin setTitle:@"Please Wait.." forState:UIControlStateNormal];
+        [btnLogin setUserInteractionEnabled:NO];
+        [btnLogin setTitle:@"Please Wait...." forState:UIControlStateNormal];
+        
         
         [[InstagramEngine sharedEngine] getSelfUserDetailsWithSuccess:^(InstagramUser * _Nonnull user) {
             
@@ -54,7 +57,9 @@
             });
             
         } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
-            
+            [actView stopAnimating];
+            [btnLogin setUserInteractionEnabled:YES];
+            [btnLogin setTitle:@"Log in with Instagram" forState:UIControlStateNormal];
         }];
        
     }

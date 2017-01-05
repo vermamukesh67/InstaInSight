@@ -12,6 +12,7 @@
 {
     __weak IBOutlet UIActivityIndicatorView *actView;
     __weak IBOutlet UIButton *btnLogin;
+    __weak IBOutlet UILabel *lblPlsWait;
     
 }
 - (IBAction)btnLoginTapped:(id)sender;

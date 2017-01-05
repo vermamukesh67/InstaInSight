@@ -15,6 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Insert code here to declare functionality of your managed object subclass
 
++ (Following *)saveFollowingsList:(InstagramUser *)objInstaUser;
++ (Following *)fetchFollowingsById:(NSString *)userId;
++ (Following *)fetchFollowingsByType:(NSString *)userType;
++ (Following *)fetchFollowingsDetails;
++(BOOL)DeleteFollowingsDetails;
++(id)CreateDemoObjectWithoutSaving:(InstagramUser *)objInstaUser;
+
 @end
 
 NS_ASSUME_NONNULL_END
