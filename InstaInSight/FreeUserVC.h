@@ -11,6 +11,7 @@
 @interface FreeUserVC : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
     __weak IBOutlet UIView *headerView;
+    __weak IBOutlet UIView *whiteBox;
     __weak IBOutlet UIImageView *imgProfileView;
     __weak IBOutlet UILabel *lblName;
     __weak IBOutlet UILabel *lblFollowerCount;

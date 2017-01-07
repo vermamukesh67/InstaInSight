@@ -20,27 +20,43 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"base"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    UIBarButtonItem *navBarButtonAppearance = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:[NSArray arrayWithObject:[UINavigationBar class]]];
+    [navBarButtonAppearance setTitleTextAttributes:@{
+                                                     NSFontAttributeName:            [UIFont systemFontOfSize:0.1],
+                                                     NSForegroundColorAttributeName: [UIColor clearColor] }
+                                          forState:UIControlStateNormal];
     
-    
-    [lblName setText:[[[InstaUser sharedUserInstance] objInstaUser] username]];
-    [lblFollowerCount setText:[NSString stringWithFormat:@"%li",[[[InstaUser sharedUserInstance] objInstaUser] followsCount]]];
-    [lblFollowingCount setText:[NSString stringWithFormat:@"%li",[[[InstaUser sharedUserInstance] objInstaUser] followedByCount]]];
+    [lblName setText:[[[InstaUser sharedUserInstance] objInstaUser] fullName]];
+    [lblFollowerCount setText:[NSString stringWithFormat:@"%li Followers",[[[InstaUser sharedUserInstance] objInstaUser] followsCount]]];
+    [lblFollowingCount setText:[NSString stringWithFormat:@"%li Followings",[[[InstaUser sharedUserInstance] objInstaUser] followedByCount]]];
     
     [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"profilePlaceHolder"]];
-    [tblFreeUser setTableHeaderView:headerView];
+   // [tblFreeUser setTableHeaderView:headerView];
     
     arrRowData=[[NSMutableArray alloc] initWithObjects:
-        [NSDictionary dictionaryWithObjectsAndKeys:@"New Followers",@"title",@"NewFollowers",@"imgName", nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:@"New Following",@"title",@"NewFollowers",@"imgName", nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:@"Not Following back",@"title",@"NewFollowers",@"imgName", nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:@"I am not Following back",@"title",@"NewFollowers",@"imgName", nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:@"Likes Graph",@"title",@"NewFollowers",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"New Followers",@"title",@"newfollowers",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"New Following",@"title",@"newfollowing",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Not Following Back",@"title",@"notfollowingback",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"I am not Following Back",@"title",@"likegraphs",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Likes Graph",@"title",@"iamnotfollowingback",@"imgName", nil],
                 
                 nil];
     
     [FIRAnalytics setScreenName:@"FreeUser" screenClass:@"FreeUserVC"];
     
-    
+    tblFreeUser.tableFooterView = [UIView new];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -53,6 +69,14 @@
     [super viewDidLayoutSubviews];
     [[imgProfileView layer] setCornerRadius:imgProfileView.frame.size.width/2];
     [imgProfileView setClipsToBounds:YES];
+    [[imgProfileView layer] setBorderColor:[UIColor whiteColor].CGColor];
+    [[imgProfileView layer] setBorderWidth:2.0];
+    
+    [[tblFreeUser layer] setCornerRadius:2.0];
+    [tblFreeUser setClipsToBounds:YES];
+    
+    [[whiteBox layer] setCornerRadius:2.0];
+    [whiteBox setClipsToBounds:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,6 +111,7 @@
         case 0:
         {
             NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowerVC"];
+            [objScr setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:objScr animated:YES];
         }
            
@@ -94,6 +119,7 @@
         case 1:
         {
             NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowingVC"];
+            [objScr setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:objScr animated:YES];
         }
             break;

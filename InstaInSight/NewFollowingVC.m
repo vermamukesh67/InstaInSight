@@ -18,12 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self setTitle:@"New Followings"];
     arrFollowing=[[NSMutableArray alloc] init];
     [tblFollowing setHidden:YES];
     [self GetFollowings];
     
     [FIRAnalytics setScreenName:@"NewFollowing" screenClass:@"NewFollowingVC"];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {

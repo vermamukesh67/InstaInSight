@@ -18,11 +18,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    /*
-UIActivityIndicatorView *actbar=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-[actbar setHidesWhenStopped:YES];*/
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"base"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    
+    UIBarButtonItem *btnRightbar=[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(btnCancelBarTapped:)];
 
-    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:_actView]];
+    [self.navigationItem setRightBarButtonItem:btnRightbar];
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     InstagramKitLoginScope scope = InstagramKitLoginScopeBasic |InstagramKitLoginScopeRelationships | InstagramKitLoginScopeComments | InstagramKitLoginScopeLikes | InstagramKitLoginScopePublicContent | InstagramKitLoginScopeFollowerList;
 
     NSURL *authURL = [[InstagramEngine sharedEngine] authorizationURLForScope:scope];
@@ -64,6 +69,11 @@ UIActivityIndicatorView *actbar=[[UIActivityIndicatorView alloc] initWithActivit
     [self.actView stopAnimating];
     NSLog(@"didFailLoadWithError");
     
+}
+
+-(void)btnCancelBarTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

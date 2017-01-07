@@ -17,6 +17,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UITabBarController *tabBarController = self;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    
+    
+    [tabBarItem2 setImage: [[UIImage imageNamed:@"paid"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem2 setSelectedImage: [[UIImage imageNamed:@"paid"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    
+    [tabBarItem1 setImage: [[UIImage imageNamed:@"free"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem1 setSelectedImage: [[UIImage imageNamed:@"free"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    
+    [tabBarItem1 setImageInsets:UIEdgeInsetsMake(7, 0, 0, 0)];
+    [tabBarItem2 setImageInsets:UIEdgeInsetsMake(7, 0, 0, 0)];
+    
+    
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
+    
+    // Change the tab bar background
+    [[UITabBar appearance] setBackgroundImage:[self ResizeImage:@"grayBg" WithSize:CGSizeMake(SCREENWIDTH, 50)]];
+    [[UITabBar appearance] setSelectionIndicatorImage:[self ResizeImage:@"tabBg" WithSize:CGSizeMake(SCREENWIDTH/2, 50)]];
+    
+}
+
+-(UIImage *)ResizeImage:(NSString *)strImgName WithSize:(CGSize)destinationSize
+{
+    UIImage *originalImage = [UIImage imageNamed:strImgName];
+    UIGraphicsBeginImageContext(destinationSize);
+    [originalImage drawInRect:CGRectMake(0,0,destinationSize.width,destinationSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -20,6 +20,8 @@
     // Override point for customization after application launch.
     
     // Use Firebase library to configure APIs
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    
     [FIRApp configure];
     
     [self PrepareAdv];
