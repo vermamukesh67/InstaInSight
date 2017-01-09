@@ -23,6 +23,7 @@
     [self setTitle:@"New Followers"];
     arrFollowers=[[NSMutableArray alloc] init];
     [tblFollowers setHidden:YES];
+    tblFollowers.tableFooterView = [UIView new];
     [self GetFollowers];
     
     [FIRAnalytics setScreenName:@"NewFollower" screenClass:@"NewFollowerVC"];

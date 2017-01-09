@@ -21,6 +21,7 @@
     [self setTitle:@"New Followings"];
     arrFollowing=[[NSMutableArray alloc] init];
     [tblFollowing setHidden:YES];
+    tblFollowing.tableFooterView = [UIView new];
     [self GetFollowings];
     
     [FIRAnalytics setScreenName:@"NewFollowing" screenClass:@"NewFollowingVC"];
