@@ -18,6 +18,7 @@
 #import "CoreDataManager.h"
 #import "Following+CoreDataProperties.h"
 #import "Followers+CoreDataProperties.h"
+#import "NSDate+Extra.h"
 
 
 #define UIViewParentController(__view) ({ \
@@ -46,5 +47,8 @@ __responder = [__responder nextResponder]; \
 #define COLOR_WITH_RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
 #define MANAGED_OBJECT_CONTEXT [[CoreDataManager sharedInstance] managedObjectContext]
+
+#define kDefaultDateFormat @"yyyy-MM-dd HH:mm:ss"
+#define kDefaultShortDateFormat @"yyyy-MM-dd"
 
 #endif /* Constant_h */

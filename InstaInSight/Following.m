@@ -44,8 +44,7 @@
             objInsert.fullName=objInstaUser.fullName;
             objInsert.profilePictureURL=[objInstaUser.profilePictureURL absoluteString];
             objInsert.userName=objInstaUser.username;
-            objUpdate.isNew=@"1";
-            
+            objInsert.isNew=@"1";
             
             NSError *error = nil;
             if ([context save:&error])
@@ -93,7 +92,7 @@
     }
 }
 
-+ (Following *)fetchFollowingsByType:(NSString *)userType
++ (NSArray *)fetchFollowingsByType:(NSString *)userType
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
@@ -107,10 +106,7 @@
         NSError *error;
         NSArray *objects = [context executeFetchRequest:request error:&error];
         
-        if([objects count] > 0)
-            return [objects objectAtIndex:0];
-        else
-            return nil;
+        return objects;
     }
     @catch (NSException *exception) {
         
@@ -121,7 +117,7 @@
 }
 
 
-+ (Following *)fetchFollowingsDetails
++ (NSArray *)fetchFollowingsDetails
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
@@ -135,10 +131,7 @@
         NSError *error;
         NSArray *objects = [context executeFetchRequest:request error:&error];
         
-        if([objects count] > 0)
-            return [objects objectAtIndex:0];
-        else
-            return nil;
+        return objects;
     }
     @catch (NSException *exception) {
         

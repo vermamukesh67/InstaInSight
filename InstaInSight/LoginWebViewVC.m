@@ -63,6 +63,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSLog(@"webViewDidFinishLoad");
+    [self.actView stopAnimating];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {

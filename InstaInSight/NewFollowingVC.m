@@ -42,16 +42,37 @@
 {
     [actView startAnimating];
     
-    [[InstagramEngine sharedEngine] getUsersFollowedByUser:[[InstaUser sharedUserInstance] instaUserId] withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
+    [[InstagramEngine sharedEngine] getFollowersOfUser:[[InstaUser sharedUserInstance] instaUserId] withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
         
         NSLog(@"users = %@",users);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            arrFollowing=[[NSMutableArray alloc] initWithArray:users];
+            [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [Following saveFollowingsList:obj];
+            }];
+            arrFollowing=[[NSMutableArray alloc] initWithArray:[Following fetchFollowingsByType:@"1"]];
             [tblFollowing setHidden:NO];
             [tblFollowing reloadData];
             [actView stopAnimating];
+            if (arrFollowing.count==0) {
+                UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"You have not new followings" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction
+                                     actionWithTitle:@"OK"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                         [self.navigationController popViewControllerAnimated:YES];
+                                         
+                                     }];
+                
+                [alertVC addAction:ok];
+                [self presentViewController:alertVC animated:YES completion:^{
+                    
+                }];
+            }
         });
         
     } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
@@ -78,8 +99,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserCell *cell=[tableView dequeueReusableCellWithIdentifier:@"UserCell"];
-    InstagramUser *objUser=[arrFollowing objectAtIndex:indexPath.row];
-    [cell.imgProfile sd_setImageWithURL:[objUser profilePictureURL] placeholderImage:[UIImage imageNamed:@"profilePlaceHolder"]];
+    Following *objUser=[arrFollowing objectAtIndex:indexPath.row];
+    [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:[objUser profilePictureURL]] placeholderImage:[UIImage imageNamed:@"profilePlaceHolder"]];
     [cell.lblName setText:[objUser fullName]];
     return cell;
 }

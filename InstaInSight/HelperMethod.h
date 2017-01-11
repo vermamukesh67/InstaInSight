@@ -10,5 +10,6 @@
 
 @interface HelperMethod : NSObject
 +(void)ShowAlertWithMessage:(NSString *)strMsg InViewController:(UIViewController *)objVC;
-
++(NSString *)getStringFromDate:(NSDate *)date;
++(NSDate *)ConvertDateTosystemTimeZone:(NSString *)strDate;
 @end

@@ -50,7 +50,7 @@
 {
     self.username = [[NSString alloc] initWithString:info[kUsername]];
     self.fullName = [[NSString alloc] initWithString:info[kFullName]];
-    self.userId = [[NSString alloc] initWithString:info[kFullName]];
+    self.userId = [[NSString alloc] initWithString:info[kuserId]];
     
     self.profilePictureURL = (IKNotNull(info[kProfilePictureURL])) ? [[NSURL alloc] initWithString:info[kProfilePictureURL]] : nil;
     self.bio = (IKNotNull(info[kBio])) ? [[NSString alloc] initWithString:info[kBio]] : nil;
@@ -68,6 +68,7 @@
 {
     self.username = user.username;
     self.fullName = user.fullName;
+    self.userId=user.userId;
     self.profilePictureURL = user.profilePictureURL;
     self.bio = user.bio;
     self.website = user.website;

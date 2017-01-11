@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 
-
 @interface AppDelegate ()
 
 @end
@@ -25,6 +24,8 @@
     [FIRApp configure];
     
     [self PrepareAdv];
+    
+    
     /*
     [FIRAnalytics logEventWithName:kFIREventSelectContent
                         parameters:@{
@@ -65,27 +66,51 @@
 
 -(void)PrepareAdv
 {
-    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
-    self.interstitial.delegate=self;
-    GADRequest *request = [GADRequest request];
-    // Request test ads on devices you specify. Your test device ID is printed to the console when
-    // an ad request is made.
-    request.testDevices = @[ kGADSimulatorID, @"2077ef9a63d2b398840261c8221a0c9a" ];
-    [self.interstitial loadRequest:request];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"]) {
+        
+        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
+        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
+        
+        if ([instaDate isEarlierThan:[NSDate date]]) {
+            
+            self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+            self.interstitial.delegate=self;
+            GADRequest *request = [GADRequest request];
+            // Request test ads on devices you specify. Your test device ID is printed to the console when
+            // an ad request is made.
+            request.testDevices = @[ kGADSimulatorID, @"2077ef9a63d2b398840261c8221a0c9a" ];
+            [self.interstitial loadRequest:request];
+        }
+    }
+    else
+    {
+        NSLog(@"date = %@",[HelperMethod getStringFromDate:[[NSDate date] dateByAddingDays:1]]);
+        [[NSUserDefaults standardUserDefaults] setObject:[HelperMethod getStringFromDate:[[NSDate date] dateByAddingDays:1]] forKey:@"instaDate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+   
 }
+
 
 - (void)createAndLoadInterstitial {
     
-  
-//     NSLog(@"root view controller = %@",[self.window rootViewController]);
-//    if (self.interstitial.isReady) {
-//        NSLog(@"root view controller = %@",[self.window rootViewController]);
-//        [self.interstitial presentFromRootViewController:[self.window rootViewController]];
-//    } else {
-//        NSLog(@"Ad wasn't ready");
-//        [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
-//    }
-    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"]) {
+        
+        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
+        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
+        
+        if ([instaDate isEarlierThan:[NSDate date]]) {
+            
+            NSLog(@"root view controller = %@",[self.window rootViewController]);
+            if (self.interstitial.isReady) {
+                NSLog(@"root view controller = %@",[self.window rootViewController]);
+                [self.interstitial presentFromRootViewController:[self.window rootViewController]];
+            } else {
+                NSLog(@"Ad wasn't ready");
+                [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:40.0f];
+            }
+        }
+    }
 }
 
 /// Called before the interstitial is to be animated off the screen.

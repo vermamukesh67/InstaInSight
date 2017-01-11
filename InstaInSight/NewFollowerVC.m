@@ -50,15 +50,31 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-//            [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                [Followers saveFollowersList:obj];
-//            }];
-            
-            
-            arrFollowers=[[NSMutableArray alloc] initWithArray:users];
+            [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [Followers saveFollowersList:obj];
+            }];
+            arrFollowers=[[NSMutableArray alloc] initWithArray:[Followers fetchFollowersByType:@"1"]];
             [tblFollowers setHidden:NO];
             [tblFollowers reloadData];
             [actView stopAnimating];
+            if (arrFollowers.count==0) {
+                UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"You have not new followers" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction
+                                     actionWithTitle:@"OK"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                         [self.navigationController popViewControllerAnimated:YES];
+                                         
+                                     }];
+                
+                [alertVC addAction:ok];
+                [self presentViewController:alertVC animated:YES completion:^{
+                    
+                }];
+            }
         });
         
     } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
@@ -85,8 +101,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserCell *cell=[tableView dequeueReusableCellWithIdentifier:@"UserCell"];
-    InstagramUser *objUser=[arrFollowers objectAtIndex:indexPath.row];
-    [cell.imgProfile sd_setImageWithURL:[objUser profilePictureURL] placeholderImage:[UIImage imageNamed:@"profilePlaceHolder"]];
+    Followers *objUser=[arrFollowers objectAtIndex:indexPath.row];
+    [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:[objUser profilePictureURL]] placeholderImage:[UIImage imageNamed:@"profilePlaceHolder"]];
     [cell.lblName setText:[objUser fullName]];
     return cell;
 }

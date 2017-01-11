@@ -22,6 +22,7 @@
 		7ED6C5571E0BFA0F00329E98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */; };
 		856A2020960220428C2AA51F /* libPods-InstaInSightTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6204F4D92F3FE2A9001AC864 /* libPods-InstaInSightTests.a */; };
 		A5BC34930E83EA73E76D6AF0 /* libPods-InstaInSightUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */; };
+		C01667761E268D1000DE95FD /* NSDate+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C01667751E268D1000DE95FD /* NSDate+Extra.m */; };
 		C04D49341E053BB90094F749 /* AppTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49331E053BB90094F749 /* AppTabBarVC.m */; };
 		C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49381E0541C70094F749 /* FreeUserVC.m */; };
 		C04D493C1E0541DC0094F749 /* PaidUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D493B1E0541DC0094F749 /* PaidUserVC.m */; };
@@ -85,6 +86,8 @@
 		93A79B55ADC026A90BC0969D /* Pods-InstaInSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightTests/Pods-InstaInSightTests.release.xcconfig"; sourceTree = "<group>"; };
 		A64E167DDC60D1CC4FE34586 /* Pods-InstaInSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightUITests/Pods-InstaInSightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B545FDC3256975B37B741FA5 /* Pods-InstaInSight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSight.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSight/Pods-InstaInSight.release.xcconfig"; sourceTree = "<group>"; };
+		C01667741E268D1000DE95FD /* NSDate+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extra.h"; sourceTree = "<group>"; };
+		C01667751E268D1000DE95FD /* NSDate+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extra.m"; sourceTree = "<group>"; };
 		C04D49321E053BB90094F749 /* AppTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTabBarVC.h; sourceTree = "<group>"; };
 		C04D49331E053BB90094F749 /* AppTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTabBarVC.m; sourceTree = "<group>"; };
 		C04D49351E053C2A0094F749 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 				7EA1FB1B1E03C517001BC519 /* Assets.xcassets */,
 				7EA1FB1D1E03C517001BC519 /* LaunchScreen.storyboard */,
 				7EA1FB201E03C517001BC519 /* Info.plist */,
+				C01667731E268CF600DE95FD /* Category */,
 				7E9BE4981E0D222200E2189D /* CoreDataBase Model */,
 				C04D49491E0832E50094F749 /* Supporting Views */,
 				7EA1FB0F1E03C517001BC519 /* Supporting Files */,
@@ -281,6 +285,15 @@
 				1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C01667731E268CF600DE95FD /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C01667741E268D1000DE95FD /* NSDate+Extra.h */,
+				C01667751E268D1000DE95FD /* NSDate+Extra.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		C04D49491E0832E50094F749 /* Supporting Views */ = {
@@ -583,6 +596,7 @@
 				7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */,
 				C08615F11E1C0EC400A6A3B7 /* InstaInSight.xcdatamodeld in Sources */,
 				C04D494C1E083DAF0094F749 /* UserCell.m in Sources */,
+				C01667761E268D1000DE95FD /* NSDate+Extra.m in Sources */,
 				C08615FB1E1C10D800A6A3B7 /* Following.m in Sources */,
 				C04D493F1E0559820094F749 /* InstaUser.m in Sources */,
 				C04D49451E0584010094F749 /* NewFollowingVC.m in Sources */,

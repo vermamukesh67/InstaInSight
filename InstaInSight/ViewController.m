@@ -37,7 +37,7 @@
         
         [actView startAnimating];
         [btnLogin setUserInteractionEnabled:NO];
-        [btnLogin setTitle:@"Please Wait...." forState:UIControlStateNormal];
+        [btnLogin setTitle:@"Please wait...." forState:UIControlStateNormal];
         
         
         [[InstagramEngine sharedEngine] getSelfUserDetailsWithSuccess:^(InstagramUser * _Nonnull user) {

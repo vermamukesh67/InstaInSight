@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (Following *)saveFollowingsList:(InstagramUser *)objInstaUser;
 + (Following *)fetchFollowingsById:(NSString *)userId;
-+ (Following *)fetchFollowingsByType:(NSString *)userType;
-+ (Following *)fetchFollowingsDetails;
++ (NSArray *)fetchFollowingsByType:(NSString *)userType;
++ (NSArray *)fetchFollowingsDetails;
 +(BOOL)DeleteFollowingsDetails;
 +(id)CreateDemoObjectWithoutSaving:(InstagramUser *)objInstaUser;
 
