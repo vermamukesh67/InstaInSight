@@ -26,7 +26,7 @@
             objUpdate.fullName=objInstaUser.fullName;
             objUpdate.profilePictureURL=[objInstaUser.profilePictureURL absoluteString];
             objUpdate.userName=objInstaUser.username;
-            objUpdate.isNew=@"0";
+            //objUpdate.isNew=@"0";
             
             NSError *error = nil;
             if ([context save:&error]) {
@@ -116,7 +116,6 @@
     }
 }
 
-
 + (NSArray *)fetchFollowingsDetails
 {
     @try {
@@ -140,6 +139,38 @@
         
     }
 }
+
++ (void)fetchAndUpdateIsNewFlagFollowingsDetails
+{
+    @try {
+        NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entity];
+        
+        // *** Set Predicate to Find ChatMsg with userId ***
+        
+        [request setReturnsObjectsAsFaults:NO];
+        NSError *error;
+        NSArray *objects = [context executeFetchRequest:request error:&error];
+        [objects enumerateObjectsUsingBlock:^(Following   * _Nonnull objFollowing, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            [objFollowing setIsNew:@"0"];
+        }];
+        
+        if ([context save:&error]) {
+            NSLog(@" Saved Succesfully!");
+        } else {
+        }
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+}
+
 +(BOOL)DeleteFollowingsDetails
 {
     @try {

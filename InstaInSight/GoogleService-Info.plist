@@ -5,9 +5,11 @@
 	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
 	<string>ca-app-pub-3940256099942544/2934735716</string>
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
-	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<string>ca-app-pub-3923375576341160/1197539334</string>
 	<key>CLIENT_ID</key>
 	<string>136176833446-34ecm1foquqlm65pauhqo5l2nl0kpiq9.apps.googleusercontent.com</string>
+	<key>TRACKING_ID</key>
+	<string>UA-86064509-2</string>
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.136176833446-34ecm1foquqlm65pauhqo5l2nl0kpiq9</string>
 	<key>API_KEY</key>

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginWebViewVC : UIViewController<UIWebViewDelegate>
+@interface LoginWebViewVC : GAITrackedViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 

@@ -33,8 +33,7 @@
     [lblFollowerCount setText:[NSString stringWithFormat:@"%li Followers",[[[InstaUser sharedUserInstance] objInstaUser] followsCount]]];
     [lblFollowingCount setText:[NSString stringWithFormat:@"%li Followings",[[[InstaUser sharedUserInstance] objInstaUser] followedByCount]]];
     
-    [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"profilePlaceHolder"]];
-    // [tblFreeUser setTableHeaderView:headerView];
+    [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
     arrRowData=[[NSMutableArray alloc] initWithObjects:
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Profile Viewer",@"title",@"profileviewer",@"imgName", nil],
@@ -46,6 +45,7 @@
                 nil];
     
     [FIRAnalytics setScreenName:@"paiduser" screenClass:@"PaidUserVC"];
+    [self setScreenName:@"PaidUser"];
     
     tblPaidUser.tableFooterView = [UIView new];
     
@@ -55,11 +55,6 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [APP_DELEGATE createAndLoadInterstitial];
 }
 
 -(void)viewDidLayoutSubviews

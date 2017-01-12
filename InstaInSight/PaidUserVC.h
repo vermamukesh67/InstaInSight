@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PaidUserVC : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface PaidUserVC : GAITrackedViewController<UITableViewDelegate,UITableViewDataSource>
 {
     __weak IBOutlet UIView *headerView;
     __weak IBOutlet UIView *whiteBox;

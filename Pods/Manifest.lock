@@ -31,12 +31,13 @@ PODS:
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.8)
   - Google-Mobile-Ads-SDK (7.16.0)
+  - GoogleAnalytics (3.17.0)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
-  - GoogleToolboxForMac/Defines (2.1.0)
-  - GoogleToolboxForMac/NSData+zlib (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
   - InstagramKit (3.8):
     - AFNetworking (~> 3.0)
     - InstagramKit/Exclude-UICKeyChainStore (= 3.8)
@@ -53,6 +54,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/AdMob
   - Firebase/Core
+  - GoogleAnalytics
   - InstagramKit (~> 3.0)
   - InstagramKit/UICKeyChainStore
   - SDWebImage (~> 3.8)
@@ -64,13 +66,14 @@ SPEC CHECKSUMS:
   FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   InstagramKit: 402d6bba375357b548039de08eea19a1b8716354
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
-PODFILE CHECKSUM: 08584dcbb343ea4a7f0c07f7cbdb371d6dcf5734
+PODFILE CHECKSUM: dd0050b2fb97dc0bb61c1385a3b8960909d0b2f9
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

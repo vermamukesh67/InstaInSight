@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#define AdInterval 40.0f
 
 @interface AppDelegate ()
 
@@ -25,7 +26,8 @@
     
     [self PrepareAdv];
     
-    
+    [Followers fetchAndUpdateIsNewFlagFollowersDetails];
+    [Following fetchAndUpdateIsNewFlagFollowingsDetails];
     /*
     [FIRAnalytics logEventWithName:kFIREventSelectContent
                         parameters:@{
@@ -71,9 +73,9 @@
         NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
         NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
         
-        if ([instaDate isEarlierThan:[NSDate date]]) {
+        if (![instaDate isEarlierThan:[NSDate date]]) {
             
-            self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+            self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3923375576341160/1197539334"];
             self.interstitial.delegate=self;
             GADRequest *request = [GADRequest request];
             // Request test ads on devices you specify. Your test device ID is printed to the console when
@@ -99,7 +101,7 @@
         NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
         NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
         
-        if ([instaDate isEarlierThan:[NSDate date]]) {
+        if (![instaDate isEarlierThan:[NSDate date]]) {
             
             NSLog(@"root view controller = %@",[self.window rootViewController]);
             if (self.interstitial.isReady) {
@@ -107,7 +109,7 @@
                 [self.interstitial presentFromRootViewController:[self.window rootViewController]];
             } else {
                 NSLog(@"Ad wasn't ready");
-                [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:40.0f];
+                [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
             }
         }
     }
@@ -123,7 +125,7 @@
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad
 {
     [self PrepareAdv];
-    //[self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:5.0f];
+    [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
 }
 
 

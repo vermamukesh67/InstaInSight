@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : GAITrackedViewController
 {
     __weak IBOutlet UIActivityIndicatorView *actView;
     __weak IBOutlet UIButton *btnLogin;

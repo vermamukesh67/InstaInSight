@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)fetchFollowersDetails;
 +(BOOL)DeleteFollowersDetails;
 +(id)CreateDemoObjectWithoutSaving:(InstagramUser *)objInstaUser;
++ (void)fetchAndUpdateIsNewFlagFollowersDetails;
 
 @end
 

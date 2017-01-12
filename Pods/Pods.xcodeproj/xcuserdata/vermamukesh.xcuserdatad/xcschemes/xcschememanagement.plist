@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>InstagramKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,37 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>12D0BE9AB489DA96C874BA686EAC1EEE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2F2702EE64ECA503552E95EB208BB4E9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3D08B409BA2BBE027DE802ADC4454541</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5ADF95CE21EAB94338335B1EE466BEB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>61EEF8703085595FB5ACEE3B4E9C6A6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9532A1421A3E917649B428E149DFBC83</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9B3986ABF7A3F356322D8AA00C91A9D2</key>
+		<key>8571F494F6D762A8D862EC098148155A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,27 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1D27CA3BC01DF50D5D1B17369560714</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A6DE5773559ED6B4E053F3421E2EAE12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A83A7FACC7D490CCF0D222460DE7AF48</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C8C328417024B231BC438C89F07B70AE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DF89FF666D8E2300AA8415F83625668B</key>
+		<key>E1BBB76ADBF2EF4EF2CE5DF6BBC77296</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -22,6 +22,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [FIRAnalytics setScreenName:@"Login Screen" screenClass:@"ViewController"];
+    [self setScreenName:@"Login Screen"];
 }
 
 -(void)viewWillAppear:(BOOL)animated

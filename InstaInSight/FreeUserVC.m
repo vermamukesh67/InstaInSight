@@ -35,7 +35,7 @@
     [lblFollowerCount setText:[NSString stringWithFormat:@"%li Followers",[[[InstaUser sharedUserInstance] objInstaUser] followsCount]]];
     [lblFollowingCount setText:[NSString stringWithFormat:@"%li Followings",[[[InstaUser sharedUserInstance] objInstaUser] followedByCount]]];
     
-    [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"profilePlaceHolder"]];
+    [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
     arrRowData=[[NSMutableArray alloc] initWithObjects:
         [NSDictionary dictionaryWithObjectsAndKeys:@"New Followers",@"title",@"newfollowers",@"imgName", nil],
@@ -47,8 +47,11 @@
                 nil];
     
     [FIRAnalytics setScreenName:@"FreeUser" screenClass:@"FreeUserVC"];
+    [self setScreenName:@"FreeUser"];
     
     tblFreeUser.tableFooterView = [UIView new];
+    
+    [self performSelector:@selector(ShowAdv) withObject:nil afterDelay:1.0];
 
 }
 
@@ -58,15 +61,15 @@
     [self.navigationController.navigationBar setHidden:YES];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)ShowAdv
 {
-    [APP_DELEGATE createAndLoadInterstitial];
+     [APP_DELEGATE createAndLoadInterstitial];
 }
 
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [[imgProfileView layer] setCornerRadius:imgProfileView.frame.size.width/2];
+    [[imgProfileView layer] setCornerRadius:60.0f];
     [imgProfileView setClipsToBounds:YES];
     [[imgProfileView layer] setBorderColor:[UIColor whiteColor].CGColor];
     [[imgProfileView layer] setBorderWidth:2.0];

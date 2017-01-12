@@ -196,8 +196,8 @@
                                             <constraint firstAttribute="trailing" secondItem="DjL-KQ-zt3" secondAttribute="trailing" constant="6" id="ohm-95-p6l"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7OK-px-MD4">
-                                        <color key="backgroundColor" red="0.1012426838" green="0.52805948260000002" blue="0.98534244299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="7OK-px-MD4">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="eyR-Tf-gfe"/>
                                             <constraint firstAttribute="height" constant="120" id="iDO-6m-0To"/>
@@ -656,6 +656,7 @@
     <resources>
         <image name="background" width="359" height="639"/>
         <image name="base" width="360" height="170"/>
+        <image name="default" width="137" height="137"/>
         <image name="follow" width="53" height="20"/>
         <image name="instalogo" width="22" height="22"/>
         <image name="logo" width="158" height="136"/>

@@ -10,6 +10,8 @@
 @import GoogleMobileAds;
 @import Firebase;
 
+#import "GAI.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,GADInterstitialDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

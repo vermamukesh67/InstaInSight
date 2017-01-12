@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface NewFollowerVC : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface NewFollowerVC : GAITrackedViewController<UITableViewDelegate,UITableViewDataSource>
 {
     __weak IBOutlet UITableView *tblFollowers;
     __weak IBOutlet UIActivityIndicatorView *actView;

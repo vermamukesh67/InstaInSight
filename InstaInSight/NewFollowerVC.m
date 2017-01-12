@@ -27,6 +27,7 @@
     [self GetFollowers];
     
     [FIRAnalytics setScreenName:@"NewFollower" screenClass:@"NewFollowerVC"];
+    [self setScreenName:@"NewFollower"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -102,7 +103,7 @@
 {
     UserCell *cell=[tableView dequeueReusableCellWithIdentifier:@"UserCell"];
     Followers *objUser=[arrFollowers objectAtIndex:indexPath.row];
-    [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:[objUser profilePictureURL]] placeholderImage:[UIImage imageNamed:@"profilePlaceHolder"]];
+    [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:[objUser profilePictureURL]] placeholderImage:[UIImage imageNamed:@"defaultlist"]];
     [cell.lblName setText:[objUser fullName]];
     return cell;
 }

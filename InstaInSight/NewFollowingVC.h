@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewFollowingVC : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface NewFollowingVC : GAITrackedViewController<UITableViewDelegate,UITableViewDataSource>
 {
     __weak IBOutlet UITableView *tblFollowing;
     __weak IBOutlet UIActivityIndicatorView *actView;

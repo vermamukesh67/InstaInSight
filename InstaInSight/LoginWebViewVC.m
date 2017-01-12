@@ -34,6 +34,7 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL:authURL]];
     
     [FIRAnalytics setScreenName:@"LoginScreen_WebView" screenClass:@"LoginWebViewVC"];
+    [self setScreenName:@"LoginScreen_WebView"];
 }
 
 - (void)didReceiveMemoryWarning {
