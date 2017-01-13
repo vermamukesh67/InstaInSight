@@ -8,51 +8,87 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>InstagramKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-InstaInSight.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-InstaInSightTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-InstaInSightUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>UICKeyChainStore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>05DCD66B8EB8D822274DC8738FB5AA89</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>12D0BE9AB489DA96C874BA686EAC1EEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3D08B409BA2BBE027DE802ADC4454541</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5ADF95CE21EAB94338335B1EE466BEB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>61EEF8703085595FB5ACEE3B4E9C6A6A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8571F494F6D762A8D862EC098148155A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +103,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A1D27CA3BC01DF50D5D1B17369560714</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A6DE5773559ED6B4E053F3421E2EAE12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +129,16 @@
 			<true/>
 		</dict>
 		<key>DF89FF666D8E2300AA8415F83625668B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1BBB76ADBF2EF4EF2CE5DF6BBC77296</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8E7A49617321CFE457A3159303F3FBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

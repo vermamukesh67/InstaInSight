@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E79BBB01E28B7F7005BF950 /* IamnotfollBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */; };
 		7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */; };
 		7E9BE4B81E0D2C6A00E2189D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */; };
 		7EA1FB111E03C517001BC519 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB101E03C517001BC519 /* main.m */; };
@@ -60,6 +61,8 @@
 		1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaInSightUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBD95005150DD90476ED163 /* Pods-InstaInSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightTests/Pods-InstaInSightTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6204F4D92F3FE2A9001AC864 /* libPods-InstaInSightTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaInSightTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E79BBAE1E28B7F7005BF950 /* IamnotfollBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IamnotfollBack.h; sourceTree = "<group>"; };
+		7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IamnotfollBack.m; sourceTree = "<group>"; };
 		7E9BE4B41E0D2B3C00E2189D /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -271,6 +274,8 @@
 				C04D49411E0583EC0094F749 /* NewFollowerVC.m */,
 				C04D49431E0584010094F749 /* NewFollowingVC.h */,
 				C04D49441E0584010094F749 /* NewFollowingVC.m */,
+				7E79BBAE1E28B7F7005BF950 /* IamnotfollBack.h */,
+				7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EA1FB171E03C517001BC519 /* ViewController.m in Sources */,
+				7E79BBB01E28B7F7005BF950 /* IamnotfollBack.m in Sources */,
 				C08615FD1E1C10D800A6A3B7 /* Followers.m in Sources */,
 				C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */,
 				C08615FA1E1C10D800A6A3B7 /* Following+CoreDataProperties.m in Sources */,

@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *isNew;
 @property (nullable, nonatomic, retain) NSString *profilePictureURL;
 @property (nullable, nonatomic, retain) NSString *userName;
-
+@property (nullable, nonatomic, retain) NSString *isUnfollowedByMe;
 @end
 
 NS_ASSUME_NONNULL_END

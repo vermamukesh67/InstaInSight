@@ -116,6 +116,31 @@
     }
 }
 
++ (NSArray *)fetchIsUnfollowedByMeByType:(NSString *)isUnfollowedByMe
+{
+    @try {
+        NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entity];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(isUnfollowedByMe = %@)", isUnfollowedByMe];
+        [request setPredicate:predicate];
+        [request setReturnsObjectsAsFaults:NO];
+        NSError *error;
+        NSArray *objects = [context executeFetchRequest:request error:&error];
+        
+        return objects;
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+}
+
+
 + (NSArray *)fetchFollowingsDetails
 {
     @try {
@@ -148,8 +173,8 @@
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entity];
         
-        // *** Set Predicate to Find ChatMsg with userId ***
-        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(isNew = 1)"];
+        [request setPredicate:predicate];
         [request setReturnsObjectsAsFaults:NO];
         NSError *error;
         NSArray *objects = [context executeFetchRequest:request error:&error];

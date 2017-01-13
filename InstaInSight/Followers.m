@@ -150,7 +150,8 @@
         [request setEntity:entity];
         
         // *** Set Predicate to Find ChatMsg with userId ***
-        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(isNew = 1)"];
+        [request setPredicate:predicate];
         [request setReturnsObjectsAsFaults:NO];
         NSError *error;
         NSArray *objects = [context executeFetchRequest:request error:&error];

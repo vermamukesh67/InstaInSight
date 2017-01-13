@@ -9,6 +9,7 @@
 #import "FreeUserVC.h"
 #import "NewFollowerVC.h"
 #import "NewFollowingVC.h"
+#import "IamnotfollBack.h"
 
 @interface FreeUserVC ()
 
@@ -121,6 +122,13 @@
         case 1:
         {
             NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowingVC"];
+            [objScr setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:objScr animated:YES];
+        }
+            break;
+        case 2:
+        {
+            IamnotfollBack *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"IamnotfollBack"];
             [objScr setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:objScr animated:YES];
         }

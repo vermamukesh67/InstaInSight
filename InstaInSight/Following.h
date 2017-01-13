@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(BOOL)DeleteFollowingsDetails;
 +(id)CreateDemoObjectWithoutSaving:(InstagramUser *)objInstaUser;
 + (void)fetchAndUpdateIsNewFlagFollowingsDetails;
-
++ (NSArray *)fetchIsUnfollowedByMeByType:(NSString *)isUnfollowedByMe;
 @end
 
 NS_ASSUME_NONNULL_END

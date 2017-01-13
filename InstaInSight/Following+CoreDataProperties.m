@@ -18,5 +18,6 @@
 @dynamic isNew;
 @dynamic profilePictureURL;
 @dynamic userName;
+@dynamic isUnfollowedByMe;
 
 @end
