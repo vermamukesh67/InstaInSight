@@ -7,7 +7,7 @@
 //
 
 #import "NewFollowingVC.h"
-#import "UserCell.h"
+
 
 @interface NewFollowingVC ()
 

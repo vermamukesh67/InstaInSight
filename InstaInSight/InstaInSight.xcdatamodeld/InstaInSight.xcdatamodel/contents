@@ -3,7 +3,9 @@
     <entity name="Followers" representedClassName="Followers" syncable="YES">
         <attribute name="followerId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasMutualFollower" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isNew" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mutualFollowerCount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePictureURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -15,8 +17,17 @@
         <attribute name="profilePictureURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ProfileViewer" syncable="YES">
+        <attribute name="followerId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasMutualFollower" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mutualFollowerCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePictureURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Followers" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Followers" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="Following" positionX="-54" positionY="27" width="128" height="135"/>
+        <element name="ProfileViewer" positionX="-45" positionY="63" width="128" height="135"/>
     </elements>
 </model>

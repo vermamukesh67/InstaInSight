@@ -19,6 +19,8 @@
 #import "Following+CoreDataProperties.h"
 #import "Followers+CoreDataProperties.h"
 #import "NSDate+Extra.h"
+#import "UserCell.h"
+#import "NSArray+Extra.h"
 
 
 

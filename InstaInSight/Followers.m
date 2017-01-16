@@ -117,6 +117,30 @@
     }
 }
 
++ (NSArray *)fetchFollowersByHasMutualFollow
+{
+    @try {
+        NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowers inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entity];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(hasMutualFollower = 1)"];
+        [request setPredicate:predicate];
+        [request setReturnsObjectsAsFaults:NO];
+        NSError *error;
+        NSArray *objects = [context executeFetchRequest:request error:&error];
+        
+        return objects;
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+}
+
 + (NSArray *)fetchFollowersDetails
 {
     @try {
@@ -164,6 +188,31 @@
             NSLog(@" Saved Succesfully!");
         } else {
         }
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+}
+
++ (void)fetchAndUpdateHasFollowFlagForId:(NSString *)followerId AndCount:(NSString *)strMutualCount
+{
+    @try {
+        NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
+        NSError *error;
+        Followers *objUpdate=[self fetchFollowersById:followerId];
+        if (objUpdate!=nil) {
+            
+            [objUpdate setMutualFollowerCount:strMutualCount];
+            [objUpdate setHasMutualFollower:@"1"];
+            if ([context save:&error]) {
+                NSLog(@" Saved Succesfully!");
+            } else {
+            }
+        }
+        
     }
     @catch (NSException *exception) {
         

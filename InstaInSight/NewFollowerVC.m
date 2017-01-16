@@ -7,8 +7,6 @@
 //
 
 #import "NewFollowerVC.h"
-#import "UserCell.h"
-//#import "Followers+CoreDataProperties.h"
 
 @interface NewFollowerVC ()
 

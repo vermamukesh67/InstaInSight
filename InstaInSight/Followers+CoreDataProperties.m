@@ -18,5 +18,7 @@
 @dynamic profilePictureURL;
 @dynamic userName;
 @dynamic isNew;
+@dynamic hasMutualFollower;
+@dynamic mutualFollowerCount;
 
 @end

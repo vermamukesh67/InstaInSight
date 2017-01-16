@@ -1,30 +1,30 @@
 //
-//  IamnotfollBack.m
+//  NotFollowBack.m
 //  InstaInSight
 //
-//  Created by Mukesh Verma on 13/01/17.
+//  Created by Mukesh Verma on 16/01/17.
 //  Copyright © 2017 Mukesh Verma. All rights reserved.
 //
 
-#import "IamnotfollBack.h"
+#import "NotFollowBack.h"
 
-@interface IamnotfollBack ()
+@interface NotFollowBack ()
 
 @end
 
-@implementation IamnotfollBack
+@implementation NotFollowBack
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:@"I am not Following Back"];
-    arrIMNotFollowingBack=[[NSMutableArray alloc] init];
+    [self setTitle:@"Not Following Back"];
+    arrNotFollowingBack=[[NSMutableArray alloc] init];
     [tblFollowing setHidden:YES];
     tblFollowing.tableFooterView = [UIView new];
     [self CheckIamNotFollowingBack];
     
-    [FIRAnalytics setScreenName:@"IamNotFollowingBack" screenClass:@"IamnotfollBack"];
-    [self setScreenName:@"IamNotFollowingBack"];
+    [FIRAnalytics setScreenName:@"NotFollowingBack" screenClass:@"NotFollowBack"];
+    [self setScreenName:@"NotFollowingBack"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -62,19 +62,19 @@
                     [Following saveFollowingsList:obj];
                 }];
                 
-                NSArray *arrNewFollowers=[Followers fetchFollowersDetails];
+                NSArray *arrNewFollowers=[Following fetchFollowingsDetails];
                 
-                [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
+                [arrNewFollowers enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
                     
-                    if ([Following fetchFollowingsById:objF.followerId]==nil) {
-                        [arrIMNotFollowingBack addObject:objF];
+                    if ([Followers fetchFollowersById:objF.followingId]==nil) {
+                        [arrNotFollowingBack addObject:objF];
                     }
                 }];
                 
                 [tblFollowing setHidden:NO];
                 [tblFollowing reloadData];
                 [actView stopAnimating];
-                if (arrIMNotFollowingBack.count==0) {
+                if (arrNotFollowingBack.count==0) {
                     UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No Record found" preferredStyle:UIAlertControllerStyleAlert];
                     
                     UIAlertAction* ok = [UIAlertAction
@@ -116,7 +116,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arrIMNotFollowingBack.count;
+    return arrNotFollowingBack.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,7 +127,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserCell *cell=[tableView dequeueReusableCellWithIdentifier:@"UserCell"];
-    Followers *objUser=[arrIMNotFollowingBack objectAtIndex:indexPath.row];
+    Following *objUser=[arrNotFollowingBack objectAtIndex:indexPath.row];
     [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:[objUser profilePictureURL]] placeholderImage:[UIImage imageNamed:@"defaultlist"]];
     [cell.lblName setText:[objUser fullName]];
     return cell;

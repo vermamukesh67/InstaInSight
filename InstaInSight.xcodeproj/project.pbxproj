@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E5DFCC51E2CC93F004893A1 /* NotFollowBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DFCC41E2CC93F004893A1 /* NotFollowBack.m */; };
+		7E5DFCC81E2CD199004893A1 /* ProfileViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DFCC71E2CD199004893A1 /* ProfileViewer.m */; };
+		7E5DFCCB1E2CD966004893A1 /* NSArray+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DFCCA1E2CD966004893A1 /* NSArray+Extra.m */; };
 		7E79BBB01E28B7F7005BF950 /* IamnotfollBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */; };
 		7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */; };
 		7E9BE4B81E0D2C6A00E2189D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */; };
@@ -61,6 +64,12 @@
 		1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaInSightUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBD95005150DD90476ED163 /* Pods-InstaInSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightTests/Pods-InstaInSightTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6204F4D92F3FE2A9001AC864 /* libPods-InstaInSightTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaInSightTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E5DFCC31E2CC93F004893A1 /* NotFollowBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotFollowBack.h; sourceTree = "<group>"; };
+		7E5DFCC41E2CC93F004893A1 /* NotFollowBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotFollowBack.m; sourceTree = "<group>"; };
+		7E5DFCC61E2CD199004893A1 /* ProfileViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewer.h; sourceTree = "<group>"; };
+		7E5DFCC71E2CD199004893A1 /* ProfileViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewer.m; sourceTree = "<group>"; };
+		7E5DFCC91E2CD966004893A1 /* NSArray+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extra.h"; sourceTree = "<group>"; };
+		7E5DFCCA1E2CD966004893A1 /* NSArray+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extra.m"; sourceTree = "<group>"; };
 		7E79BBAE1E28B7F7005BF950 /* IamnotfollBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IamnotfollBack.h; sourceTree = "<group>"; };
 		7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IamnotfollBack.m; sourceTree = "<group>"; };
 		7E9BE4B41E0D2B3C00E2189D /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
@@ -276,6 +285,10 @@
 				C04D49441E0584010094F749 /* NewFollowingVC.m */,
 				7E79BBAE1E28B7F7005BF950 /* IamnotfollBack.h */,
 				7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */,
+				7E5DFCC31E2CC93F004893A1 /* NotFollowBack.h */,
+				7E5DFCC41E2CC93F004893A1 /* NotFollowBack.m */,
+				7E5DFCC61E2CD199004893A1 /* ProfileViewer.h */,
+				7E5DFCC71E2CD199004893A1 /* ProfileViewer.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +310,8 @@
 			children = (
 				C01667741E268D1000DE95FD /* NSDate+Extra.h */,
 				C01667751E268D1000DE95FD /* NSDate+Extra.m */,
+				7E5DFCC91E2CD966004893A1 /* NSArray+Extra.h */,
+				7E5DFCCA1E2CD966004893A1 /* NSArray+Extra.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -600,11 +615,14 @@
 				C08615FA1E1C10D800A6A3B7 /* Following+CoreDataProperties.m in Sources */,
 				7EA1FB141E03C517001BC519 /* AppDelegate.m in Sources */,
 				7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */,
+				7E5DFCC51E2CC93F004893A1 /* NotFollowBack.m in Sources */,
 				C08615F11E1C0EC400A6A3B7 /* InstaInSight.xcdatamodeld in Sources */,
 				C04D494C1E083DAF0094F749 /* UserCell.m in Sources */,
+				7E5DFCCB1E2CD966004893A1 /* NSArray+Extra.m in Sources */,
 				C01667761E268D1000DE95FD /* NSDate+Extra.m in Sources */,
 				C08615FB1E1C10D800A6A3B7 /* Following.m in Sources */,
 				C04D493F1E0559820094F749 /* InstaUser.m in Sources */,
+				7E5DFCC81E2CD199004893A1 /* ProfileViewer.m in Sources */,
 				C04D49451E0584010094F749 /* NewFollowingVC.m in Sources */,
 				C04D493C1E0541DC0094F749 /* PaidUserVC.m in Sources */,
 				7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */,

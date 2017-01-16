@@ -7,6 +7,7 @@
 //
 
 #import "PaidUserVC.h"
+#import "ProfileViewer.h"
 
 @interface PaidUserVC ()
 
@@ -99,9 +100,9 @@
     switch (indexPath.row) {
         case 0:
         {
-//            NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowerVC"];
-//            [objScr setHidesBottomBarWhenPushed:YES];
-//            [self.navigationController pushViewController:objScr animated:YES];
+            ProfileViewer *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewer"];
+            [objScr setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:objScr animated:YES];
         }
             
             break;
