@@ -8,6 +8,7 @@
 
 #import "PaidUserVC.h"
 #import "ProfileViewer.h"
+#import "TopLikers.h"
 
 @interface PaidUserVC ()
 
@@ -108,9 +109,9 @@
             break;
         case 1:
         {
-//            NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowingVC"];
-//            [objScr setHidesBottomBarWhenPushed:YES];
-//            [self.navigationController pushViewController:objScr animated:YES];
+            TopLikers *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"TopLikers"];
+            [objScr setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:objScr animated:YES];
         }
             break;
             

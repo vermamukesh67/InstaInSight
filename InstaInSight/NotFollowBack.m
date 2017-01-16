@@ -75,7 +75,7 @@
                 [tblFollowing reloadData];
                 [actView stopAnimating];
                 if (arrNotFollowingBack.count==0) {
-                    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No Record found" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
                     
                     UIAlertAction* ok = [UIAlertAction
                                          actionWithTitle:@"OK"
