@@ -81,18 +81,6 @@
             }
             else
             {
-                [arrTotalLikers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    
-                    if (arrTopLikers.count>0) {
-                        
-                    }
-                }];
-                
-                
-                [tblLikers reloadData];
-                [tblLikers setHidden:NO];
-                [actView stopAnimating];
-                
                 if (arrTotalLikers.count==0) {
                     
                     UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
@@ -112,6 +100,29 @@
                         
                     }];
                 }
+                else
+                {
+                    NSCountedSet *countedSet = [[NSCountedSet alloc] initWithArray:arrTotalLikers];
+                                                
+                    
+                    // Array with distinct elements only, sorted by their repeat count
+                    NSArray *distinctArray = [[countedSet allObjects]
+                                              sortedArrayUsingFunction:countedSort context:(__bridge void * _Nullable)(countedSet)];
+                    
+                    // Array with all the elements, where elements representing the same
+                    // object are contiguous
+                    arrTopLikers = [NSMutableArray arrayWithCapacity:[arrTotalLikers count]];
+                    for (id object in distinctArray) {
+                        for (NSUInteger i = 0; i < [countedSet countForObject:object]; i++) {
+                            [arrTopLikers addObject:object];
+                        }
+                    }
+                }
+                
+                [tblLikers reloadData];
+                [tblLikers setHidden:NO];
+                [actView stopAnimating];
+               
             }
             
         } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
@@ -120,10 +131,19 @@
     }
 }
 
+NSInteger countedSort(id obj1, id obj2, void *context) {
+    NSCountedSet *countedSet = (__bridge NSCountedSet *)(context);
+    NSUInteger obj1Count = [countedSet countForObject:obj1];
+    NSUInteger obj2Count = [countedSet countForObject:obj2];
+    
+    if (obj1Count > obj2Count) return NSOrderedDescending ;
+    else if (obj1Count < obj2Count) return NSOrderedAscending;
+    return NSOrderedSame;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arrTotalLikers.count;
+    return arrTopLikers.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,7 +154,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserCell *cell=[tableView dequeueReusableCellWithIdentifier:@"UserCell"];
-    InstagramUser *objUser=[arrTotalLikers objectAtIndex:indexPath.row];
+    InstagramUser *objUser=[arrTopLikers objectAtIndex:indexPath.row];
     [cell.imgProfile sd_setImageWithURL:objUser.profilePictureURL placeholderImage:[UIImage imageNamed:@"defaultlist"]];
     [cell.lblName setText:[objUser fullName]];
     return cell;
