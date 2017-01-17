@@ -102,21 +102,30 @@
                 }
                 else
                 {
-                    NSCountedSet *countedSet = [[NSCountedSet alloc] initWithArray:arrTotalLikers];
-                                                
+                    NSMutableArray *arrUsersId=[[NSMutableArray alloc] init];
+                    [arrTotalLikers enumerateObjectsUsingBlock:^(InstagramUser  *_Nonnull objuser, NSUInteger idx, BOOL * _Nonnull stop) {
+                        [arrUsersId addObject:objuser.userId];
+                    }];
                     
-                    // Array with distinct elements only, sorted by their repeat count
-                    NSArray *distinctArray = [[countedSet allObjects]
-                                              sortedArrayUsingFunction:countedSort context:(__bridge void * _Nullable)(countedSet)];
-                    
-                    // Array with all the elements, where elements representing the same
-                    // object are contiguous
-                    arrTopLikers = [NSMutableArray arrayWithCapacity:[arrTotalLikers count]];
-                    for (id object in distinctArray) {
-                        for (NSUInteger i = 0; i < [countedSet countForObject:object]; i++) {
-                            [arrTopLikers addObject:object];
-                        }
+                    NSCountedSet *totalSet = [NSCountedSet setWithArray:arrUsersId];
+                    NSMutableArray *dictArray = [NSMutableArray array];
+                    for (NSString *userId in totalSet) {
+                        NSDictionary *dict = @{@"userId":userId, @"count":@([totalSet countForObject:userId])};
+                        [dictArray addObject:dict];
                     }
+                    NSArray *final = [dictArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"count" ascending:NO]]];
+                    NSLog(@"%@",final);
+                    
+                    [final enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull objDicc, NSUInteger idx, BOOL * _Nonnull stop) {
+                       
+                        NSArray *arrDatas=[arrTotalLikers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"userId = %@",[objDicc valueForKey:@"userId"]]];
+                        if (arrDatas.count>0) {
+                            [arrTopLikers addObject:[arrDatas firstObject]];
+                        }
+                    }];
+                    
+                    NSLog(@"arrTopLikers= %@",arrTopLikers);
+                    
                 }
                 
                 [tblLikers reloadData];
@@ -129,16 +138,6 @@
             
         }];
     }
-}
-
-NSInteger countedSort(id obj1, id obj2, void *context) {
-    NSCountedSet *countedSet = (__bridge NSCountedSet *)(context);
-    NSUInteger obj1Count = [countedSet countForObject:obj1];
-    NSUInteger obj2Count = [countedSet countForObject:obj2];
-    
-    if (obj1Count > obj2Count) return NSOrderedDescending ;
-    else if (obj1Count < obj2Count) return NSOrderedAscending;
-    return NSOrderedSame;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -197,7 +197,7 @@
     }
 }
 
-+ (void)fetchAndUpdateHasFollowFlagForId:(NSString *)followerId AndCount:(NSString *)strMutualCount
++ (Followers *)fetchAndUpdateHasFollowFlagForId:(NSString *)followerId AndCount:(NSString *)strMutualCount
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
