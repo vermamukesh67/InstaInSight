@@ -38,6 +38,7 @@
 		C04D49451E0584010094F749 /* NewFollowingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49441E0584010094F749 /* NewFollowingVC.m */; };
 		C04D49481E0588FB0094F749 /* HelperMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49471E0588FB0094F749 /* HelperMethod.m */; };
 		C04D494C1E083DAF0094F749 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D494B1E083DAF0094F749 /* UserCell.m */; };
+		C064724D1E2FCDF10012CF0F /* GhostFollowers.m in Sources */ = {isa = PBXBuildFile; fileRef = C064724C1E2FCDF10012CF0F /* GhostFollowers.m */; };
 		C08615F11E1C0EC400A6A3B7 /* InstaInSight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C08615EF1E1C0EC400A6A3B7 /* InstaInSight.xcdatamodeld */; };
 		C08615FA1E1C10D800A6A3B7 /* Following+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C08615F31E1C10D800A6A3B7 /* Following+CoreDataProperties.m */; };
 		C08615FB1E1C10D800A6A3B7 /* Following.m in Sources */ = {isa = PBXBuildFile; fileRef = C08615F51E1C10D800A6A3B7 /* Following.m */; };
@@ -129,6 +130,8 @@
 		C04D49471E0588FB0094F749 /* HelperMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperMethod.m; sourceTree = "<group>"; };
 		C04D494A1E083DAF0094F749 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		C04D494B1E083DAF0094F749 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		C064724B1E2FCDF10012CF0F /* GhostFollowers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GhostFollowers.h; sourceTree = "<group>"; };
+		C064724C1E2FCDF10012CF0F /* GhostFollowers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GhostFollowers.m; sourceTree = "<group>"; };
 		C08615F01E1C0EC400A6A3B7 /* InstaInSight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstaInSight.xcdatamodel; sourceTree = "<group>"; };
 		C08615F21E1C10D800A6A3B7 /* Following+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Following+CoreDataProperties.h"; sourceTree = "<group>"; };
 		C08615F31E1C10D800A6A3B7 /* Following+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Following+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -312,6 +315,8 @@
 				C013173D1E2D1AF200B9CFDB /* TopLikers.m */,
 				7E4DA6291E2F712A002C7001 /* WhoIlikedMost.h */,
 				7E4DA62A1E2F712A002C7001 /* WhoIlikedMost.m */,
+				C064724B1E2FCDF10012CF0F /* GhostFollowers.h */,
+				C064724C1E2FCDF10012CF0F /* GhostFollowers.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -637,6 +642,7 @@
 				7E79BBB01E28B7F7005BF950 /* IamnotfollBack.m in Sources */,
 				C08615FD1E1C10D800A6A3B7 /* Followers.m in Sources */,
 				C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */,
+				C064724D1E2FCDF10012CF0F /* GhostFollowers.m in Sources */,
 				C08615FA1E1C10D800A6A3B7 /* Following+CoreDataProperties.m in Sources */,
 				7EA1FB141E03C517001BC519 /* AppDelegate.m in Sources */,
 				7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */,

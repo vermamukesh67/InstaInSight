@@ -10,6 +10,7 @@
 #import "ProfileViewer.h"
 #import "TopLikers.h"
 #import "WhoIlikedMost.h"
+#import "GhostFollowers.h"
 
 @interface PaidUserVC ()
 
@@ -40,7 +41,7 @@
     
     arrRowData=[[NSMutableArray alloc] initWithObjects:
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Profile Viewer",@"title",@"profileviewer",@"imgName", nil],
-                [NSDictionary dictionaryWithObjectsAndKeys:@"My Top Likes",@"title",@"mytoplikes",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"My Top Likers",@"title",@"mytoplikes",@"imgName", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Who i Like Most",@"title",@"whoilikemost",@"imgName", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Popular Followers",@"title",@"popularfollowers",@"imgName", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Ghost Followers",@"title",@"ghostfollowers",@"imgName", nil],
@@ -118,6 +119,13 @@
         case 2:
         {
             WhoIlikedMost *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"WhoIlikedMost"];
+            [objScr setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:objScr animated:YES];
+        }
+            break;
+        case 4:
+        {
+            GhostFollowers *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"GhostFollowers"];
             [objScr setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:objScr animated:YES];
         }

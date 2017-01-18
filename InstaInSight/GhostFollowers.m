@@ -15,8 +15,25 @@
 @implementation GhostFollowers
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setTitle:@"Ghost Followers"];
+    arrTopLikers=[[NSMutableArray alloc] init];
+    arrTotalLikers=[[NSMutableArray alloc] init];
+    arrTopMedia=[[NSMutableArray alloc] init];
+    arrFollowers=[[NSMutableArray alloc] init];
+    [tblGhostFollowers setHidden:YES];
+    tblGhostFollowers.tableFooterView = [UIView new];
+    [self GetFollowers];
+    [FIRAnalytics setScreenName:@"GhostFollowers" screenClass:@"GhostFollowers"];
+    [self setScreenName:@"GhostFollowers"];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +41,140 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)GetFollowers
+{
+    [actView startAnimating];
+    
+    [[InstagramEngine sharedEngine] getFollowersOfUser:[[InstaUser sharedUserInstance] instaUserId] withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
+        
+        NSLog(@"users = %@",users);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [arrFollowers addObject:[Followers saveFollowersList:obj]];
+            }];
+            
+            [self FetchRecentFeeds];
+        });
+        
+    } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+        
+        NSLog(@"error = %@",error);
+        [actView stopAnimating];
+        if (error!=nil && ![error isKindOfClass:[NSNull class]] && [error isKindOfClass:[NSError class]]) {
+            [HelperMethod ShowAlertWithMessage:[error localizedDescription] InViewController:self];
+        }
+    }];
+    
 }
-*/
+
+-(void)FetchRecentFeeds
+{
+    [actView startAnimating];
+    
+    [[InstagramEngine sharedEngine] getSelfRecentMediaWithCount:50 maxId:nil success:^(NSArray<InstagramMedia *> * _Nonnull media, InstagramPaginationInfo * _Nonnull paginationInfo) {
+        
+        NSLog(@"media = %@",media);
+        arrTopMedia=[[NSMutableArray alloc] initWithArray:media];
+        [self GetLikesForMedia];
+        
+    } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+        NSLog(@"error = %@",error);
+        [actView stopAnimating];
+        if (error!=nil && ![error isKindOfClass:[NSNull class]] && [error isKindOfClass:[NSError class]]) {
+            [HelperMethod ShowAlertWithMessage:[error localizedDescription] InViewController:self];
+        }
+    }];
+}
+
+-(void)GetLikesForMedia
+{
+    if (arrTopMedia.count >0) {
+        
+        InstagramMedia *instaMedia=[arrTopMedia firstObject];
+        
+        [[InstagramEngine sharedEngine] getLikesOnMedia:instaMedia.Id withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
+            
+            NSLog(@"%@",users);
+            
+            [arrTopMedia removeObject:instaMedia];
+            
+            [arrTotalLikers addObjectsFromArray:users];
+            
+            if (arrTopMedia.count>0) {
+                
+                [self GetLikesForMedia];
+            }
+            else
+            {
+                if (arrTotalLikers.count==0) {
+                    
+                }
+                else
+                {
+                    [arrTotalLikers enumerateObjectsUsingBlock:^(InstagramUser  *_Nonnull objuser, NSUInteger idx, BOOL * _Nonnull stop) {
+                        NSArray *arrDatas=[arrFollowers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"followerId = %@",objuser.userId]];
+                        if (arrDatas.count>0) {
+                            [arrFollowers removeObjectsInArray:arrDatas];
+                        }
+                    }];
+                    
+                }
+                
+                if (arrFollowers.count==0) {
+                    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction * action)
+                                         {
+                                             [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                             [self.navigationController popViewControllerAnimated:YES];
+                                             
+                                         }];
+                    
+                    [alertVC addAction:ok];
+                    [self presentViewController:alertVC animated:YES completion:^{
+                        
+                    }];
+                }
+                
+                [tblGhostFollowers reloadData];
+                [tblGhostFollowers setHidden:NO];
+                [actView stopAnimating];
+                
+            }
+            
+        } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+            
+        }];
+    }
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return arrFollowers.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UserCell *cell=[tableView dequeueReusableCellWithIdentifier:@"UserCell"];
+    Followers *objUser=[arrTopLikers objectAtIndex:indexPath.row];
+    [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:objUser.profilePictureURL] placeholderImage:[UIImage imageNamed:@"defaultlist"]];
+    [cell.lblName setText:[objUser fullName]];
+    [cell CheckForFollowUnFollow:objUser.followerId];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 @end

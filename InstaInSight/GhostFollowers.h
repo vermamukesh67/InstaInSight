@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GhostFollowers : UIViewController
+@interface GhostFollowers : GAITrackedViewController<UITableViewDelegate,UITableViewDataSource>
+{
+    __weak IBOutlet UITableView *tblGhostFollowers;
+    __weak IBOutlet UIActivityIndicatorView *actView;
+    NSMutableArray *arrTopLikers,*arrTopMedia,*arrTotalLikers,*arrFollowers;
+}
+
 
 @end
