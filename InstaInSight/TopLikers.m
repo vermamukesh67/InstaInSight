@@ -156,6 +156,7 @@
     InstagramUser *objUser=[arrTopLikers objectAtIndex:indexPath.row];
     [cell.imgProfile sd_setImageWithURL:objUser.profilePictureURL placeholderImage:[UIImage imageNamed:@"defaultlist"]];
     [cell.lblName setText:[objUser fullName]];
+    [cell CheckForFollowUnFollow:objUser.userId];
     return cell;
 }
 

@@ -130,6 +130,7 @@
     Followers *objUser=[arrIMNotFollowingBack objectAtIndex:indexPath.row];
     [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:[objUser profilePictureURL]] placeholderImage:[UIImage imageNamed:@"defaultlist"]];
     [cell.lblName setText:[objUser fullName]];
+    [cell CheckForFollowUnFollow:objUser.followerId];
     return cell;
 }
 

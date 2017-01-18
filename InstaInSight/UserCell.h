@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FollowUnfollowButton.h"
 
 @interface UserCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imgProfile;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
-
+@property (weak, nonatomic) IBOutlet FollowUnfollowButton *btnFollowUnfollow;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actView;
+@property(nonatomic,strong) NSString *strUserId;
+-(void)CheckForFollowUnFollow:(NSString *)strUserId;
 @end

@@ -9,6 +9,7 @@
 #import "PaidUserVC.h"
 #import "ProfileViewer.h"
 #import "TopLikers.h"
+#import "WhoIlikedMost.h"
 
 @interface PaidUserVC ()
 
@@ -110,6 +111,13 @@
         case 1:
         {
             TopLikers *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"TopLikers"];
+            [objScr setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:objScr animated:YES];
+        }
+            break;
+        case 2:
+        {
+            WhoIlikedMost *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"WhoIlikedMost"];
             [objScr setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:objScr animated:YES];
         }

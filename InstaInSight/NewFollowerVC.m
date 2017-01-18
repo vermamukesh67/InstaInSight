@@ -46,7 +46,6 @@
     [[InstagramEngine sharedEngine] getFollowersOfUser:[[InstaUser sharedUserInstance] instaUserId] withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
         
         NSLog(@"users = %@",users);
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -76,6 +75,7 @@
             }
         });
         
+        
     } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
         
          NSLog(@"error = %@",error);
@@ -103,6 +103,7 @@
     Followers *objUser=[arrFollowers objectAtIndex:indexPath.row];
     [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:[objUser profilePictureURL]] placeholderImage:[UIImage imageNamed:@"defaultlist"]];
     [cell.lblName setText:[objUser fullName]];
+    [cell CheckForFollowUnFollow:objUser.followerId];
     return cell;
 }
 

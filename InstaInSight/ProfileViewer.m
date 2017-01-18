@@ -136,28 +136,6 @@
                 
             }
             
-//           __block NSInteger mutualCount=0;
-//            [users enumerateObjectsUsingBlock:^(InstagramUser  *_Nonnull objMutualFollow, NSUInteger idx, BOOL * _Nonnull stop) {
-//                
-//                NSArray *arrDatas=[arrRandomFollower filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"followerId = %@",objMutualFollow.userId]];
-//                if (arrDatas.count>0) {
-//                     mutualCount++;
-//                }
-//            }];
-//            
-//            [Followers fetchAndUpdateHasFollowFlagForId:objFollow.followerId AndCount:[NSString stringWithFormat:@"%li",mutualCount]];
-//            
-//            [tempArray removeObject:objFollow];
-//            if (tempArray.count>0) {
-//                [self DownloadAllFollowers];
-//            }
-//            else
-//            {
-//                arrProfileViewer=[[NSMutableArray alloc] initWithArray:[Followers fetchFollowersByHasMutualFollow]];
-//                
-//            }
-           
-            
         } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
             
             NSLog(@"error = %@",error);
@@ -167,61 +145,7 @@
             }
         }];
     }
-    
-    
 }
-
-/*
--(void)DownloadAllFollowers
-{
-    if (arrRandomFollower.count>0) {
-        Followers *objFollow=[arrRandomFollower firstObject];
-        [[InstagramEngine sharedEngine] getFollowersOfUser:objFollow.followerId withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
-            
-            [diccRandomFollowers setObject:users forKey:objFollow.followerId];
-            if (arrRandomFollower.count>0) {
-                [self DownloadAllFollowers];
-            }
-            else
-            {
-                NSLog(@"diccRandomFollowers = %@",diccRandomFollowers);
-                NSArray *allKeys=[diccRandomFollowers allKeys];
-                if (allKeys.count>0) {
-                    
-                    [allKeys enumerateObjectsUsingBlock:^(NSString  *_Nonnull strKey, NSUInteger idx, BOOL * _Nonnull stop) {
-                       
-                      __block  NSInteger mutualCount=0;
-                        NSArray *arrMutualFollowers=[diccRandomFollowers objectForKey:strKey];
-                        
-                        [arrMutualFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objMutualFollow, NSUInteger idx, BOOL * _Nonnull stop) {
-                           
-                            if ([Followers fetchFollowersById:objMutualFollow.followerId]) {
-                                
-                                mutualCount++;
-                            }
-                            
-                        }];
-                        
-                        [Followers fetchAndUpdateHasFollowFlagForId:strKey AndCount:[NSString stringWithFormat:@"%li",mutualCount]];
-                    }];
-                    
-                }
-                
-            }
-            
-        } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
-            
-            NSLog(@"error = %@",error);
-            [actView stopAnimating];
-            if (error!=nil && ![error isKindOfClass:[NSNull class]] && [error isKindOfClass:[NSError class]]) {
-                [HelperMethod ShowAlertWithMessage:[error localizedDescription] InViewController:self];
-            }
-        }];
-    }
-    
-   
-}
- */
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -239,6 +163,7 @@
     Followers *objUser=[arrProfileViewer objectAtIndex:indexPath.row];
     [cell.imgProfile sd_setImageWithURL:[NSURL URLWithString:[objUser profilePictureURL]] placeholderImage:[UIImage imageNamed:@"defaultlist"]];
     [cell.lblName setText:[objUser fullName]];
+    [cell CheckForFollowUnFollow:objUser.followerId];
     return cell;
 }
 
