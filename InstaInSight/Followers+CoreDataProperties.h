@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *isNew;
 @property (nullable, nonatomic, retain) NSString *hasMutualFollower;
 @property (nullable, nonatomic, retain) NSString *mutualFollowerCount;
+@property (nullable, nonatomic, retain) NSString *hisFollowerCount;
 
 @end
 

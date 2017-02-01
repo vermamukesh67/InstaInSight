@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="16A323" minimumToolsVersion="Xcode 7.0">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Xcode 7.0" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Followers" representedClassName="Followers" syncable="YES">
         <attribute name="followerId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasMutualFollower" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hisFollowerCount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isNew" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mutualFollowerCount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePictureURL" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +27,7 @@
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Followers" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Followers" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="Following" positionX="-54" positionY="27" width="128" height="135"/>
         <element name="MyProfileViewer" positionX="-54" positionY="72" width="128" height="135"/>
     </elements>

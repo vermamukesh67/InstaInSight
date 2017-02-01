@@ -11,6 +11,7 @@
 #import "TopLikers.h"
 #import "WhoIlikedMost.h"
 #import "GhostFollowers.h"
+#import "PopularFollower.h"
 
 @interface PaidUserVC ()
 
@@ -123,6 +124,13 @@
             [self.navigationController pushViewController:objScr animated:YES];
         }
             break;
+        case 3:
+        {
+            PopularFollower *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"PopularFollower"];
+            [objScr setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:objScr animated:YES];
+        }
+            break;
         case 4:
         {
             GhostFollowers *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"GhostFollowers"];
@@ -164,14 +172,20 @@
     
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Buy" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
-        // Distructive button tapped.
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+             
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+        }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
     }]];
     
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Restore" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-        // OK button tapped.
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] restoreCompletedTransactions];
         
         [self dismissViewControllerAnimated:YES completion:^{
         }];

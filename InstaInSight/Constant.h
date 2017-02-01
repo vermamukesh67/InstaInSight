@@ -23,7 +23,6 @@
 #import "NSArray+Extra.h"
 
 
-
 #define UIViewParentController(__view) ({ \
 UIResponder *__responder = __view; \
 while ([__responder isKindOfClass:[UIView class]]) \
@@ -55,5 +54,6 @@ __responder = [__responder nextResponder]; \
 #define kDefaultShortDateFormat @"yyyy-MM-dd"
 
 #define kAPPName @"InstaInsight"
+#define kIsProductPurchased @"IsProductPurchased"
 
 #endif /* Constant_h */

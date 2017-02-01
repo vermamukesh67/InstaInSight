@@ -11,7 +11,7 @@
 
 
 
-NSString *const HungamaMusicProductPurchasedNotification = @"HungamaMusicProductPurchasedNotification";
+NSString *const HungamaMusicProductPurchasedNotification = @"ProductPurchasedNotification";
 
 static HungamaMisicInApp *sharedManager = nil;
 
@@ -83,7 +83,8 @@ static HungamaMisicInApp *sharedManager = nil;
 
 - (void)requestProductsWithCompletionHandler:(RequestProductsCompletionHandler)completionHandler {
     
-    
+    AppDelegate *appDelegate=APP_DELEGATE;
+    [MBProgressHUD showHUDAddedTo:appDelegate.window animated:YES];
     // 1
     _completionHandler = [completionHandler copy];
     
@@ -119,6 +120,9 @@ static HungamaMisicInApp *sharedManager = nil;
 }
 
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
+    
+    AppDelegate *appDelegate=APP_DELEGATE;
+    [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
     
     NSLog(@"Failed to load list of products.");
     _productsRequest = nil;
@@ -192,6 +196,12 @@ static HungamaMisicInApp *sharedManager = nil;
         return;
     }
     
+    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kIsProductPurchased];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    AppDelegate *appDelegate=APP_DELEGATE;
+    [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
+    [HelperMethod ShowAlertWithMessage:@"Purchase successful" InViewController:appDelegate.window.rootViewController];
+    
 }
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
@@ -200,7 +210,12 @@ static HungamaMisicInApp *sharedManager = nil;
     if (isApiCalling) {
         return;
     }
-  isSubscriptionAlreadyPurchased=TRUE;
+    isSubscriptionAlreadyPurchased=TRUE;
+    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kIsProductPurchased];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    AppDelegate *appDelegate=APP_DELEGATE;
+    [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
+    [HelperMethod ShowAlertWithMessage:@"Restore successful" InViewController:appDelegate.window.rootViewController];
 }
 
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
@@ -210,7 +225,7 @@ static HungamaMisicInApp *sharedManager = nil;
         appDelegate.isProductISBeingPurchased=FALSE;
         [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
         __block UINavigationController *navVC=(UINavigationController *)appDelegate.window.rootViewController;
-        [HelperMethod ShowAlertWithMessage:@"You have not purchased any subscription" InViewController:navVC];
+        [HelperMethod ShowAlertWithMessage:@"You have not purchased before anytime" InViewController:navVC];
     }
    
 }
@@ -227,8 +242,6 @@ static HungamaMisicInApp *sharedManager = nil;
     AppDelegate *appDelegate=APP_DELEGATE;
     appDelegate.isProductISBeingPurchased=FALSE;
     [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
-   
-
 }
 
 - (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
@@ -248,14 +261,11 @@ static HungamaMisicInApp *sharedManager = nil;
 - (void)buyProduct:(SKProduct *)product {
     
     NSLog(@"Buying %@...", product.productIdentifier);
-    
     strPurchaseType=@"subscription";
     AppDelegate *appDelegate=APP_DELEGATE;
     appDelegate.isProductISBeingPurchased=TRUE;
-    // [MBProgressHUD showHUDAddedTo:appDelegate.window animated:YES];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     SKPayment * payment = [SKPayment paymentWithProduct:product];
-    
     [[SKPaymentQueue defaultQueue] addPayment:payment];
 }
 
@@ -275,7 +285,6 @@ static HungamaMisicInApp *sharedManager = nil;
     NSData * data = [NSData dataWithBytes:input length:length];
     return [data base64EncodedString];
 }
-
 
 -(void)dealloc
 {

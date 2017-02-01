@@ -14,7 +14,7 @@
  * @brief Delegate Optional Method to handle the case when product is purchased and open user list for slient user try to purchase with already existing itunes id
  */
 
-@protocol HungamaPurchaseDelegate <NSObject>
+@protocol PurchaseDelegate <NSObject>
 
 @optional
 
@@ -68,7 +68,7 @@ typedef void (^RequestProductsCompletionHandler)(BOOL success, NSArray * product
 /*!
  * @brief :  delegate object
  */
-@property(nonatomic,strong) id<HungamaPurchaseDelegate> delegate;
+@property(nonatomic,strong) id<PurchaseDelegate> delegate;
 
 /*!
  * @brief :  Bool value used just for checking transaction done sucessfully or not

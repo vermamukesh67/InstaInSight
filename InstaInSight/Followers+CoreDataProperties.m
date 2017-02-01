@@ -20,5 +20,6 @@
 @dynamic isNew;
 @dynamic hasMutualFollower;
 @dynamic mutualFollowerCount;
+@dynamic hisFollowerCount;
 
 @end

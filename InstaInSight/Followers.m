@@ -26,7 +26,7 @@
             objUpdate.fullName=objInstaUser.fullName;
             objUpdate.profilePictureURL=[objInstaUser.profilePictureURL absoluteString];
             objUpdate.userName=objInstaUser.username;
-           // objUpdate.isNew=@"0";
+            objUpdate.hisFollowerCount=[NSString stringWithFormat:@"%li",(long)objInstaUser.followsCount];
             
             NSError *error = nil;
             if ([context save:&error]) {
@@ -44,6 +44,7 @@
             objInsert.fullName=objInstaUser.fullName;
             objInsert.profilePictureURL=[objInstaUser.profilePictureURL absoluteString];
             objInsert.userName=objInstaUser.username;
+            objInsert.hisFollowerCount=[NSString stringWithFormat:@"%li",(long)objInstaUser.followsCount];
             objInsert.isNew=@"1";
             
             
