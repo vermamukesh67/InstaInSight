@@ -45,18 +45,9 @@
     [[InstagramEngine sharedEngine] getFollowersOfUser:[[InstaUser sharedUserInstance] instaUserId] withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
         
         NSLog(@"users = %@",users);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [arrPopularFollowers addObject:[Followers saveFollowersList:obj]];
-            }];
-            
-            [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
-            
-            [tblPopularsFollowers reloadData];
-            [tblPopularsFollowers setHidden:NO];
-            [actView stopAnimating];
-        });
+        arrFollowers=[[NSMutableArray alloc] initWithArray:users];
+        [self GetAllUserDetails];
+       
         
     } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
         
@@ -66,6 +57,43 @@
             [HelperMethod ShowAlertWithMessage:[error localizedDescription] InViewController:self];
         }
     }];
+}
+
+-(void)GetAllUserDetails
+{
+    if (arrFollowers.count>0) {
+        
+        InstagramUser *objInstaUser=[arrFollowers firstObject];
+        
+        [[InstagramEngine sharedEngine] getUserDetails:objInstaUser.userId withSuccess:^(InstagramUser * _Nonnull user) {
+            
+            [arrFollowers removeObject:objInstaUser];
+            [arrPopularFollowers addObject:[Followers saveFollowersList:user]];
+            
+            if (arrFollowers.count>0 ) {
+              
+                [self GetAllUserDetails];
+                
+            }
+            else
+            {
+                [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
+                
+                [tblPopularsFollowers reloadData];
+                [tblPopularsFollowers setHidden:NO];
+                [actView stopAnimating];
+            }
+            
+        } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+            
+            NSLog(@"error = %@",error);
+            [actView stopAnimating];
+            if (error!=nil && ![error isKindOfClass:[NSNull class]] && [error isKindOfClass:[NSError class]]) {
+                [HelperMethod ShowAlertWithMessage:[error localizedDescription] InViewController:self];
+            }
+        }];
+        
+    }
 }
 
 

@@ -12,7 +12,7 @@
 {
     __weak IBOutlet UITableView *tblPopularsFollowers;
     __weak IBOutlet UIActivityIndicatorView *actView;
-    NSMutableArray *arrPopularFollowers;
+    NSMutableArray *arrPopularFollowers,*arrFollowers;
 }
 
 
