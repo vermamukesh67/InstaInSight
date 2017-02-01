@@ -12,6 +12,7 @@
 		7E5DFCC51E2CC93F004893A1 /* NotFollowBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DFCC41E2CC93F004893A1 /* NotFollowBack.m */; };
 		7E5DFCC81E2CD199004893A1 /* ProfileViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DFCC71E2CD199004893A1 /* ProfileViewer.m */; };
 		7E5DFCCB1E2CD966004893A1 /* NSArray+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DFCCA1E2CD966004893A1 /* NSArray+Extra.m */; };
+		7E5F78C01E420FE4007B757C /* HungamaMisicInApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F78BF1E420FE4007B757C /* HungamaMisicInApp.m */; };
 		7E79BBB01E28B7F7005BF950 /* IamnotfollBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */; };
 		7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */; };
 		7E9BE4B81E0D2C6A00E2189D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */; };
@@ -24,6 +25,8 @@
 		7EA1FB2A1E03C517001BC519 /* InstaInSightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB291E03C517001BC519 /* InstaInSightTests.m */; };
 		7EA1FB351E03C517001BC519 /* InstaInSightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB341E03C517001BC519 /* InstaInSightUITests.m */; };
 		7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB441E040DDB001BC519 /* LoginWebViewVC.m */; };
+		7ECB558F1E420BFE0062A8A1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB558E1E420BFE0062A8A1 /* StoreKit.framework */; };
+		7ECB55951E420D9B0062A8A1 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB55941E420D9B0062A8A1 /* NSData+Base64.m */; };
 		7ED6C5551E0BF83800329E98 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED6C5541E0BF83800329E98 /* AdSupport.framework */; };
 		7ED6C5571E0BFA0F00329E98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */; };
 		856A2020960220428C2AA51F /* libPods-InstaInSightTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6204F4D92F3FE2A9001AC864 /* libPods-InstaInSightTests.a */; };
@@ -80,6 +83,8 @@
 		7E5DFCC71E2CD199004893A1 /* ProfileViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewer.m; sourceTree = "<group>"; };
 		7E5DFCC91E2CD966004893A1 /* NSArray+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extra.h"; sourceTree = "<group>"; };
 		7E5DFCCA1E2CD966004893A1 /* NSArray+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extra.m"; sourceTree = "<group>"; };
+		7E5F78BE1E420FE4007B757C /* HungamaMisicInApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HungamaMisicInApp.h; sourceTree = "<group>"; };
+		7E5F78BF1E420FE4007B757C /* HungamaMisicInApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HungamaMisicInApp.m; sourceTree = "<group>"; };
 		7E79BBAE1E28B7F7005BF950 /* IamnotfollBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IamnotfollBack.h; sourceTree = "<group>"; };
 		7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IamnotfollBack.m; sourceTree = "<group>"; };
 		7E9BE4B41E0D2B3C00E2189D /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
@@ -103,6 +108,9 @@
 		7EA1FB361E03C517001BC519 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EA1FB431E040DDB001BC519 /* LoginWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewVC.h; sourceTree = "<group>"; };
 		7EA1FB441E040DDB001BC519 /* LoginWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewVC.m; sourceTree = "<group>"; };
+		7ECB558E1E420BFE0062A8A1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7ECB55931E420D9B0062A8A1 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		7ECB55941E420D9B0062A8A1 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		7ED6C5541E0BF83800329E98 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93A79B55ADC026A90BC0969D /* Pods-InstaInSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightTests/Pods-InstaInSightTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ECB558F1E420BFE0062A8A1 /* StoreKit.framework in Frameworks */,
 				7E9BE4B81E0D2C6A00E2189D /* CoreData.framework in Frameworks */,
 				7ED6C5551E0BF83800329E98 /* AdSupport.framework in Frameworks */,
 				F68951D505D58E06DB49CAF0 /* libPods-InstaInSight.a in Frameworks */,
@@ -258,8 +267,12 @@
 		7EA1FB0F1E03C517001BC519 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7E5F78BE1E420FE4007B757C /* HungamaMisicInApp.h */,
+				7E5F78BF1E420FE4007B757C /* HungamaMisicInApp.m */,
 				7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */,
 				7EA1FB101E03C517001BC519 /* main.m */,
+				7ECB55931E420D9B0062A8A1 /* NSData+Base64.h */,
+				7ECB55941E420D9B0062A8A1 /* NSData+Base64.m */,
 				C04D49351E053C2A0094F749 /* Constant.h */,
 				C04D49361E053C980094F749 /* InstaInSight.pch */,
 				C04D493D1E0559820094F749 /* InstaUser.h */,
@@ -324,6 +337,7 @@
 		BCDD52BD5C77448B8021B649 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ECB558E1E420BFE0062A8A1 /* StoreKit.framework */,
 				7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */,
 				7ED6C5541E0BF83800329E98 /* AdSupport.framework */,
 				DFECD8CF6155A8FC1FCF7CD5 /* libPods-InstaInSight.a */,
@@ -523,7 +537,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4CAE08FD70D7214106EF6FFC /* [CP] Copy Pods Resources */ = {
@@ -568,7 +582,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7194A7C2E4852ADA84DE6FFA /* [CP] Copy Pods Resources */ = {
@@ -598,7 +612,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CD32F6BC694FE4711CC63E8F /* [CP] Embed Pods Frameworks */ = {
@@ -641,6 +655,7 @@
 				7EA1FB171E03C517001BC519 /* ViewController.m in Sources */,
 				7E79BBB01E28B7F7005BF950 /* IamnotfollBack.m in Sources */,
 				C08615FD1E1C10D800A6A3B7 /* Followers.m in Sources */,
+				7E5F78C01E420FE4007B757C /* HungamaMisicInApp.m in Sources */,
 				C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */,
 				C064724D1E2FCDF10012CF0F /* GhostFollowers.m in Sources */,
 				C08615FA1E1C10D800A6A3B7 /* Following+CoreDataProperties.m in Sources */,
@@ -650,6 +665,7 @@
 				C08615F11E1C0EC400A6A3B7 /* InstaInSight.xcdatamodeld in Sources */,
 				7E4DA62B1E2F712A002C7001 /* WhoIlikedMost.m in Sources */,
 				C04D494C1E083DAF0094F749 /* UserCell.m in Sources */,
+				7ECB55951E420D9B0062A8A1 /* NSData+Base64.m in Sources */,
 				7E5DFCCB1E2CD966004893A1 /* NSArray+Extra.m in Sources */,
 				C01667761E268D1000DE95FD /* NSDate+Extra.m in Sources */,
 				C08615FB1E1C10D800A6A3B7 /* Following.m in Sources */,

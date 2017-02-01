@@ -149,4 +149,35 @@
 }
 */
 
+#pragma mark - UIButton Tapped Method
+
+- (IBAction)btnBuyTapped:(id)sender {
+    
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:kAPPName message:@"Buy or Restore (Restore in case you already purchased before) " preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Buy" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        // Distructive button tapped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Restore" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // OK button tapped.
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
 @end

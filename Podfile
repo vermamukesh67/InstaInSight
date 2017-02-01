@@ -13,6 +13,7 @@ pod 'SDWebImage', '~>3.8'
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
 pod 'GoogleAnalytics'
+pod 'MBProgressHUD', '~> 0.9.2'
 
   target 'InstaInSightTests' do
     inherit! :search_paths

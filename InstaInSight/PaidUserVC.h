@@ -19,7 +19,9 @@
     __weak IBOutlet UITableView *tblPaidUser;
     __weak IBOutlet UIActivityIndicatorView *actView;
     
+    __weak IBOutlet UIButton *btnBuy;
     NSMutableArray *arrRowData;
 }
+- (IBAction)btnBuyTapped:(id)sender;
 
 @end

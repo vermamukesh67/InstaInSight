@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HungamaMisicInApp.h"
 @import GoogleMobileAds;
 @import Firebase;
 
@@ -16,6 +17,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property(nonatomic, strong) GADInterstitial *interstitial;
+@property (nonatomic) BOOL isProductISBeingPurchased;
 
 - (void)createAndLoadInterstitial;
 

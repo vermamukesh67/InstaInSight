@@ -35,6 +35,9 @@
                                      kFIRParameterContentType:@"image"
                                      }]; */
     
+    [[HungamaMisicInApp sharedHungamaMisicInAppInstance] setIsTransactionFailureHandling:YES];
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:[HungamaMisicInApp sharedHungamaMisicInAppInstance]];
+    
     return YES;
 }
 
