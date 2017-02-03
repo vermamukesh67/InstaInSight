@@ -11,6 +11,7 @@
 #import "NewFollowingVC.h"
 #import "IamnotfollBack.h"
 #import "NotFollowBack.h"
+#import "LikeGraph.h"
 
 @interface FreeUserVC ()
 
@@ -137,6 +138,13 @@
         case 3:
         {
             IamnotfollBack *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"IamnotfollBack"];
+            [objScr setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:objScr animated:YES];
+        }
+            break;
+        case 4:
+        {
+            LikeGraph *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"LikeGraph"];
             [objScr setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:objScr animated:YES];
         }

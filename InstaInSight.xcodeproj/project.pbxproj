@@ -16,6 +16,7 @@
 		7E79BBB01E28B7F7005BF950 /* IamnotfollBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E79BBAF1E28B7F7005BF950 /* IamnotfollBack.m */; };
 		7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */; };
 		7E9BE4B81E0D2C6A00E2189D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */; };
+		7EA1121F1E449A7C00FFC5FE /* LikeGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1121E1E449A7C00FFC5FE /* LikeGraph.m */; };
 		7EA1FB111E03C517001BC519 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB101E03C517001BC519 /* main.m */; };
 		7EA1FB141E03C517001BC519 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB131E03C517001BC519 /* AppDelegate.m */; };
 		7EA1FB171E03C517001BC519 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB161E03C517001BC519 /* ViewController.m */; };
@@ -91,6 +92,8 @@
 		7E9BE4B41E0D2B3C00E2189D /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		7E9BE4B51E0D2B3C00E2189D /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7EA1121D1E449A7C00FFC5FE /* LikeGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeGraph.h; sourceTree = "<group>"; };
+		7EA1121E1E449A7C00FFC5FE /* LikeGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeGraph.m; sourceTree = "<group>"; };
 		7EA1FB0C1E03C517001BC519 /* InstaInSight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaInSight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EA1FB101E03C517001BC519 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EA1FB121E03C517001BC519 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				C064724C1E2FCDF10012CF0F /* GhostFollowers.m */,
 				C04B91B21E42497E0016B328 /* PopularFollower.h */,
 				C04B91B31E42497E0016B328 /* PopularFollower.m */,
+				7EA1121D1E449A7C00FFC5FE /* LikeGraph.h */,
+				7EA1121E1E449A7C00FFC5FE /* LikeGraph.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -678,6 +683,7 @@
 				C04D493F1E0559820094F749 /* InstaUser.m in Sources */,
 				7E5DFCC81E2CD199004893A1 /* ProfileViewer.m in Sources */,
 				C04D49451E0584010094F749 /* NewFollowingVC.m in Sources */,
+				7EA1121F1E449A7C00FFC5FE /* LikeGraph.m in Sources */,
 				C04D493C1E0541DC0094F749 /* PaidUserVC.m in Sources */,
 				7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */,
 				7EA1FB111E03C517001BC519 /* main.m in Sources */,

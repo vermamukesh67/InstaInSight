@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BEMSimpleLineGraph.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,7 +57,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0FC1777CC77815B3F96B5B220EDD00D9</key>
+		<key>0D3A2255DD8FDD12BBA7AF5EC328AB34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +68,11 @@
 			<true/>
 		</dict>
 		<key>3D08B409BA2BBE027DE802ADC4454541</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3E41F09873C13BE4D2D0A2D0787B05D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8C328417024B231BC438C89F07B70AE</key>
+		<key>BE3AA48ED5997B5AC7E51CC3886F0971</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4CF94F97C63EC0C05B417D97F92CB71</key>
+		<key>C8C328417024B231BC438C89F07B70AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

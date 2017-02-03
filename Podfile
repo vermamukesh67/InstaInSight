@@ -14,6 +14,7 @@ pod 'Firebase/Core'
 pod 'Firebase/AdMob'
 pod 'GoogleAnalytics'
 pod 'MBProgressHUD', '~> 0.9.2'
+pod 'BEMSimpleLineGraph'
 
   target 'InstaInSightTests' do
     inherit! :search_paths
