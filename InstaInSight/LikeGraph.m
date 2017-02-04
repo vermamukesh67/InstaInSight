@@ -17,7 +17,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:@"Like Graph"];
+    [self setTitle:@"Like Graph For Last 7 Posts"];
+
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+//    titleLabel.backgroundColor = [UIColor clearColor];
+//    titleLabel.textColor = [UIColor whiteColor];
+//    titleLabel.font = [UIFont boldSystemFontOfSize:17];
+//    titleLabel.text = @"Like Graph";
+//    [titleLabel sizeToFit];
+//    
+//    UILabel *subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 18, 0, 0)];
+//    subTitleLabel.backgroundColor = [UIColor clearColor];
+//    subTitleLabel.textColor = [UIColor whiteColor];
+//    subTitleLabel.font = [UIFont systemFontOfSize:12];
+//    subTitleLabel.text = @"Last 7 Posts";
+//    [subTitleLabel sizeToFit];
+//    
+//    UIView *twoLineTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MAX(subTitleLabel.frame.size.width, titleLabel.frame.size.width), 30)];
+//    [twoLineTitleView addSubview:titleLabel];
+//    [twoLineTitleView addSubview:subTitleLabel];
+//    
+//    float widthDiff = subTitleLabel.frame.size.width - titleLabel.frame.size.width;
+//    
+//    if (widthDiff > 0) {
+//        CGRect frame = titleLabel.frame;
+//        frame.origin.x = widthDiff / 2;
+//        titleLabel.frame = CGRectIntegral(frame);
+//    }else{
+//        CGRect frame = subTitleLabel.frame;
+//        frame.origin.x = fabsf(widthDiff) / 2;
+//        subTitleLabel.frame = CGRectIntegral(frame);
+//    }
+//    
+//    self.navigationItem.titleView = twoLineTitleView;
+    
+    
     [FIRAnalytics setScreenName:@"LikeGraph" screenClass:@"LikeGraph"];
     [self setScreenName:@"LikeGraph"];
     
@@ -136,7 +170,7 @@
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     // The value of the point on the Y-Axis for the index.
     InstagramMedia *media=[arrTopMedia objectAtIndex:index];
-    CGFloat likeCount=(float) (media.likesCount);
+    CGFloat likeCount=(index==arrTopMedia.count-1)?50:(float) (media.likesCount);
     return likeCount;
 }
 
