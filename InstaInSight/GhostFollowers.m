@@ -148,8 +148,59 @@
             
         } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
             
+             [arrTopMedia removeObject:instaMedia];
+             [self CallAgainLikesForMedia];
         }];
     }
+}
+
+-(void)CallAgainLikesForMedia
+{
+    if (arrTopMedia.count>0) {
+        
+        [self GetLikesForMedia];
+    }
+    else
+    {
+        if (arrTotalLikers.count==0) {
+            
+        }
+        else
+        {
+            [arrTotalLikers enumerateObjectsUsingBlock:^(InstagramUser  *_Nonnull objuser, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSArray *arrDatas=[arrFollowers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"followerId = %@",objuser.userId]];
+                if (arrDatas.count>0) {
+                    [arrFollowers removeObjectsInArray:arrDatas];
+                }
+            }];
+            
+        }
+        
+        if (arrFollowers.count==0) {
+            UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                     [self.navigationController popViewControllerAnimated:YES];
+                                     
+                                 }];
+            
+            [alertVC addAction:ok];
+            [self presentViewController:alertVC animated:YES completion:^{
+                
+            }];
+        }
+        
+        [tblGhostFollowers reloadData];
+        [tblGhostFollowers setHidden:NO];
+        [actView stopAnimating];
+        
+    }
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

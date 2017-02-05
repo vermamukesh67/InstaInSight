@@ -86,11 +86,20 @@
             
         } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
             
-            NSLog(@"error = %@",error);
-            [actView stopAnimating];
-            if (error!=nil && ![error isKindOfClass:[NSNull class]] && [error isKindOfClass:[NSError class]]) {
-                [HelperMethod ShowAlertWithMessage:[error localizedDescription] InViewController:self];
+            if (arrFollowers.count>0 ) {
+                
+                [self GetAllUserDetails];
+                
             }
+            else
+            {
+                [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
+                
+                [tblPopularsFollowers reloadData];
+                [tblPopularsFollowers setHidden:NO];
+                [actView stopAnimating];
+            }
+            
         }];
         
     }
