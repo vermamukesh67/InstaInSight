@@ -170,7 +170,7 @@
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     // The value of the point on the Y-Axis for the index.
     InstagramMedia *media=[arrTopMedia objectAtIndex:index];
-    CGFloat likeCount=(index==arrTopMedia.count-1)?50:(float) (media.likesCount);
+    CGFloat likeCount=(float) (media.likesCount);
     return likeCount;
 }
 
