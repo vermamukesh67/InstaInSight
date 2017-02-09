@@ -54,7 +54,7 @@
     
     tblFreeUser.tableFooterView = [UIView new];
     
-    [self performSelector:@selector(ShowAdv) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(ShowAdv) withObject:nil afterDelay:10.0];
 
 }
 

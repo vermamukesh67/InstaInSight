@@ -28,6 +28,10 @@
 
 -(void)CheckForFollowUnFollow:(NSString *)strUserId
 {
+    if ([strUserId isEqualToString:[[[InstaUser sharedUserInstance] objInstaUser] userId]]) {
+        [_actView stopAnimating];
+        return;
+    }
     if (self.strUserId) {
         self.strUserId=strUserId;
         return;

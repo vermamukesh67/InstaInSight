@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#define AdInterval 40.0f
+#define AdInterval 10.0f
+
 
 @interface AppDelegate ()
 
@@ -37,6 +38,8 @@
     
     [[HungamaMisicInApp sharedHungamaMisicInAppInstance] setIsTransactionFailureHandling:YES];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:[HungamaMisicInApp sharedHungamaMisicInAppInstance]];
+    
+    [self GetAdMobIds];
     
     return YES;
 }
@@ -68,14 +71,31 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)GetAdMobIds
+{
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"Https://www.getirali.com/InstaInsight.asmx/GetIOSAdmobIds?Token=cxmuR5UDZNHjIsvr32mIeJW8yk5hQr9r9sdel5ODEsD9ms6HZAaAvCFgdQ7c9Kc6"]];
+    
+    NSData *data=[NSData dataWithContentsOfURL:URL];
+    
+    NSString *strText=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+    NSLog(@"%@",[strText componentsSeparatedByString:@","]);
+    
+    NSMutableArray *array=[[strText componentsSeparatedByString:@","] mutableCopy];
+    
+    arrAdIds=array;
+    
+    NSLog(@"%@",arrAdIds);
+}
+
 -(void)PrepareAdv
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"]) {
         
         NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
         NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
-        
-        if (![instaDate isEarlierThan:[NSDate date]]) {
+        NSDate *todayDate=[NSDate date];
+        if ([todayDate isLaterThan:instaDate]) {
             
             self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3923375576341160/1197539334"];
             self.interstitial.delegate=self;
@@ -88,8 +108,8 @@
     }
     else
     {
-        NSLog(@"date = %@",[HelperMethod getStringFromDate:[[NSDate date] dateByAddingDays:1]]);
-        [[NSUserDefaults standardUserDefaults] setObject:[HelperMethod getStringFromDate:[[NSDate date] dateByAddingDays:1]] forKey:@"instaDate"];
+        NSLog(@"date = %@",[HelperMethod getStringFromDate:[[NSDate date] dateByAddingDays:2]]);
+        [[NSUserDefaults standardUserDefaults] setObject:[HelperMethod getStringFromDate:[[NSDate date] dateByAddingDays:2]] forKey:@"instaDate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
    
@@ -102,8 +122,8 @@
         
         NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
         NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
-        
-        if (![instaDate isEarlierThan:[NSDate date]]) {
+        NSDate *todayDate=[NSDate date];
+        if ([todayDate isLaterThan:instaDate]) {
             
             NSLog(@"root view controller = %@",[self.window rootViewController]);
             if (self.interstitial.isReady) {
@@ -126,8 +146,8 @@
 /// Called just after dismissing an interstitial and it has animated off the screen.
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad
 {
-    [self PrepareAdv];
-    [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
+//    [self PrepareAdv];
+//    [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
 }
 
 
