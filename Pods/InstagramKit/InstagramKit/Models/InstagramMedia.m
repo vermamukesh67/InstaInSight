@@ -93,6 +93,7 @@
         self.mUsersInPhoto = [[NSMutableArray alloc] init];
         for (NSDictionary *userInfo in info[kUsersInPhoto]) {
             UserInPhoto *userInPhoto = [[UserInPhoto alloc] initWithInfo:userInfo];
+            
             [self.mUsersInPhoto addObject:userInPhoto];
         }
 

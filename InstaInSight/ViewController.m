@@ -55,6 +55,8 @@
                 UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AppTabBarVC"];
                 [[APP_DELEGATE window] setRootViewController:viewController];
                 [[APP_DELEGATE window] makeKeyAndVisible];
+                
+                [APP_DELEGATE GetAdMobIds];
             });
             
         } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {

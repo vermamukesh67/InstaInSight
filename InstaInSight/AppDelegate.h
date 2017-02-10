@@ -22,7 +22,10 @@
 @property(nonatomic, strong) GADInterstitial *interstitial;
 @property (nonatomic) BOOL isProductISBeingPurchased;
 
-- (void)createAndLoadInterstitial;
+@property(nonatomic,assign) NSInteger followunfollowCount;
 
+- (void)createAndLoadInterstitial;
+-(void)GetAdMobIds;
+-(void)PrepareAdv;
 @end
 

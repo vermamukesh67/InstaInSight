@@ -16,6 +16,7 @@
 
 @implementation AppDelegate
 
+@synthesize followunfollowCount;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -24,8 +25,7 @@
     
     [FIRApp configure];
     
-    [self PrepareAdv];
-    
+    followunfollowCount=0;
     [Followers fetchAndUpdateIsNewFlagFollowersDetails];
     [Following fetchAndUpdateIsNewFlagFollowingsDetails];
     /*
@@ -39,7 +39,7 @@
     [[HungamaMisicInApp sharedHungamaMisicInAppInstance] setIsTransactionFailureHandling:YES];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:[HungamaMisicInApp sharedHungamaMisicInAppInstance]];
     
-    [self GetAdMobIds];
+   
     
     return YES;
 }
@@ -85,7 +85,9 @@
     
     arrAdIds=array;
     
-    NSLog(@"%@",arrAdIds);
+    NSLog(@"arrAdIds=%@",arrAdIds);
+    
+     [self performSelector:@selector(PrepareAdv) withObject:nil afterDelay:AdInterval];
 }
 
 -(void)PrepareAdv
@@ -95,13 +97,13 @@
         NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
         NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
         NSDate *todayDate=[NSDate date];
-        if ([todayDate isLaterThan:instaDate]) {
+        if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
             
-            self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3923375576341160/1197539334"];
+            self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:[arrAdIds firstObject]];//@"ca-app-pub-3923375576341160/1197539334"
             self.interstitial.delegate=self;
             GADRequest *request = [GADRequest request];
             // Request test ads on devices you specify. Your test device ID is printed to the console when
-            // an ad request is made.
+            // an ad request is made.   if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
             request.testDevices = @[ kGADSimulatorID, @"2077ef9a63d2b398840261c8221a0c9a" ];
             [self.interstitial loadRequest:request];
         }
@@ -123,12 +125,15 @@
         NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
         NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
         NSDate *todayDate=[NSDate date];
-        if ([todayDate isLaterThan:instaDate]) {
+        if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
             
             NSLog(@"root view controller = %@",[self.window rootViewController]);
             if (self.interstitial.isReady) {
                 NSLog(@"root view controller = %@",[self.window rootViewController]);
                 [self.interstitial presentFromRootViewController:[self.window rootViewController]];
+                
+                
+                
             } else {
                 NSLog(@"Ad wasn't ready");
                 [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
@@ -136,18 +141,28 @@
         }
     }
 }
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
+{
+    NSLog(@"%s %d %s %s", __FILE__, __LINE__, __PRETTY_FUNCTION__, __FUNCTION__);
+    
+    [self createAndLoadInterstitial];
+}
 
 /// Called before the interstitial is to be animated off the screen.
 - (void)interstitialWillDismissScreen:(GADInterstitial *)ad
 {
-    
+    NSLog(@"%s %d %s %s", __FILE__, __LINE__, __PRETTY_FUNCTION__, __FUNCTION__);
 }
 
 /// Called just after dismissing an interstitial and it has animated off the screen.
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad
 {
-//    [self PrepareAdv];
-//    [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
+    NSLog(@"%s %d %s %s", __FILE__, __LINE__, __PRETTY_FUNCTION__, __FUNCTION__);
+}
+
+- (void)interstitialWillPresentScreen:(GADInterstitial *)ad
+{
+    NSLog(@"%s %d %s %s", __FILE__, __LINE__, __PRETTY_FUNCTION__, __FUNCTION__);
 }
 
 

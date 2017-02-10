@@ -48,6 +48,62 @@
     [[InstagramEngine sharedEngine] getSelfRecentMediaWithCount:50 maxId:nil success:^(NSArray<InstagramMedia *> * _Nonnull media, InstagramPaginationInfo * _Nonnull paginationInfo) {
         
         NSLog(@"media = %@",media);
+        /*
+        [media enumerateObjectsUsingBlock:^(InstagramMedia * _Nonnull objMedia, NSUInteger idx, BOOL * _Nonnull stop) {
+             [arrTotalLikers addObjectsFromArray:objMedia.likes];
+        }];
+        
+        
+        if (arrTotalLikers.count==0) {
+            
+            UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                     [self.navigationController popViewControllerAnimated:YES];
+                                     
+                                 }];
+            
+            [alertVC addAction:ok];
+            [self presentViewController:alertVC animated:YES completion:^{
+                
+            }];
+        }
+        else
+        {
+            NSMutableArray *arrUsersId=[[NSMutableArray alloc] init];
+            [arrTotalLikers enumerateObjectsUsingBlock:^(InstagramUser  *_Nonnull objuser, NSUInteger idx, BOOL * _Nonnull stop) {
+                [arrUsersId addObject:objuser.userId];
+            }];
+            
+            NSCountedSet *totalSet = [NSCountedSet setWithArray:arrUsersId];
+            NSMutableArray *dictArray = [NSMutableArray array];
+            for (NSString *userId in totalSet) {
+                NSDictionary *dict = @{@"userId":userId, @"count":@([totalSet countForObject:userId])};
+                [dictArray addObject:dict];
+            }
+            NSArray *final = [dictArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"count" ascending:NO]]];
+            NSLog(@"%@",final);
+            
+            [final enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull objDicc, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                NSArray *arrDatas=[arrTotalLikers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"userId = %@",[objDicc valueForKey:@"userId"]]];
+                if (arrDatas.count>0) {
+                    [arrTopLikers addObject:[arrDatas firstObject]];
+                }
+            }];
+            
+            NSLog(@"arrTopLikers= %@",arrTopLikers);
+            
+        }
+        
+        [tblLikers reloadData];
+        [tblLikers setHidden:NO];
+        [actView stopAnimating]; */
         
         arrTopMedia=[[NSMutableArray alloc] initWithArray:media];
         [self GetLikesForMedia];
@@ -60,6 +116,7 @@
         }
     }];
 }
+
 
 -(void)GetLikesForMedia
 {

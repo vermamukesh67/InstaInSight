@@ -41,7 +41,7 @@
     [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
     arrRowData=[[NSMutableArray alloc] initWithObjects:
-                [NSDictionary dictionaryWithObjectsAndKeys:@"Profile Viewer",@"title",@"profileviewer",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Friends who viewed my profile",@"title",@"profileviewer",@"imgName", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"My Top Likers",@"title",@"mytoplikes",@"imgName", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Who i Like Most",@"title",@"whoilikemost",@"imgName", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Popular Followers",@"title",@"popularfollowers",@"imgName", nil],

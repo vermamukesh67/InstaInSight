@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet FollowUnfollowButton *btnFollowUnfollow;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actView;
 @property(nonatomic,strong) NSString *strUserId;
+@property(nonatomic,assign) BOOL followStatus;
 -(void)CheckForFollowUnFollow:(NSString *)strUserId;
 @end

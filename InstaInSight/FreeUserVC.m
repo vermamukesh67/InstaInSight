@@ -53,20 +53,12 @@
     [self setScreenName:@"FreeUser"];
     
     tblFreeUser.tableFooterView = [UIView new];
-    
-    [self performSelector:@selector(ShowAdv) withObject:nil afterDelay:10.0];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
-}
-
--(void)ShowAdv
-{
-     [APP_DELEGATE createAndLoadInterstitial];
 }
 
 -(void)viewDidLayoutSubviews
