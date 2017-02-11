@@ -12,7 +12,7 @@
 {
     __weak IBOutlet UITableView *tblProfile;
     __weak IBOutlet UIActivityIndicatorView *actView;
-    NSMutableArray *arrProfileViewer,*arrRandomUsers,*arrTopMedia,*arrTotalLikers,*arrTopLikers;
+    NSMutableArray *arrProfileViewer,*arrRandomUsers,*arrTopMedia,*arrTopMediaForComments,*arrTotalLikers,*arrTotalCommenters,*arrTopLikers;
     NSMutableDictionary *diccRandomFollowers;
 }
 
