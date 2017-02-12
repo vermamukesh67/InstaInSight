@@ -146,7 +146,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year In $4.99" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year In $4.99" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightUpgradeToPro_Year]];
         
@@ -206,7 +206,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year In $1.99" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year In $1.99" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightRemoveAds_Year]];
         

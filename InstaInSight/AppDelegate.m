@@ -117,7 +117,6 @@
    
 }
 
-
 - (void)createAndLoadInterstitial {
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"]) {
@@ -152,6 +151,7 @@
 - (void)interstitialWillDismissScreen:(GADInterstitial *)ad
 {
     NSLog(@"%s %d %s %s", __FILE__, __LINE__, __PRETTY_FUNCTION__, __FUNCTION__);
+    
 }
 
 /// Called just after dismissing an interstitial and it has animated off the screen.

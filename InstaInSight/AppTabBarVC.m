@@ -25,10 +25,8 @@
     
     
     [tabBarItem2 setImage: [[UIImage imageNamed:@"paid"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-   // [tabBarItem2 setSelectedImage: [[UIImage imageNamed:@"paid"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     
     [tabBarItem1 setImage: [[UIImage imageNamed:@"free"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-   // [tabBarItem1 setSelectedImage: [[UIImage imageNamed:@"free"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     
     [tabBarItem1 setImageInsets:UIEdgeInsetsMake(7, 0, 0, 0)];
     [tabBarItem2 setImageInsets:UIEdgeInsetsMake(7, 0, 0, 0)];
