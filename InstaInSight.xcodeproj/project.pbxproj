@@ -35,6 +35,7 @@
 		C013173E1E2D1AF200B9CFDB /* TopLikers.m in Sources */ = {isa = PBXBuildFile; fileRef = C013173D1E2D1AF200B9CFDB /* TopLikers.m */; };
 		C01667761E268D1000DE95FD /* NSDate+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C01667751E268D1000DE95FD /* NSDate+Extra.m */; };
 		C04B91B41E42497E0016B328 /* PopularFollower.m in Sources */ = {isa = PBXBuildFile; fileRef = C04B91B31E42497E0016B328 /* PopularFollower.m */; };
+		C04B92131E505FDC0016B328 /* InAppPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04B92121E505FDC0016B328 /* InAppPurchaseVC.m */; };
 		C04D49341E053BB90094F749 /* AppTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49331E053BB90094F749 /* AppTabBarVC.m */; };
 		C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D49381E0541C70094F749 /* FreeUserVC.m */; };
 		C04D493C1E0541DC0094F749 /* PaidUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D493B1E0541DC0094F749 /* PaidUserVC.m */; };
@@ -126,6 +127,8 @@
 		C01667751E268D1000DE95FD /* NSDate+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extra.m"; sourceTree = "<group>"; };
 		C04B91B21E42497E0016B328 /* PopularFollower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularFollower.h; sourceTree = "<group>"; };
 		C04B91B31E42497E0016B328 /* PopularFollower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularFollower.m; sourceTree = "<group>"; };
+		C04B92111E505FDC0016B328 /* InAppPurchaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseVC.h; sourceTree = "<group>"; };
+		C04B92121E505FDC0016B328 /* InAppPurchaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseVC.m; sourceTree = "<group>"; };
 		C04D49321E053BB90094F749 /* AppTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTabBarVC.h; sourceTree = "<group>"; };
 		C04D49331E053BB90094F749 /* AppTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTabBarVC.m; sourceTree = "<group>"; };
 		C04D49351E053C2A0094F749 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				C04B91B31E42497E0016B328 /* PopularFollower.m */,
 				7EA1121D1E449A7C00FFC5FE /* LikeGraph.h */,
 				7EA1121E1E449A7C00FFC5FE /* LikeGraph.m */,
+				C04B92111E505FDC0016B328 /* InAppPurchaseVC.h */,
+				C04B92121E505FDC0016B328 /* InAppPurchaseVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 				7E5F78C01E420FE4007B757C /* HungamaMisicInApp.m in Sources */,
 				C04D49391E0541C70094F749 /* FreeUserVC.m in Sources */,
 				C064724D1E2FCDF10012CF0F /* GhostFollowers.m in Sources */,
+				C04B92131E505FDC0016B328 /* InAppPurchaseVC.m in Sources */,
 				C08615FA1E1C10D800A6A3B7 /* Following+CoreDataProperties.m in Sources */,
 				7EA1FB141E03C517001BC519 /* AppDelegate.m in Sources */,
 				7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */,

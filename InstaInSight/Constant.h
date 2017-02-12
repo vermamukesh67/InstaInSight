@@ -56,4 +56,47 @@ __responder = [__responder nextResponder]; \
 #define kAPPName @"InstaInsight"
 #define kIsProductPurchased @"IsProductPurchased"
 
+// Upgrade to Pro Products Ids
+
+#define kInstaInsightUpgradeToPro_OneMonth @"InstaInsightUpgradeToPro_OneMonth"
+#define kInstaInsightUpgradeToPro_SixMonth @"InstaInsightUpgradeToPro_SixMonth"
+#define kInstaInsightUpgradeToPro_Year     @"InstaInsightUpgradeToPro_Year"
+
+// RemoveAds Products Ids
+
+#define kInstaInsightRemoveAds_OneMonth @"InstaInsightRemoveAds_OneMonth"
+#define kInstaInsightRemoveAds_SixMonth @"InstaInsightRemoveAds_SixMonth"
+#define kInstaInsightRemoveAds_Year     @"InstaInsightRemoveAds_Year"
+
+//ProfileViewer Products Ids
+
+#define kInstaInsightProfileViewer_OneMonth @"InstaInsightProfileViewer_OneMonth"
+#define kInstaInsightProfileViewer_SixMonth @"InstaInsightProfileViewer_SixMonth"
+#define kInstaInsightProfileViewer_Year     @"InstaInsightProfileViewer_Year"
+
+//My Top Likers Products Ids
+
+#define kInstaInsightMyTopLikers_OneMonth @"InstaInsightMyTopLikers_OneMonth"
+#define kInstaInsightMyTopLikers_SixMonth @"InstaInsightMyTopLikers_SixMonth"
+#define kInstaInsightMyTopLikers_Year     @"InstaInsightMyTopLikers_Year"
+
+//Who I Liked Most Products Ids
+
+#define kInstaInsightWhoILikedMost_OneMonth @"InstaInsightWhoILikedMost_OneMonth"
+#define kInstaInsightWhoILikedMost_SixMonth @"InstaInsightWhoILikedMost_SixMonth"
+#define kInstaInsightWhoILikedMost_Year     @"InstaInsightWhoILikedMost_Year"
+
+//Most Popular Followers Products Ids
+
+#define kInstaInsightMostPopularFollowers_OneMonth @"InstaInsightMostPopularFollowers_OneMonth"
+#define kInstaInsightMostPopularFollowers_SixMonth @"InstaInsightMostPopularFollowers_SixMonth"
+#define kInstaInsightMostPopularFollowers_Year     @"InstaInsightMostPopularFollowers_Year"
+
+//Ghost Followers Products Ids
+
+#define kInstaInsightGhostFollowers_OneMonth @"InstaInsightGhostFollowers_OneMonth"
+#define kInstaInsightGhostFollowers_SixMonth @"InstaInsightGhostFollowers_SixMonth"
+#define kInstaInsightGhostFollowers_Year     @"InstaInsightGhostFollowers_Year"
+
+
 #endif /* Constant_h */
