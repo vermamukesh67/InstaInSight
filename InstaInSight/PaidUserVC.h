@@ -18,9 +18,11 @@
     __weak IBOutlet UILabel *lblFollowingCount;
     __weak IBOutlet UITableView *tblPaidUser;
     __weak IBOutlet UIActivityIndicatorView *actView;
+    __weak IBOutlet UIActivityIndicatorView *actLoadProducts;
     
     __weak IBOutlet UIButton *btnBuy;
     NSMutableArray *arrRowData;
+    NSArray *arrProductsIds;
 }
 - (IBAction)btnBuyTapped:(id)sender;
 

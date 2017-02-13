@@ -55,6 +55,8 @@
     
     tblPaidUser.tableFooterView = [UIView new];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ProductPurchasedSusceeeFully:) name:HungamaMusicProductPurchasedNotification object:nil];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -76,6 +78,11 @@
     
     [[whiteBox layer] setCornerRadius:2.0];
     [whiteBox setClipsToBounds:YES];
+}
+
+-(void)ProductPurchasedSusceeeFully:(NSNotification *)object
+{
+    
 }
 
 
@@ -105,11 +112,16 @@
     switch (indexPath.row) {
         case 0:
         {
-            ProfileViewer *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewer"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
+            if ([HelperMethod CheckForProfileViewerPurchase]!=nil) {
+                ProfileViewer *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewer"];
+                [objScr setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:objScr animated:YES];
+            }
+            else
+            {
+                [self PurchaseProfileViewerProduct];
+            }
         }
-            
             break;
         case 1:
         {
@@ -158,6 +170,25 @@
 }
 */
 
+
+-(void)LoadProductsIds
+{
+    [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObjects:kInstaInsightRemoveAds_Year,kInstaInsightRemoveAds_SixMonth,kInstaInsightRemoveAds_OneMonth,kInstaInsightMyTopLikers_Year,kInstaInsightMyTopLikers_SixMonth,kInstaInsightMyTopLikers_OneMonth,
+        kInstaInsightProfileViewer_Year,kInstaInsightProfileViewer_SixMonth,kInstaInsightProfileViewer_OneMonth,
+        kInstaInsightMostPopularFollowers_Year,kInstaInsightMostPopularFollowers_SixMonth,kInstaInsightMostPopularFollowers_OneMonth,
+        kInstaInsightUpgradeToPro_Year,kInstaInsightUpgradeToPro_SixMonth,kInstaInsightUpgradeToPro_OneMonth ,
+        kInstaInsightWhoILikedMost_Year,kInstaInsightWhoILikedMost_SixMonth,kInstaInsightWhoILikedMost_OneMonth,
+        kInstaInsightGhostFollowers_Year,kInstaInsightGhostFollowers_SixMonth,kInstaInsightGhostFollowers_OneMonth,nil]];
+    
+    [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        
+        arrProductsIds=[NSArray arrayWithArray:products];
+        NSLog(@"in app purchase products = %@",arrProductsIds);
+        
+    }];
+    
+}
+
 #pragma mark - UIButton Tapped Method
 
 - (IBAction)btnBuyTapped:(id)sender {
@@ -170,6 +201,8 @@
 
 -(void)PurchaseProfileViewerProduct
 {
+    
+    
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:kAPPName message:@"Buy Profile Viewer" preferredStyle:UIAlertControllerStyleActionSheet];
     
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {

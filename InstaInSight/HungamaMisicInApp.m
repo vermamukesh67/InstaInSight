@@ -201,7 +201,7 @@ static HungamaMisicInApp *sharedManager = nil;
     AppDelegate *appDelegate=APP_DELEGATE;
     [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
     [HelperMethod ShowAlertWithMessage:@"Purchase successful" InViewController:appDelegate.window.rootViewController];
-    
+    [self provideContentForProductIdentifier:transaction.payment.productIdentifier];
 }
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
@@ -256,6 +256,8 @@ static HungamaMisicInApp *sharedManager = nil;
     AppDelegate *appDelegate=APP_DELEGATE;
     appDelegate.isProductISBeingPurchased=FALSE;
     [[NSNotificationCenter defaultCenter] postNotificationName:HungamaMusicProductPurchasedNotification object:productIdentifier userInfo:nil];
+    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:productIdentifier];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)buyProduct:(SKProduct *)product {

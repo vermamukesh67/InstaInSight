@@ -12,4 +12,13 @@
 +(void)ShowAlertWithMessage:(NSString *)strMsg InViewController:(UIViewController *)objVC;
 +(NSString *)getStringFromDate:(NSDate *)date;
 +(NSDate *)ConvertDateTosystemTimeZone:(NSString *)strDate;
+
++(NSString *)CheckForProfileViewerPurchase;
++(NSString *)CheckForMyTopLikersPurchase;
++(NSString *)CheckForWhoILikedMostPurchase;
++(NSString *)CheckForMostPopularFollowerPurchase;
++(NSString *)CheckForGhostFollowerPurchase;
++(NSString *)CheckForRemoveAdsPurchase;
++(NSString *)CheckForUpgradeToProPurchase;
+
 @end

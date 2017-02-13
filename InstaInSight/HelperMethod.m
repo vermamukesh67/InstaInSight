@@ -50,4 +50,150 @@
     return [formatter1 dateFromString:sysTemDate];
 }
 
++(NSString *)CheckForProfileViewerPurchase
+{
+    NSString *productIdentifier=nil;
+ 
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightProfileViewer_Year]) {
+        
+        return kInstaInsightProfileViewer_Year;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightProfileViewer_SixMonth])
+    {
+        return kInstaInsightProfileViewer_SixMonth;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightProfileViewer_OneMonth])
+    {
+        return kInstaInsightProfileViewer_OneMonth;
+    }
+    
+    
+    return productIdentifier;
+}
+
++(NSString *)CheckForMyTopLikersPurchase
+{
+    NSString *productIdentifier=nil;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMyTopLikers_OneMonth]) {
+        
+        return kInstaInsightMyTopLikers_OneMonth;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMyTopLikers_SixMonth])
+    {
+        return kInstaInsightMyTopLikers_SixMonth;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMyTopLikers_OneMonth])
+    {
+        return kInstaInsightMyTopLikers_OneMonth;
+    }
+    
+    
+    return productIdentifier;
+}
+
++(NSString *)CheckForWhoILikedMostPurchase
+{
+    NSString *productIdentifier=nil;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightWhoILikedMost_Year]) {
+        
+        return kInstaInsightWhoILikedMost_Year;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightWhoILikedMost_SixMonth])
+    {
+        return kInstaInsightWhoILikedMost_SixMonth;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightWhoILikedMost_OneMonth])
+    {
+        return kInstaInsightWhoILikedMost_OneMonth;
+    }
+    
+    
+    return productIdentifier;
+}
+
++(NSString *)CheckForMostPopularFollowerPurchase
+{
+    NSString *productIdentifier=nil;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMostPopularFollowers_Year]) {
+        
+        return kInstaInsightMostPopularFollowers_Year;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMostPopularFollowers_SixMonth])
+    {
+        return kInstaInsightMostPopularFollowers_SixMonth;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMostPopularFollowers_OneMonth])
+    {
+        return kInstaInsightMostPopularFollowers_OneMonth;
+    }
+    
+    
+    return productIdentifier;
+}
+
++(NSString *)CheckForGhostFollowerPurchase
+{
+    NSString *productIdentifier=nil;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightGhostFollowers_Year]) {
+        
+        return kInstaInsightGhostFollowers_Year;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightGhostFollowers_SixMonth])
+    {
+        return kInstaInsightGhostFollowers_SixMonth;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightGhostFollowers_OneMonth])
+    {
+        return kInstaInsightGhostFollowers_OneMonth;
+    }
+    
+    
+    return productIdentifier;
+}
+
++(NSString *)CheckForRemoveAdsPurchase
+{
+    NSString *productIdentifier=nil;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightRemoveAds_Year]) {
+        
+        return kInstaInsightRemoveAds_Year;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightRemoveAds_SixMonth])
+    {
+        return kInstaInsightRemoveAds_SixMonth;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightRemoveAds_OneMonth])
+    {
+        return kInstaInsightRemoveAds_OneMonth;
+    }
+    
+    
+    return productIdentifier;
+}
++(NSString *)CheckForUpgradeToProPurchase
+{
+    NSString *productIdentifier=nil;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightUpgradeToPro_Year]) {
+        
+        return kInstaInsightUpgradeToPro_Year;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightUpgradeToPro_SixMonth])
+    {
+        return kInstaInsightUpgradeToPro_SixMonth;
+    }
+    else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightUpgradeToPro_OneMonth])
+    {
+        return kInstaInsightUpgradeToPro_OneMonth;
+    }
+    
+    
+    return productIdentifier;
+}
+
 @end
