@@ -426,6 +426,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -441,6 +446,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -455,6 +465,11 @@
             if (products.count>0) {
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
             }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
@@ -486,6 +501,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -501,6 +521,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -515,6 +540,11 @@
             if (products.count>0) {
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
             }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
@@ -546,6 +576,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -561,6 +596,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -575,6 +615,11 @@
             if (products.count>0) {
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
             }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
@@ -606,6 +651,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -621,6 +671,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -635,6 +690,11 @@
             if (products.count>0) {
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
             }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
@@ -666,6 +726,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -681,6 +746,11 @@
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
             }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
         }];
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -695,6 +765,11 @@
             if (products.count>0) {
                 
                 [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
             }
         }];
         [self dismissViewControllerAnimated:YES completion:^{

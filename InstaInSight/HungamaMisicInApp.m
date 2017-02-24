@@ -114,7 +114,10 @@ static HungamaMisicInApp *sharedManager = nil;
               skProduct.localizedTitle,
               skProduct.price.floatValue);
     }
-    
+    if (skProducts.count==0) {
+        AppDelegate *appDelegate=APP_DELEGATE;
+        [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
+    }
     _completionHandler(YES, skProducts);
     
 }

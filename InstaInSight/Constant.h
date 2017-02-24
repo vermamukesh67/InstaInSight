@@ -56,6 +56,8 @@ __responder = [__responder nextResponder]; \
 #define kAPPName @"InstaInsight"
 #define kIsProductPurchased @"IsProductPurchased"
 
+#define kProductNotLoaded @"No such product found on itunes store"
+
 // Upgrade to Pro Products Ids
 
 #define kInstaInsightUpgradeToPro_OneMonth @"InstaInsightUpgradeToPro_OneMonth"

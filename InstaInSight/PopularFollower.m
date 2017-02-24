@@ -82,9 +82,31 @@
                 [tblPopularsFollowers reloadData];
                 [tblPopularsFollowers setHidden:NO];
                 [actView stopAnimating];
+                
+                if (arrPopularFollowers.count==0) {
+                    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction * action)
+                                         {
+                                             [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                             [self.navigationController popViewControllerAnimated:YES];
+                                             
+                                         }];
+                    
+                    [alertVC addAction:ok];
+                    [self presentViewController:alertVC animated:YES completion:^{
+                        
+                    }];
+                }
+                
             }
             
         } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+            
+            [arrFollowers removeObject:objInstaUser];
             
             if (arrFollowers.count>0 ) {
                 
@@ -98,6 +120,25 @@
                 [tblPopularsFollowers reloadData];
                 [tblPopularsFollowers setHidden:NO];
                 [actView stopAnimating];
+                
+                if (arrPopularFollowers.count==0) {
+                    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction * action)
+                                         {
+                                             [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                             [self.navigationController popViewControllerAnimated:YES];
+                                             
+                                         }];
+                    
+                    [alertVC addAction:ok];
+                    [self presentViewController:alertVC animated:YES completion:^{
+                        
+                    }];
+                }
             }
             
         }];

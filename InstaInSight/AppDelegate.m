@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#define AdInterval 10.0f
+#define AdInterval 8.0f
 
 
 @interface AppDelegate ()
@@ -73,31 +73,48 @@
 
 -(void)GetAdMobIds
 {
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"Https://www.getirali.com/InstaInsight.asmx/GetIOSAdmobIds?Token=cxmuR5UDZNHjIsvr32mIeJW8yk5hQr9r9sdel5ODEsD9ms6HZAaAvCFgdQ7c9Kc6"]];
     
-    NSData *data=[NSData dataWithContentsOfURL:URL];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        //Background Thread
+        
+        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"Https://www.getirali.com/InstaInsight.asmx/GetIOSAdmobIds?Token=cxmuR5UDZNHjIsvr32mIeJW8yk5hQr9r9sdel5ODEsD9ms6HZAaAvCFgdQ7c9Kc6"]];
+        
+        
+        NSData *data=[NSData dataWithContentsOfURL:URL];
+        
+        NSString *strText=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"%@",[strText componentsSeparatedByString:@","]);
+        
+        NSMutableArray *array=[[strText componentsSeparatedByString:@","] mutableCopy];
+        
+        arrAdIds=array;
+        
+        NSLog(@"arrAdIds=%@",arrAdIds);
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            //Run UI Updates
+            
+            [self performSelector:@selector(PrepareAdv) withObject:nil afterDelay:AdInterval];
+        });
+    });
     
-    NSString *strText=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-    NSLog(@"%@",[strText componentsSeparatedByString:@","]);
     
-    NSMutableArray *array=[[strText componentsSeparatedByString:@","] mutableCopy];
     
-    arrAdIds=array;
     
-    NSLog(@"arrAdIds=%@",arrAdIds);
-    
-     [self performSelector:@selector(PrepareAdv) withObject:nil afterDelay:AdInterval];
 }
 
 -(void)PrepareAdv
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"]) {
         
-        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
-        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
-        NSDate *todayDate=[NSDate date];
-        if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
+//        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
+//        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
+//        NSDate *todayDate=[NSDate date];
+        
+        // if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
+        
+        if (arrAdIds.count>0 ) {
             
             self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:[arrAdIds firstObject]];//@"ca-app-pub-3923375576341160/1197539334"
             self.interstitial.delegate=self;
@@ -121,23 +138,34 @@
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"]) {
         
-        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
-        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
-        NSDate *todayDate=[NSDate date];
-        if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
-            
+        if (self.interstitial.isReady) {
             NSLog(@"root view controller = %@",[self.window rootViewController]);
-            if (self.interstitial.isReady) {
-                NSLog(@"root view controller = %@",[self.window rootViewController]);
-                [self.interstitial presentFromRootViewController:[self.window rootViewController]];
-                
-                
-                
-            } else {
-                NSLog(@"Ad wasn't ready");
-                [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
-            }
+            [self.interstitial presentFromRootViewController:[self.window rootViewController]];
+            
+            
+            
+        } else {
+            NSLog(@"Ad wasn't ready");
+            [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
         }
+        
+//        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
+//        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
+//        NSDate *todayDate=[NSDate date];
+//        if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
+//            
+//            NSLog(@"root view controller = %@",[self.window rootViewController]);
+//            if (self.interstitial.isReady) {
+//                NSLog(@"root view controller = %@",[self.window rootViewController]);
+//                [self.interstitial presentFromRootViewController:[self.window rootViewController]];
+//                
+//                
+//                
+//            } else {
+//                NSLog(@"Ad wasn't ready");
+//                [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
+//            }
+//        }
     }
 }
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad
