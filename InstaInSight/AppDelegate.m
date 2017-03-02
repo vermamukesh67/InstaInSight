@@ -74,34 +74,37 @@
 -(void)GetAdMobIds
 {
     
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        //Background Thread
+    if ([HelperMethod CheckRemoveAdsAndSubscriptionIsNotExpired]) {
         
-        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"Https://www.getirali.com/InstaInsight.asmx/GetIOSAdmobIds?Token=cxmuR5UDZNHjIsvr32mIeJW8yk5hQr9r9sdel5ODEsD9ms6HZAaAvCFgdQ7c9Kc6"]];
-        
-        
-        NSData *data=[NSData dataWithContentsOfURL:URL];
-        
-        NSString *strText=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        NSLog(@"%@",[strText componentsSeparatedByString:@","]);
-        
-        NSMutableArray *array=[[strText componentsSeparatedByString:@","] mutableCopy];
-        
-        arrAdIds=array;
-        
-        NSLog(@"arrAdIds=%@",arrAdIds);
-        
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            //Run UI Updates
+    }
+    else
+    {
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            //Background Thread
             
-            [self performSelector:@selector(PrepareAdv) withObject:nil afterDelay:AdInterval];
+            NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"Https://www.getirali.com/InstaInsight.asmx/GetIOSAdmobIds?Token=cxmuR5UDZNHjIsvr32mIeJW8yk5hQr9r9sdel5ODEsD9ms6HZAaAvCFgdQ7c9Kc6"]];
+            
+            
+            NSData *data=[NSData dataWithContentsOfURL:URL];
+            
+            NSString *strText=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            NSLog(@"%@",[strText componentsSeparatedByString:@","]);
+            
+            NSMutableArray *array=[[strText componentsSeparatedByString:@","] mutableCopy];
+            
+            arrAdIds=array;
+            
+            NSLog(@"arrAdIds=%@",arrAdIds);
+            
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                //Run UI Updates
+                
+                [self performSelector:@selector(PrepareAdv) withObject:nil afterDelay:AdInterval];
+            });
         });
-    });
-    
-    
-    
-    
+
+    }
 }
 
 -(void)PrepareAdv

@@ -71,13 +71,51 @@
     return productIdentifier;
 }
 
++(BOOL)CheckProfileViewerAndSubscriptionIsNotExpired
+{
+    NSString *strProId=[HelperMethod CheckForProfileViewerPurchase];
+    
+    if (strProId!=nil) {
+        
+        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        
+        if (transaction) {
+            
+            NSDate *transactionDate=transaction.transactionDate;
+            if ([strProId isEqualToString:kInstaInsightProfileViewer_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightProfileViewer_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightProfileViewer_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+        else
+        {
+            return NO;
+        }
+        
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
 +(NSString *)CheckForMyTopLikersPurchase
 {
     NSString *productIdentifier=nil;
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMyTopLikers_OneMonth]) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMyTopLikers_Year]) {
         
-        return kInstaInsightMyTopLikers_OneMonth;
+        return kInstaInsightMyTopLikers_Year;
     }
     else if ([[NSUserDefaults standardUserDefaults] objectForKey:kInstaInsightMyTopLikers_SixMonth])
     {
@@ -91,6 +129,44 @@
     
     return productIdentifier;
 }
+
++(BOOL)CheckMyTopLikersAndSubscriptionIsNotExpired
+{
+    NSString *strProId=[HelperMethod CheckForMyTopLikersPurchase];
+    
+    if (strProId!=nil) {
+        
+        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        
+        if (transaction) {
+            
+            NSDate *transactionDate=transaction.transactionDate;
+            if ([strProId isEqualToString:kInstaInsightMyTopLikers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightMyTopLikers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightMyTopLikers_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+        else
+        {
+            return NO;
+        }
+        
+    }
+    else
+    {
+        return NO;
+    }
+}
+
 
 +(NSString *)CheckForWhoILikedMostPurchase
 {
@@ -113,6 +189,44 @@
     return productIdentifier;
 }
 
++(BOOL)CheckWhoILikedMostAndSubscriptionIsNotExpired
+{
+    NSString *strProId=[HelperMethod CheckForWhoILikedMostPurchase];
+    
+    if (strProId!=nil) {
+        
+        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        
+        if (transaction) {
+            
+            NSDate *transactionDate=transaction.transactionDate;
+            if ([strProId isEqualToString:kInstaInsightWhoILikedMost_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightWhoILikedMost_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightWhoILikedMost_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+        else
+        {
+            return NO;
+        }
+        
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
 +(NSString *)CheckForMostPopularFollowerPurchase
 {
     NSString *productIdentifier=nil;
@@ -133,6 +247,45 @@
     
     return productIdentifier;
 }
+
++(BOOL)CheckMostPopularFollowerAndSubscriptionIsNotExpired
+{
+    NSString *strProId=[HelperMethod CheckForMostPopularFollowerPurchase];
+    
+    if (strProId!=nil) {
+        
+        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        
+        if (transaction) {
+            
+            NSDate *transactionDate=transaction.transactionDate;
+            if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+        else
+        {
+            return NO;
+        }
+        
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
 
 +(NSString *)CheckForGhostFollowerPurchase
 {
@@ -155,6 +308,43 @@
     return productIdentifier;
 }
 
++(BOOL)CheckGhostFollowerAndSubscriptionIsNotExpired
+{
+    NSString *strProId=[HelperMethod CheckForGhostFollowerPurchase];
+    
+    if (strProId!=nil) {
+        
+        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        
+        if (transaction) {
+            
+            NSDate *transactionDate=transaction.transactionDate;
+            if ([strProId isEqualToString:kInstaInsightGhostFollowers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightGhostFollowers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightGhostFollowers_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+        else
+        {
+            return NO;
+        }
+        
+    }
+    else
+    {
+        return NO;
+    }
+}
+
 +(NSString *)CheckForRemoveAdsPurchase
 {
     NSString *productIdentifier=nil;
@@ -175,6 +365,46 @@
     
     return productIdentifier;
 }
+
+
++(BOOL)CheckRemoveAdsAndSubscriptionIsNotExpired
+{
+    NSString *strProId=[HelperMethod CheckForRemoveAdsPurchase];
+    
+    if (strProId!=nil) {
+        
+        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        
+        if (transaction) {
+            
+            NSDate *transactionDate=transaction.transactionDate;
+            if ([strProId isEqualToString:kInstaInsightRemoveAds_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightRemoveAds_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightRemoveAds_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+        else
+        {
+            return NO;
+        }
+        
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
 +(NSString *)CheckForUpgradeToProPurchase
 {
     NSString *productIdentifier=nil;
@@ -194,6 +424,44 @@
     
     
     return productIdentifier;
+}
+
+
++(BOOL)CheckUserIsProUserAndSubscriptionIsNotExpired
+{
+    NSString *strProId=[HelperMethod CheckForUpgradeToProPurchase];
+    
+    if (strProId!=nil) {
+        
+        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        
+        if (transaction) {
+            
+            NSDate *transactionDate=transaction.transactionDate;
+            if ([strProId isEqualToString:kInstaInsightUpgradeToPro_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightUpgradeToPro_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+                return YES;
+            }
+            else  if ([strProId isEqualToString:kInstaInsightUpgradeToPro_OneMonth] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+               return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+        else
+        {
+            return NO;
+        }
+        
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 @end

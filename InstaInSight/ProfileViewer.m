@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:@"Friends who viewed my profile"];
+    [self setTitle:@"Profile Stalkers"];
     arrProfileViewer=[[NSMutableArray alloc] init];
     arrRandomUsers=[[NSMutableArray alloc] init];
     arrTopMedia=[[NSMutableArray alloc] init];
@@ -29,8 +29,8 @@
     [tblProfile setHidden:YES];
     tblProfile.tableFooterView = [UIView new];
     
-    [FIRAnalytics setScreenName:@"ProfileViewer" screenClass:@"ProfileViewer"];
-    [self setScreenName:@"ProfileViewer"];
+    [FIRAnalytics setScreenName:@"ProfileStalkers" screenClass:@"ProfileStalkers"];
+    [self setScreenName:@"ProfileStalkers"];
     
     [self FetchRecentFeeds];
 }

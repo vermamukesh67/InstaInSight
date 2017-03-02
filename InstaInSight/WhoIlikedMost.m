@@ -18,7 +18,7 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:@"Who i Liked Most"];
+    [self setTitle:@"Who I Liked Most"];
     arrMediaLikedByMe=[[NSMutableArray alloc] init];
     [tblWhoIlikedMost setHidden:YES];
     tblWhoIlikedMost.tableFooterView = [UIView new];

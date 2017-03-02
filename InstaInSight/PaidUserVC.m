@@ -42,16 +42,16 @@
     [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
     arrRowData=[[NSMutableArray alloc] initWithObjects:
-                [NSDictionary dictionaryWithObjectsAndKeys:@"Friends who viewed my profile",@"title",@"profileviewer",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Profile Stalkers",@"title",@"profileviewer",@"imgName", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"My Top Likers",@"title",@"mytoplikes",@"imgName", nil],
-                [NSDictionary dictionaryWithObjectsAndKeys:@"Who i Like Most",@"title",@"whoilikemost",@"imgName", nil],
-                [NSDictionary dictionaryWithObjectsAndKeys:@"Popular Followers",@"title",@"popularfollowers",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Who I Like Most",@"title",@"whoilikemost",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Most Popular Followers",@"title",@"popularfollowers",@"imgName", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Ghost Followers",@"title",@"ghostfollowers",@"imgName", nil],
                 
                 nil];
     
-    [FIRAnalytics setScreenName:@"paiduser" screenClass:@"PaidUserVC"];
-    [self setScreenName:@"PaidUser"];
+    [FIRAnalytics setScreenName:@"PRO" screenClass:@"PaidUserVC"];
+    [self setScreenName:@"PRO"];
     
     tblPaidUser.tableFooterView = [UIView new];
     
@@ -112,42 +112,100 @@
     switch (indexPath.row) {
         case 0:
         {
-            ProfileViewer *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewer"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
-            //[self CheckConditionForProfileViewer];
+            if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                
+                if ([HelperMethod CheckProfileViewerAndSubscriptionIsNotExpired]) {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                
+            }
+            
+            [self GoToProfileViewer];
         }
             break;
         case 1:
         {
-            TopLikers *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"TopLikers"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
-           // [self CheckConditionForMyTopLikers];
+            if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                
+                if ([HelperMethod CheckMyTopLikersAndSubscriptionIsNotExpired]) {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                
+            }
+            [self GoToTopLikers];
         }
             break;
         case 2:
         {
-            WhoIlikedMost *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"WhoIlikedMost"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
-            //[self CheckConditionForWhoIlikedMost];
+            if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                
+                if ([HelperMethod CheckWhoILikedMostAndSubscriptionIsNotExpired]) {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                
+            }
+            [self GoToWhoIlikedMost];
         }
             break;
         case 3:
         {
-            PopularFollower *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"PopularFollower"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
-            //[self CheckConditionForPopularFollowers];
+            if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                
+                if ([HelperMethod CheckMostPopularFollowerAndSubscriptionIsNotExpired]) {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                
+            }
+            [self GoToPopularFollower];
         }
             break;
         case 4:
         {
-            GhostFollowers *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"GhostFollowers"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
-            //[self CheckConditionForGhostFollowers];
+            if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                
+                
+                if ([HelperMethod CheckGhostFollowerAndSubscriptionIsNotExpired]) {
+                    
+                }
+                else
+                {
+                    
+                }
+
+            }
+            else
+            {
+                
+            }
+            [self GoToGhostFollowers];
         }
             break;
             
@@ -156,191 +214,6 @@
     }
     
     
-}
-
-
--(void)CheckConditionForProfileViewer
-{
-    NSString *strProId=[HelperMethod CheckForProfileViewerPurchase];
-    
-    if (strProId!=nil) {
-        
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
-        
-        if (transaction) {
-            
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightProfileViewer_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToProfileViewer];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightProfileViewer_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToProfileViewer];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightProfileViewer_OneMonth] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToProfileViewer];
-            }
-            else
-            {
-                [self PurchaseProfileViewerProduct];
-            }
-        }
-        else
-        {
-            [self PurchaseProfileViewerProduct];
-        }
-        
-    }
-    else
-    {
-        [self PurchaseProfileViewerProduct];
-    }
-}
-
--(void)CheckConditionForGhostFollowers
-{
-    NSString *strProId=[HelperMethod CheckForGhostFollowerPurchase];
-    
-    if (strProId!=nil) {
-        
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
-        
-        if (transaction) {
-            
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightGhostFollowers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToGhostFollowers];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightGhostFollowers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToGhostFollowers];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightGhostFollowers_OneMonth] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToGhostFollowers];
-            }
-            else
-            {
-                [self PurchaseGhostFollowersProduct];
-            }
-        }
-        else
-        {
-            [self PurchaseGhostFollowersProduct];
-        }
-        
-    }
-    else
-    {
-        [self PurchaseGhostFollowersProduct];
-    }
-}
--(void)CheckConditionForPopularFollowers
-{
-    NSString *strProId=[HelperMethod CheckForMostPopularFollowerPurchase];
-    
-    if (strProId!=nil) {
-        
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
-        
-        if (transaction) {
-            
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToPopularFollower];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToPopularFollower];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_OneMonth] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToPopularFollower];
-            }
-            else
-            {
-                [self PurchaseMostPopularProduct];
-            }
-        }
-        else
-        {
-            [self PurchaseMostPopularProduct];
-        }
-        
-    }
-    else
-    {
-        [self PurchaseMostPopularProduct];
-    }
-}
-
--(void)CheckConditionForMyTopLikers
-{
-    NSString *strProId=[HelperMethod CheckForMyTopLikersPurchase];
-    
-    if (strProId!=nil) {
-        
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
-        
-        if (transaction) {
-            
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightMyTopLikers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToTopLikers];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightMyTopLikers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToTopLikers];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightMyTopLikers_OneMonth] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToTopLikers];
-            }
-            else
-            {
-                [self PurchaseMyTopLikersProduct];
-            }
-        }
-        else
-        {
-            [self PurchaseMyTopLikersProduct];
-        }
-        
-    }
-    else
-    {
-        [self PurchaseMyTopLikersProduct];
-    }
-}
-
--(void)CheckConditionForWhoIlikedMost
-{
-    NSString *strProId=[HelperMethod CheckForWhoILikedMostPurchase];
-    
-    if (strProId!=nil) {
-        
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
-        
-        if (transaction) {
-            
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightWhoILikedMost_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToWhoIlikedMost];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightWhoILikedMost_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToProfileViewer];
-            }
-            else  if ([strProId isEqualToString:kInstaInsightWhoILikedMost_OneMonth] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
-                [self GoToWhoIlikedMost];
-            }
-            else
-            {
-                [self PurchaseWhoILikedMostProduct];
-            }
-        }
-        else
-        {
-            [self PurchaseWhoILikedMostProduct];
-        }
-        
-    }
-    else
-    {
-        [self PurchaseWhoILikedMostProduct];
-    }
 }
 
 -(void)GoToProfileViewer

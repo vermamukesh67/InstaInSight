@@ -20,5 +20,11 @@
 +(NSString *)CheckForGhostFollowerPurchase;
 +(NSString *)CheckForRemoveAdsPurchase;
 +(NSString *)CheckForUpgradeToProPurchase;
-
++(BOOL)CheckUserIsProUserAndSubscriptionIsNotExpired;
++(BOOL)CheckRemoveAdsAndSubscriptionIsNotExpired;
++(BOOL)CheckProfileViewerAndSubscriptionIsNotExpired;
++(BOOL)CheckMyTopLikersAndSubscriptionIsNotExpired;
++(BOOL)CheckWhoILikedMostAndSubscriptionIsNotExpired;
++(BOOL)CheckMostPopularFollowerAndSubscriptionIsNotExpired;
++(BOOL)CheckGhostFollowerAndSubscriptionIsNotExpired;
 @end

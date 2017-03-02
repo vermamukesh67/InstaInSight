@@ -18,13 +18,13 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:@"Popular Followers"];
+    [self setTitle:@"Most Popular Followers"];
     arrPopularFollowers=[[NSMutableArray alloc] init];
     [tblPopularsFollowers setHidden:YES];
     tblPopularsFollowers.tableFooterView = [UIView new];
     [self GetFollowers];
-    [FIRAnalytics setScreenName:@"PopularFollowers" screenClass:@"PopularFollowers"];
-    [self setScreenName:@"PopularFollowers"];
+    [FIRAnalytics setScreenName:@"MostPopularFollowers" screenClass:@"MostPopularFollowers"];
+    [self setScreenName:@"MostPopularFollowers"];
 }
 
 -(void)viewWillAppear:(BOOL)animated

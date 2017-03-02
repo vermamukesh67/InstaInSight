@@ -17,14 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:@"Not Following Back"];
+    [self setTitle:@"Unfollowers"];
     arrNotFollowingBack=[[NSMutableArray alloc] init];
     [tblFollowing setHidden:YES];
     tblFollowing.tableFooterView = [UIView new];
     [self CheckIamNotFollowingBack];
     
-    [FIRAnalytics setScreenName:@"NotFollowingBack" screenClass:@"NotFollowBack"];
-    [self setScreenName:@"NotFollowingBack"];
+    [FIRAnalytics setScreenName:@"Unfollowers" screenClass:@"Unfollowers"];
+    [self setScreenName:@"Unfollowers"];
 }
 
 -(void)viewWillAppear:(BOOL)animated

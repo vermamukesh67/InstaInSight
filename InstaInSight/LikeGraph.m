@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:@"Like Graph For Last 7 Posts"];
+    [self setTitle:@"Like Trend For Last 7 Posts"];
 
 //    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
 //    titleLabel.backgroundColor = [UIColor clearColor];
@@ -52,8 +52,8 @@
 //    self.navigationItem.titleView = twoLineTitleView;
     
     
-    [FIRAnalytics setScreenName:@"LikeGraph" screenClass:@"LikeGraph"];
-    [self setScreenName:@"LikeGraph"];
+    [FIRAnalytics setScreenName:@"LikeTrend" screenClass:@"LikeTrend"];
+    [self setScreenName:@"LikeTrend"];
     
     arrTotalLikers=[[NSMutableArray alloc] init];
     arrTopMedia=[[NSMutableArray alloc] init];

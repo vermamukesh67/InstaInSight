@@ -43,9 +43,9 @@
     arrRowData=[[NSMutableArray alloc] initWithObjects:
         [NSDictionary dictionaryWithObjectsAndKeys:@"New Followers",@"title",@"newfollowers",@"imgName", nil],
         [NSDictionary dictionaryWithObjectsAndKeys:@"New Following",@"title",@"newfollowing",@"imgName", nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:@"Not Following Back",@"title",@"notfollowingback",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Unfollowers",@"title",@"notfollowingback",@"imgName", nil],
         [NSDictionary dictionaryWithObjectsAndKeys:@"I am not Following Back",@"title",@"iamnotfollowingback",@"imgName", nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:@"Likes Graph",@"title",@"likegraphs",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Like Trend",@"title",@"likegraphs",@"imgName", nil],
                 
                 nil];
     
