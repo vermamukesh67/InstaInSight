@@ -195,9 +195,9 @@ static HungamaMisicInApp *sharedManager = nil;
     
     NSLog(@"completeTransaction...");
     // Validate recipt here
-    if (isApiCalling) {
-        return;
-    }
+//    if (isApiCalling) {
+//        return;
+//    }
     
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kIsProductPurchased];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -210,9 +210,9 @@ static HungamaMisicInApp *sharedManager = nil;
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
     NSLog(@"restoreTransaction...");
     // Validate recipt here
-    if (isApiCalling) {
-        return;
-    }
+//    if (isApiCalling) {
+//        return;
+//    }
     isSubscriptionAlreadyPurchased=TRUE;
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kIsProductPurchased];
     [[NSUserDefaults standardUserDefaults] synchronize];

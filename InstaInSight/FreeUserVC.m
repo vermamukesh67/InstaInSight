@@ -12,6 +12,12 @@
 #import "IamnotfollBack.h"
 #import "NotFollowBack.h"
 #import "LikeGraph.h"
+#import "ProfileViewer.h"
+#import "TopLikers.h"
+#import "WhoIlikedMost.h"
+#import "GhostFollowers.h"
+#import "PopularFollower.h"
+#import "InAppPurchaseVC.h"
 
 @interface FreeUserVC ()
 
@@ -22,12 +28,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"base"] forBarMetrics:UIBarMetricsDefault];
+     isFreeSelected=YES;
+    [btnBuy setHidden:isFreeSelected];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redBG"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTranslucent:NO];
     UIBarButtonItem *navBarButtonAppearance = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:[NSArray arrayWithObject:[UINavigationBar class]]];
     [navBarButtonAppearance setTitleTextAttributes:@{
                                                      NSFontAttributeName:            [UIFont systemFontOfSize:0.1],
@@ -49,16 +57,58 @@
                 
                 nil];
     
+    arrPaidData=[[NSMutableArray alloc] initWithObjects:
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Profile Stalkers",@"title",@"profileviewer",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"My Top Likers",@"title",@"mytoplikes",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Who I Like Most",@"title",@"whoilikemost",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Most Popular Followers",@"title",@"popularfollowers",@"imgName", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Ghost Followers",@"title",@"ghostfollowers",@"imgName", nil],
+                
+                nil];
+    
     [FIRAnalytics setScreenName:@"FreeUser" screenClass:@"FreeUserVC"];
     [self setScreenName:@"FreeUser"];
     
+   
+  
+    tblPaid=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, scrContainer.frame.size.width-40, scrContainer.frame.size.height) style:UITableViewStylePlain];
+    tblPaid.delegate=self;
+    tblPaid.dataSource=self;
+    tblPaid.tableFooterView = [UIView new];
+    [scrContainer addSubview:tblPaid];
+    
+    tblFreeUser=[[UITableView alloc] initWithFrame:CGRectMake(tblPaid.frame.size.width, 0, scrContainer.frame.size.width-40, scrContainer.frame.size.height) style:UITableViewStylePlain];
+    tblFreeUser.delegate=self;
+    tblFreeUser.dataSource=self;
     tblFreeUser.tableFooterView = [UIView new];
+    [scrContainer addSubview:tblFreeUser];
+    
+    [scrContainer setShowsVerticalScrollIndicator:NO];
+    [scrContainer setShowsHorizontalScrollIndicator:NO];
+    
+//    UISwipeGestureRecognizer *leftToRight=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLefttToRight:)];
+//    [leftToRight setDirection:UISwipeGestureRecognizerDirectionRight];
+//    [self.view addGestureRecognizer:leftToRight];
+    
+//    NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] initWithString:@"Free"];
+//    
+//    [commentString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [commentString length])];
+//    
+//    [btnFree setAttributedTitle:commentString forState:UIControlStateNormal];
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
+    
+}
+
+-(void)swipeLefttToRight:(id)sender
+{
+    [self.tabBarController.tabBar setSelectedItem:[self.tabBarController.tabBar.items objectAtIndex:1]];
 }
 
 -(void)viewDidLayoutSubviews
@@ -74,6 +124,16 @@
     
     [[whiteBox layer] setCornerRadius:2.0];
     [whiteBox setClipsToBounds:YES];
+    
+    
+    [tblFreeUser setFrame:CGRectMake(0, 0, scrContainer.frame.size.width, scrContainer.frame.size.height)];
+    [tblPaid setFrame:CGRectMake(scrContainer.frame.size.width, 0, scrContainer.frame.size.width, scrContainer.frame.size.height)];
+    
+    [scrContainer setContentSize:CGSizeMake(2*scrContainer.frame.size.width, scrContainer.frame.size.height)];
+    [scrContainer setPagingEnabled:YES];
+    
+    [tblPaid reloadData];
+    [tblFreeUser reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +143,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arrRowData.count;
+    return (tableView==tblFreeUser)?arrRowData.count:arrPaidData.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,7 +154,11 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"featureCell"];
-    NSDictionary *diccData=[arrRowData objectAtIndex:indexPath.row];
+    if (cell==nil) {
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"featureCell"];
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    NSDictionary *diccData=(tableView==tblFreeUser)?[arrRowData objectAtIndex:indexPath.row]:[arrPaidData objectAtIndex:indexPath.row];
     [cell.imageView setImage:[UIImage imageNamed:[diccData objectForKey:@"imgName"]]];
     [cell.textLabel setText:[diccData objectForKey:@"title"]];
     return cell;
@@ -104,59 +168,262 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    switch (indexPath.row) {
-        case 0:
-        {
-            NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowerVC"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
+    if (tableView==tblFreeUser) {
+        
+        switch (indexPath.row) {
+            case 0:
+            {
+                NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowerVC"];
+                [objScr setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:objScr animated:YES];
+            }
+                
+                break;
+            case 1:
+            {
+                NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowingVC"];
+                [objScr setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:objScr animated:YES];
+            }
+                break;
+            case 2:
+            {
+                NotFollowBack *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NotFollowBack"];
+                [objScr setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:objScr animated:YES];
+            }
+                break;
+            case 3:
+            {
+                IamnotfollBack *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"IamnotfollBack"];
+                [objScr setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:objScr animated:YES];
+            }
+                break;
+            case 4:
+            {
+                LikeGraph *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"LikeGraph"];
+                [objScr setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:objScr animated:YES];
+            }
+                break;
+                
+            default:
+                break;
         }
-           
-            break;
-        case 1:
-        {
-            NewFollowerVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NewFollowingVC"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
+    }
+    else
+    {
+        switch (indexPath.row) {
+            case 0:
+            {
+                if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                    
+                    if ([HelperMethod CheckProfileViewerAndSubscriptionIsNotExpired]) {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    
+                }
+                
+                [self GoToProfileViewer];
+            }
+                break;
+            case 1:
+            {
+                if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                    
+                    if ([HelperMethod CheckMyTopLikersAndSubscriptionIsNotExpired]) {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    
+                }
+                [self GoToTopLikers];
+            }
+                break;
+            case 2:
+            {
+                if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                    
+                    if ([HelperMethod CheckWhoILikedMostAndSubscriptionIsNotExpired]) {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    
+                }
+                [self GoToWhoIlikedMost];
+            }
+                break;
+            case 3:
+            {
+                if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                    
+                    if ([HelperMethod CheckMostPopularFollowerAndSubscriptionIsNotExpired]) {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    
+                }
+                [self GoToPopularFollower];
+            }
+                break;
+            case 4:
+            {
+                if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
+                    
+                    
+                    if ([HelperMethod CheckGhostFollowerAndSubscriptionIsNotExpired]) {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+                }
+                else
+                {
+                    
+                }
+                [self GoToGhostFollowers];
+            }
+                break;
+                
+            default:
+                break;
         }
-            break;
-        case 2:
-        {
-            NotFollowBack *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"NotFollowBack"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
-        }
-            break;
-        case 3:
-        {
-            IamnotfollBack *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"IamnotfollBack"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
-        }
-            break;
-        case 4:
-        {
-            LikeGraph *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"LikeGraph"];
-            [objScr setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:objScr animated:YES];
-        }
-            break;
-            
-        default:
-            break;
     }
     
+}
+
+-(void)GoToProfileViewer
+{
+    ProfileViewer *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewer"];
+    [objScr setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:objScr animated:YES];
+}
+-(void)GoToGhostFollowers
+{
+    GhostFollowers *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"GhostFollowers"];
+    [objScr setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:objScr animated:YES];
+}
+-(void)GoToPopularFollower
+{
+    PopularFollower *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"PopularFollower"];
+    [objScr setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:objScr animated:YES];
+}
+-(void)GoToTopLikers
+{
+    TopLikers *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"TopLikers"];
+    [objScr setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:objScr animated:YES];
+}
+-(void)GoToWhoIlikedMost
+{
+    WhoIlikedMost *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"WhoIlikedMost"];
+    [objScr setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:objScr animated:YES];
+}
+
+- (IBAction)btnFreeTapped:(id)sender {
+    
+    if (!isFreeSelected) {
+        isFreeSelected=YES;
+        [btnFree setBackgroundColor:btnPro.backgroundColor];
+        [btnPro setBackgroundColor:[UIColor lightGrayColor]];
+         [scrContainer scrollRectToVisible:CGRectMake(0, 0, scrContainer.frame.size.width, scrContainer.frame.size.height) animated:YES];
+    }
+    [btnBuy setHidden:isFreeSelected];
+}
+
+- (IBAction)btnProTapped:(id)sender {
+    
+    if (isFreeSelected) {
+        [btnPro setBackgroundColor:btnFree.backgroundColor];
+        [btnFree setBackgroundColor:[UIColor lightGrayColor]];
+        isFreeSelected=NO;
+        
+        [scrContainer scrollRectToVisible:CGRectMake(scrContainer.frame.size.width, 0, scrContainer.frame.size.width, scrContainer.frame.size.height) animated:YES];
+    }
+    
+    [btnBuy setHidden:isFreeSelected];
     
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark-
+#pragma mark- UIScrollDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (scrollView==scrContainer) {
+        
+        CGFloat pageWidth = scrollView.frame.size.width;
+        float fractionalPage = scrollView.contentOffset.x / pageWidth;
+        NSInteger page = lround(fractionalPage);
+        
+        NSLog(@"%li",(long)page);
+        switch (page) {
+            case 0:
+                if (!isFreeSelected) {
+                    isFreeSelected=YES;
+                    [btnFree setBackgroundColor:btnPro.backgroundColor];
+                    [btnPro setBackgroundColor:[UIColor lightGrayColor]];
+                    [scrContainer scrollRectToVisible:CGRectMake(0, 0, scrContainer.frame.size.width, scrContainer.frame.size.height) animated:YES];
+                }
+                isFreeSelected=YES;
+                [btnBuy setHidden:isFreeSelected];
+                break;
+            case 1:
+                if (isFreeSelected) {
+                    [btnPro setBackgroundColor:btnFree.backgroundColor];
+                    [btnFree setBackgroundColor:[UIColor lightGrayColor]];
+                    isFreeSelected=NO;
+                    
+                    [scrContainer scrollRectToVisible:CGRectMake(scrContainer.frame.size.width, 0, scrContainer.frame.size.width, scrContainer.frame.size.height) animated:YES];
+                }
+                isFreeSelected=NO;
+                [btnBuy setHidden:isFreeSelected];
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
-*/
 
+
+- (IBAction)btnBuyTapped:(id)sender {
+    
+    InAppPurchaseVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"InAppPurchaseVC"];
+    [objScr setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:objScr animated:YES];
+    
+}
 @end

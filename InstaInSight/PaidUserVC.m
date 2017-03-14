@@ -24,7 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"base"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redBG"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTranslucent:NO];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:

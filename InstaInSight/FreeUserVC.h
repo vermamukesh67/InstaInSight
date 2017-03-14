@@ -16,9 +16,18 @@
     __weak IBOutlet UILabel *lblName;
     __weak IBOutlet UILabel *lblFollowerCount;
     __weak IBOutlet UILabel *lblFollowingCount;
-    __weak IBOutlet UITableView *tblFreeUser;
+     UITableView *tblFreeUser;
     __weak IBOutlet UIActivityIndicatorView *actView;
+    __weak IBOutlet UIButton *btnFree;
+    __weak IBOutlet UIButton *btnPro;
+     UITableView *tblPaid;
+    __weak IBOutlet UIScrollView *scrContainer;
     
-    NSMutableArray *arrRowData;
+    NSMutableArray *arrRowData,*arrPaidData;
+    BOOL isFreeSelected;
+    __weak IBOutlet UIButton *btnBuy;
 }
+- (IBAction)btnFreeTapped:(id)sender;
+- (IBAction)btnProTapped:(id)sender;
+- (IBAction)btnBuyTapped:(id)sender;
 @end

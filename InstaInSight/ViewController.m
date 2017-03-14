@@ -52,7 +52,7 @@
                      [[InstaUser sharedUserInstance] setInstaUserId:[arrUsers firstObject]];
                 }
                
-                UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AppTabBarVC"];
+                UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"freeNavVC"];
                 [[APP_DELEGATE window] setRootViewController:viewController];
                 [[APP_DELEGATE window] makeKeyAndVisible];
                 

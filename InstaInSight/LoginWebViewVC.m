@@ -18,8 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"base"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redBG"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
+    [self.navigationController.navigationBar setTranslucent:NO];
     
     UIBarButtonItem *btnRightbar=[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(btnCancelBarTapped:)];
 

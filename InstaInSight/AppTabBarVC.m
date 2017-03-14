@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.delegate=self;
+    
     UITabBarController *tabBarController = self;
     UITabBar *tabBar = tabBarController.tabBar;
     UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
@@ -37,7 +39,7 @@
     
     // Change the tab bar background
     [[UITabBar appearance] setBackgroundImage:[self ResizeImage:@"grayBg" WithSize:CGSizeMake(SCREENWIDTH, 50)]];
-    [[UITabBar appearance] setSelectionIndicatorImage:[self ResizeImage:@"tabBg" WithSize:CGSizeMake(SCREENWIDTH/2, 50)]];
+    [[UITabBar appearance] setSelectionIndicatorImage:[self ResizeImage:@"redBG" WithSize:CGSizeMake(SCREENWIDTH/2, 50)]];
     
 }
 
@@ -50,6 +52,28 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    
+    NSArray *tabViewControllers = tabBarController.viewControllers;
+    UIView * fromView = tabBarController.selectedViewController.view;
+    UIView * toView = viewController.view;
+    if (fromView == toView)
+        return false;
+    NSUInteger fromIndex = [tabViewControllers indexOfObject:tabBarController.selectedViewController];
+    NSUInteger toIndex = [tabViewControllers indexOfObject:viewController];
+    
+    [UIView transitionFromView:fromView
+                        toView:toView
+                      duration:0.3
+                       options: toIndex > fromIndex ? UIViewAnimationOptionTransitionFlipFromLeft : UIViewAnimationOptionTransitionFlipFromRight
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            tabBarController.selectedIndex = toIndex;
+                        }
+                    }];
+    return true;
 }
 
 - (void)didReceiveMemoryWarning {
