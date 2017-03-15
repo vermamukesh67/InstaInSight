@@ -144,6 +144,33 @@
         }];
         
     }
+    else
+    {
+        [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
+        
+        [tblPopularsFollowers reloadData];
+        [tblPopularsFollowers setHidden:NO];
+        [actView stopAnimating];
+        
+        if (arrPopularFollowers.count==0) {
+            UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                     [self.navigationController popViewControllerAnimated:YES];
+                                     
+                                 }];
+            
+            [alertVC addAction:ok];
+            [self presentViewController:alertVC animated:YES completion:^{
+                
+            }];
+        }
+    }
 }
 
 
