@@ -57,7 +57,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    return 50;
 }
 
 //-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
@@ -71,8 +71,8 @@
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"purchaseCell"];
     NSDictionary *diccPurchase=[arrPurchased objectAtIndex:indexPath.row];
     [cell.textLabel setText:[diccPurchase objectForKey:@"title"]];
-    [cell.detailTextLabel setText:[diccPurchase objectForKey:@"desc"]];
-    [cell.detailTextLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    //[cell.detailTextLabel setText:[diccPurchase objectForKey:@"desc"]];
+    //[cell.detailTextLabel setLineBreakMode:NSLineBreakByWordWrapping];
     [cell.detailTextLabel setNumberOfLines:6];
     return cell;
 }
@@ -116,7 +116,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month In $2.99" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightUpgradeToPro_OneMonth]];
         
@@ -136,7 +136,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month In $3.99" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightUpgradeToPro_SixMonth]];
         
@@ -156,7 +156,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year In $4.99" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightUpgradeToPro_Year]];
         
@@ -191,7 +191,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month In $0.99" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightRemoveAds_OneMonth]];
         
@@ -211,7 +211,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month In $1.49" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightRemoveAds_SixMonth]];
         
@@ -231,7 +231,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year In $1.99" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightRemoveAds_Year]];
         
