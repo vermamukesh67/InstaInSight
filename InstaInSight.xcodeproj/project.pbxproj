@@ -26,7 +26,6 @@
 		7EA1FB2A1E03C517001BC519 /* InstaInSightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB291E03C517001BC519 /* InstaInSightTests.m */; };
 		7EA1FB351E03C517001BC519 /* InstaInSightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB341E03C517001BC519 /* InstaInSightUITests.m */; };
 		7EA1FB451E040DDB001BC519 /* LoginWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1FB441E040DDB001BC519 /* LoginWebViewVC.m */; };
-		7ECB558F1E420BFE0062A8A1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB558E1E420BFE0062A8A1 /* StoreKit.framework */; };
 		7ECB55951E420D9B0062A8A1 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB55941E420D9B0062A8A1 /* NSData+Base64.m */; };
 		7ED6C5551E0BF83800329E98 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED6C5541E0BF83800329E98 /* AdSupport.framework */; };
 		7ED6C5571E0BFA0F00329E98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */; };
@@ -52,6 +51,7 @@
 		C08615FD1E1C10D800A6A3B7 /* Followers.m in Sources */ = {isa = PBXBuildFile; fileRef = C08615F91E1C10D800A6A3B7 /* Followers.m */; };
 		C0A5E5351E2D16F600CA1D77 /* MyProfileViewer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A5E5321E2D16F600CA1D77 /* MyProfileViewer+CoreDataProperties.m */; };
 		C0A5E5361E2D16F600CA1D77 /* MyProfileViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A5E5341E2D16F600CA1D77 /* MyProfileViewer.m */; };
+		C0E54F221E8AB5BB00A9788C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E54F211E8AB5BB00A9788C /* StoreKit.framework */; };
 		F68951D505D58E06DB49CAF0 /* libPods-InstaInSight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFECD8CF6155A8FC1FCF7CD5 /* libPods-InstaInSight.a */; };
 /* End PBXBuildFile section */
 
@@ -113,7 +113,6 @@
 		7EA1FB361E03C517001BC519 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EA1FB431E040DDB001BC519 /* LoginWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewVC.h; sourceTree = "<group>"; };
 		7EA1FB441E040DDB001BC519 /* LoginWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewVC.m; sourceTree = "<group>"; };
-		7ECB558E1E420BFE0062A8A1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7ECB55931E420D9B0062A8A1 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		7ECB55941E420D9B0062A8A1 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		7ED6C5541E0BF83800329E98 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -162,6 +161,7 @@
 		C0A5E5321E2D16F600CA1D77 /* MyProfileViewer+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyProfileViewer+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C0A5E5331E2D16F600CA1D77 /* MyProfileViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewer.h; sourceTree = "<group>"; };
 		C0A5E5341E2D16F600CA1D77 /* MyProfileViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewer.m; sourceTree = "<group>"; };
+		C0E54F211E8AB5BB00A9788C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DFECD8CF6155A8FC1FCF7CD5 /* libPods-InstaInSight.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaInSight.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34C036098706E5DABEA2E68 /* Pods-InstaInSight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSight/Pods-InstaInSight.debug.xcconfig"; sourceTree = "<group>"; };
 		E4FB74F9F48119FDB633AE08 /* Pods-InstaInSightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightUITests/Pods-InstaInSightUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,10 +172,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ECB558F1E420BFE0062A8A1 /* StoreKit.framework in Frameworks */,
 				7E9BE4B81E0D2C6A00E2189D /* CoreData.framework in Frameworks */,
 				7ED6C5551E0BF83800329E98 /* AdSupport.framework in Frameworks */,
 				F68951D505D58E06DB49CAF0 /* libPods-InstaInSight.a in Frameworks */,
+				C0E54F221E8AB5BB00A9788C /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +352,7 @@
 		BCDD52BD5C77448B8021B649 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7ECB558E1E420BFE0062A8A1 /* StoreKit.framework */,
+				C0E54F211E8AB5BB00A9788C /* StoreKit.framework */,
 				7E9BE4B71E0D2C6A00E2189D /* CoreData.framework */,
 				7ED6C5541E0BF83800329E98 /* AdSupport.framework */,
 				DFECD8CF6155A8FC1FCF7CD5 /* libPods-InstaInSight.a */,
@@ -462,6 +462,11 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 8DN4HS9SWV;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					7EA1FB241E03C517001BC519 = {
 						CreatedOnToolsVersion = 8.2;

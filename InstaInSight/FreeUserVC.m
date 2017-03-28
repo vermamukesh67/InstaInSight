@@ -219,98 +219,100 @@
             {
                 if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
                     
-                    if ([HelperMethod CheckProfileViewerAndSubscriptionIsNotExpired]) {
-                        
-                    }
-                    else
-                    {
-                        
-                    }
+                    [self GoToProfileViewer];
                 }
                 else
                 {
-                    
+                    if ([HelperMethod CheckProfileViewerAndSubscriptionIsNotExpired]) {
+                      [self GoToProfileViewer];
+                    }
+                    else
+                    {
+                        [self PurchaseProfileViewerProduct];
+                    }
                 }
                 
-                [self GoToProfileViewer];
+                
             }
                 break;
             case 1:
             {
                 if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
                     
-                    if ([HelperMethod CheckMyTopLikersAndSubscriptionIsNotExpired]) {
-                        
-                    }
-                    else
-                    {
-                        
-                    }
+                    [self GoToTopLikers];
+                   
                 }
                 else
                 {
-                    
+                    if ([HelperMethod CheckMyTopLikersAndSubscriptionIsNotExpired]) {
+                       [self GoToTopLikers];
+                    }
+                    else
+                    {
+                        [self PurchaseMyTopLikersProduct];
+                    }
                 }
-                [self GoToTopLikers];
+                
             }
                 break;
             case 2:
             {
                 if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
-                    
-                    if ([HelperMethod CheckWhoILikedMostAndSubscriptionIsNotExpired]) {
-                        
-                    }
-                    else
-                    {
-                        
-                    }
+                   
+                    [self GoToWhoIlikedMost];
+                   
                 }
                 else
                 {
-                    
+                    if ([HelperMethod CheckWhoILikedMostAndSubscriptionIsNotExpired]) {
+                       [self GoToWhoIlikedMost];
+                    }
+                    else
+                    {
+                        [self PurchaseWhoILikedMostProduct];
+                    }
                 }
-                [self GoToWhoIlikedMost];
+                
             }
                 break;
             case 3:
             {
                 if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
                     
-                    if ([HelperMethod CheckMostPopularFollowerAndSubscriptionIsNotExpired]) {
-                        
-                    }
-                    else
-                    {
-                        
-                    }
+                    [self GoToPopularFollower];
+                   
                 }
                 else
                 {
-                    
+                    if ([HelperMethod CheckMostPopularFollowerAndSubscriptionIsNotExpired]) {
+                        [self GoToPopularFollower];
+                    }
+                    else
+                    {
+                        [self PurchaseMostPopularProduct];
+                    }
                 }
-                [self GoToPopularFollower];
+                
             }
                 break;
             case 4:
             {
                 if ([HelperMethod CheckUserIsProUserAndSubscriptionIsNotExpired]) {
                     
-                    
-                    if ([HelperMethod CheckGhostFollowerAndSubscriptionIsNotExpired]) {
-                        
-                    }
-                    else
-                    {
-                        
-                    }
-                    
+                    [self GoToGhostFollowers];
+                   
                 }
                 else
                 {
-                    
+                    if ([HelperMethod CheckGhostFollowerAndSubscriptionIsNotExpired]) {
+                        [self GoToGhostFollowers];
+                    }
+                    else
+                    {
+                        [self PurchaseGhostFollowersProduct];
+                    }
                 }
-                [self GoToGhostFollowers];
+                
             }
                 break;
                 
@@ -426,4 +428,386 @@
     [self.navigationController pushViewController:objScr animated:YES];
     
 }
+
+#pragma mark-
+#pragma mark- In App Purchase Method
+
+-(void)PurchaseProfileViewerProduct
+{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:kAPPName message:@"Buy Profile Stalkers" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightProfileViewer_OneMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightProfileViewer_SixMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightProfileViewer_Year]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+-(void)PurchaseMyTopLikersProduct
+{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:kAPPName message:@"Buy My Top Likers" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMyTopLikers_OneMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMyTopLikers_SixMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMyTopLikers_Year]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+-(void)PurchaseWhoILikedMostProduct
+{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:kAPPName message:@"Buy Who I Liked Most" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightWhoILikedMost_OneMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightWhoILikedMost_SixMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightWhoILikedMost_Year]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+-(void)PurchaseMostPopularProduct
+{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:kAPPName message:@"Buy Most Popular Followers" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMostPopularFollowers_OneMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMostPopularFollowers_SixMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMostPopularFollowers_Year]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+-(void)PurchaseGhostFollowersProduct
+{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:kAPPName message:@"Buy Ghost Followers" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightGhostFollowers_OneMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightGhostFollowers_SixMonth]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightGhostFollowers_Year]];
+        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            
+            if (products.count>0) {
+                
+                [[HungamaMisicInApp sharedHungamaMisicInAppInstance] buyProduct:[products firstObject]];
+            }
+            else
+            {
+                //Failed to load list of products.
+                [HelperMethod ShowAlertWithMessage:kProductNotLoaded InViewController:self];
+            }
+        }];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+
+
+
 @end

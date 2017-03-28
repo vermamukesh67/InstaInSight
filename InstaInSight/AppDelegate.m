@@ -143,9 +143,11 @@
         
         if (self.interstitial.isReady) {
             NSLog(@"root view controller = %@",[self.window rootViewController]);
-            [self.interstitial presentFromRootViewController:[self.window rootViewController]];
             
+            if (!self.isProductISBeingPurchased) {
             
+                [self.interstitial presentFromRootViewController:[self.window rootViewController]];
+            }
             
         } else {
             NSLog(@"Ad wasn't ready");

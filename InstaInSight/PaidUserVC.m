@@ -125,10 +125,10 @@
             }
             else
             {
-                
+               [self GoToProfileViewer];
             }
             
-            [self GoToProfileViewer];
+            
         }
             break;
         case 1:

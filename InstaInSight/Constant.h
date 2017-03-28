@@ -66,7 +66,7 @@ __responder = [__responder nextResponder]; \
 
 // RemoveAds Products Ids
 
-#define kInstaInsightRemoveAds_OneMonth @"InstaInsightRemoveAds_OneMonth"
+#define kInstaInsightRemoveAds_OneMonth @"InstaInsightRemoveAds_ForOneMonth"
 #define kInstaInsightRemoveAds_SixMonth @"InstaInsightRemoveAds_SixMonth"
 #define kInstaInsightRemoveAds_Year     @"InstaInsightRemoveAds_Year"
 

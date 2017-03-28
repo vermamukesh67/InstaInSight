@@ -33,7 +33,7 @@ static HungamaMisicInApp *sharedManager = nil;
 }
 
 - (void)SetProductIdentifiers:(NSSet *)productIdentifiers {
-    
+    [[HungamaMisicInApp sharedHungamaMisicInAppInstance] setIsTransactionFailureHandling:NO];
     if (productIdentifiers) {
         // Store product identifiers
         _productIdentifiers = productIdentifiers;
@@ -56,7 +56,7 @@ static HungamaMisicInApp *sharedManager = nil;
 - (id)initWithProductIdentifiers:(NSSet *)productIdentifiers {
     self = [super init];
     if (self) {
-        
+        [[HungamaMisicInApp sharedHungamaMisicInAppInstance] setIsTransactionFailureHandling:NO];
         if (productIdentifiers) {
             // Store product identifiers
             _productIdentifiers = productIdentifiers;
@@ -83,12 +83,14 @@ static HungamaMisicInApp *sharedManager = nil;
 
 - (void)requestProductsWithCompletionHandler:(RequestProductsCompletionHandler)completionHandler {
     
+    [[HungamaMisicInApp sharedHungamaMisicInAppInstance] setIsTransactionFailureHandling:NO];
     AppDelegate *appDelegate=APP_DELEGATE;
     [MBProgressHUD showHUDAddedTo:appDelegate.window animated:YES];
     // 1
     _completionHandler = [completionHandler copy];
     
     // 2
+    NSLog(@"requesting product = %@",_productIdentifiers);
     _productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:_productIdentifiers];
     _productsRequest.delegate = self;
     [_productsRequest start];
@@ -105,6 +107,10 @@ static HungamaMisicInApp *sharedManager = nil;
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
     
     NSLog(@"Loaded list of products...");
+    for (NSString *invalidProductId in response.invalidProductIdentifiers)
+    {
+        NSLog(@"Invalid product id: %@" , invalidProductId);
+    }
     _productsRequest = nil;
     
     NSArray * skProducts = response.products;
@@ -219,18 +225,27 @@ static HungamaMisicInApp *sharedManager = nil;
     AppDelegate *appDelegate=APP_DELEGATE;
     [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
     [HelperMethod ShowAlertWithMessage:@"Restore successful" InViewController:appDelegate.window.rootViewController];
+    [self provideContentForProductIdentifier:transaction];
 }
 
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
-    if (!isSubscriptionAlreadyPurchased) {
-        AppDelegate *appDelegate=APP_DELEGATE;
-        appDelegate.isProductISBeingPurchased=FALSE;
-        [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
-        __block UINavigationController *navVC=(UINavigationController *)appDelegate.window.rootViewController;
-        [HelperMethod ShowAlertWithMessage:@"You have not purchased before anytime" InViewController:navVC];
+    if (queue.transactions.count>0) {
+       
+       // [self paymentQueue:queue updatedDownloads:queue.transactions];
+        
     }
-   
+    
+    else
+    {
+        if (!isSubscriptionAlreadyPurchased) {
+            AppDelegate *appDelegate=APP_DELEGATE;
+            appDelegate.isProductISBeingPurchased=FALSE;
+            [MBProgressHUD hideAllHUDsForView:appDelegate.window animated:YES];
+            __block UINavigationController *navVC=(UINavigationController *)appDelegate.window.rootViewController;
+            [HelperMethod ShowAlertWithMessage:@"You have not purchased before" InViewController:navVC];
+        }
+    }
 }
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
@@ -259,7 +274,7 @@ static HungamaMisicInApp *sharedManager = nil;
     AppDelegate *appDelegate=APP_DELEGATE;
     appDelegate.isProductISBeingPurchased=FALSE;
     [[NSNotificationCenter defaultCenter] postNotificationName:HungamaMusicProductPurchasedNotification object:transaction.payment.productIdentifier userInfo:nil];
-    [[NSUserDefaults standardUserDefaults] setObject:transaction forKey:transaction.payment.productIdentifier];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDictionary dictionaryWithObjectsAndKeys:transaction.transactionDate,@"transactionDate", nil] forKey:transaction.payment.productIdentifier];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -278,6 +293,7 @@ static HungamaMisicInApp *sharedManager = nil;
 - (void)restoreCompletedTransactions {
     strPurchaseType=@"restore";
     isSubscriptionAlreadyPurchased=FALSE;
+    self.isTransactionFailureHandling=FALSE;
     AppDelegate *appDelegate=APP_DELEGATE;
     appDelegate.isProductISBeingPurchased=TRUE;
     [MBProgressHUD showHUDAddedTo:appDelegate.window animated:YES];

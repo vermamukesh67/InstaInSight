@@ -77,18 +77,18 @@
     
     if (strProId!=nil) {
         
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        NSDictionary *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
         
         if (transaction) {
             
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightProfileViewer_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+            NSDate *transactionDate=[transaction objectForKey:@"transactionDate"];
+            if ([strProId isEqualToString:kInstaInsightProfileViewer_Year] && [[transactionDate dateByAddingDays:365] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightProfileViewer_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightProfileViewer_SixMonth] && [[transactionDate dateByAddingDays:365/2] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightProfileViewer_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightProfileViewer_OneMonth] && [[transactionDate dateByAddingDays:30] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
             else
@@ -136,18 +136,18 @@
     
     if (strProId!=nil) {
         
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        NSDictionary *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
         
         if (transaction) {
             
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightMyTopLikers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+            NSDate *transactionDate=[transaction objectForKey:@"transactionDate"];
+            if ([strProId isEqualToString:kInstaInsightMyTopLikers_Year] && [[transactionDate dateByAddingDays:365] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightMyTopLikers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightMyTopLikers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightMyTopLikers_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightMyTopLikers_OneMonth] && [[transactionDate dateByAddingDays:30] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
             else
@@ -195,18 +195,18 @@
     
     if (strProId!=nil) {
         
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        NSDictionary *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
         
         if (transaction) {
             
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightWhoILikedMost_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+            NSDate *transactionDate=[transaction objectForKey:@"transactionDate"];
+            if ([strProId isEqualToString:kInstaInsightWhoILikedMost_Year] && [[transactionDate dateByAddingDays:365] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightWhoILikedMost_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightWhoILikedMost_SixMonth] && [[transactionDate dateByAddingDays:365/2] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightWhoILikedMost_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightWhoILikedMost_OneMonth] && [[transactionDate dateByAddingDays:30] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
             else
@@ -254,18 +254,18 @@
     
     if (strProId!=nil) {
         
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        NSDictionary *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
         
         if (transaction) {
             
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+            NSDate *transactionDate=[transaction objectForKey:@"transactionDate"];
+            if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_Year] && [[transactionDate dateByAddingDays:365] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightMostPopularFollowers_OneMonth] && [[transactionDate dateByAddingDays:30] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
             else
@@ -314,18 +314,18 @@
     
     if (strProId!=nil) {
         
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        NSDictionary *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
         
         if (transaction) {
             
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightGhostFollowers_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+            NSDate *transactionDate=[transaction objectForKey:@"transactionDate"];
+            if ([strProId isEqualToString:kInstaInsightGhostFollowers_Year] && [[transactionDate dateByAddingDays:365] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightGhostFollowers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightGhostFollowers_SixMonth] && [[transactionDate dateByAddingDays:365/2] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightGhostFollowers_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightGhostFollowers_OneMonth] && [[transactionDate dateByAddingDays:30] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
             else
@@ -373,18 +373,18 @@
     
     if (strProId!=nil) {
         
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        NSDictionary *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
         
         if (transaction) {
             
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightRemoveAds_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+            NSDate *transactionDate=[transaction objectForKey:@"transactionDate"];
+            if ([strProId isEqualToString:kInstaInsightRemoveAds_Year] && [[transactionDate dateByAddingDays:365] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightRemoveAds_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightRemoveAds_SixMonth] && [[transactionDate dateByAddingDays:365/2] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightRemoveAds_OneMonth] && [[transactionDate dateByAddingDays:30] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightRemoveAds_OneMonth] && [[transactionDate dateByAddingDays:30] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
             else
@@ -433,18 +433,18 @@
     
     if (strProId!=nil) {
         
-        SKPaymentTransaction *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
+        NSDictionary *transaction=[[NSUserDefaults standardUserDefaults] objectForKey:strProId];
         
         if (transaction) {
             
-            NSDate *transactionDate=transaction.transactionDate;
-            if ([strProId isEqualToString:kInstaInsightUpgradeToPro_Year] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+            NSDate *transactionDate=[transaction objectForKey:@"transactionDate"];
+            if ([strProId isEqualToString:kInstaInsightUpgradeToPro_Year] && [[transactionDate dateByAddingDays:365] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightUpgradeToPro_SixMonth] && [[transactionDate dateByAddingDays:365/2] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightUpgradeToPro_SixMonth] && [[transactionDate dateByAddingDays:365/2] isLaterThanOrEqualTo:[NSDate date]]) {
                 return YES;
             }
-            else  if ([strProId isEqualToString:kInstaInsightUpgradeToPro_OneMonth] && [[transactionDate dateByAddingDays:365] isEarlierThanOrEqualTo:[NSDate date]]) {
+            else  if ([strProId isEqualToString:kInstaInsightUpgradeToPro_OneMonth] && [[transactionDate dateByAddingDays:30] isLaterThanOrEqualTo:[NSDate date]]) {
                return YES;
             }
             else
