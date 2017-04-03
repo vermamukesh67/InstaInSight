@@ -443,7 +443,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"1 Month for $1.99/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightProfileViewer_OneMonth]];
         
@@ -463,7 +463,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"6 Month for $1.49/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightProfileViewer_SixMonth]];
         
@@ -483,7 +483,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"12 Month for $0.99/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightProfileViewer_Year]];
         
@@ -518,7 +518,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"1 Month for $0.99/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMyTopLikers_OneMonth]];
         
@@ -538,7 +538,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"6 Month for $0.75/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMyTopLikers_SixMonth]];
         
@@ -558,7 +558,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"12 Month for $0.49/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMyTopLikers_Year]];
         
@@ -593,7 +593,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"1 Month for $0.99/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightWhoILikedMost_OneMonth]];
         
@@ -613,7 +613,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"6 Month for $0.75/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightWhoILikedMost_SixMonth]];
         
@@ -633,7 +633,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"12 Month for $0.49/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightWhoILikedMost_Year]];
         
@@ -668,7 +668,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"1 Month for $0.99/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMostPopularFollowers_OneMonth]];
         
@@ -688,7 +688,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"6 Month for $0.75/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMostPopularFollowers_SixMonth]];
         
@@ -708,7 +708,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"12 Month for $0.49/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightMostPopularFollowers_Year]];
         
@@ -743,7 +743,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 1 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"1 Month for $0.99/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightGhostFollowers_OneMonth]];
         
@@ -763,7 +763,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For 6 Month" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"6 Month for $0.75/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightGhostFollowers_SixMonth]];
         
@@ -783,7 +783,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"For Year" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"12 Month for $0.49/MO" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         
         [[HungamaMisicInApp sharedHungamaMisicInAppInstance] SetProductIdentifiers:[NSSet setWithObject:kInstaInsightGhostFollowers_Year]];
         

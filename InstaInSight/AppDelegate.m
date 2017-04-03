@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#define AdInterval 8.0f
+#define AdInterval 10.0f
 
 
 @interface AppDelegate ()
@@ -111,13 +111,11 @@
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"]) {
         
-//        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
-//        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
-//        NSDate *todayDate=[NSDate date];
+        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
+        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
+        NSDate *todayDate=[NSDate date];
         
-        // if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
-        
-        if (arrAdIds.count>0 ) {
+        if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
             
             self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:[arrAdIds firstObject]];//@"ca-app-pub-3923375576341160/1197539334"
             self.interstitial.delegate=self;
@@ -141,36 +139,34 @@
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"]) {
         
-        if (self.interstitial.isReady) {
-            NSLog(@"root view controller = %@",[self.window rootViewController]);
-            
-            if (!self.isProductISBeingPurchased) {
-            
-                [self.interstitial presentFromRootViewController:[self.window rootViewController]];
-            }
-            
-        } else {
-            NSLog(@"Ad wasn't ready");
-            [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
-        }
-        
-//        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
-//        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
-//        NSDate *todayDate=[NSDate date];
-//        if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
-//            
+//        if (self.interstitial.isReady) {
 //            NSLog(@"root view controller = %@",[self.window rootViewController]);
-//            if (self.interstitial.isReady) {
-//                NSLog(@"root view controller = %@",[self.window rootViewController]);
+//            
+//            if (!self.isProductISBeingPurchased) {
+//            
 //                [self.interstitial presentFromRootViewController:[self.window rootViewController]];
-//                
-//                
-//                
-//            } else {
-//                NSLog(@"Ad wasn't ready");
-//                [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
 //            }
+//            
+//        } else {
+//            NSLog(@"Ad wasn't ready");
+//            [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
 //        }
+        
+        NSString *strDate=[[NSUserDefaults standardUserDefaults] objectForKey:@"instaDate"];
+        NSDate *instaDate=[HelperMethod ConvertDateTosystemTimeZone:strDate];
+        NSDate *todayDate=[NSDate date];
+        if ([todayDate isLaterThan:instaDate] && arrAdIds.count>0 ) {
+            
+            NSLog(@"root view controller = %@",[self.window rootViewController]);
+            if (self.interstitial.isReady && !self.isProductISBeingPurchased) {
+                NSLog(@"root view controller = %@",[self.window rootViewController]);
+                [self.interstitial presentFromRootViewController:[self.window rootViewController]];
+                
+            } else {
+                NSLog(@"Ad wasn't ready");
+                [self performSelector:@selector(createAndLoadInterstitial) withObject:nil afterDelay:AdInterval];
+            }
+        }
     }
 }
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad
