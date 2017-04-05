@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view.
      isFreeSelected=YES;
     [btnBuy setHidden:isFreeSelected];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redBG"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redBG"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:
@@ -379,6 +379,50 @@
     
 }
 
+- (IBAction)btnBuyTapped:(id)sender {
+    
+    InAppPurchaseVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"InAppPurchaseVC"];
+    [objScr setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:objScr animated:YES];
+    
+}
+
+- (IBAction)btnLogoutTapped:(id)sender {
+    
+    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"Are you sure you want to logout ?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Logout"
+                         style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alertVC dismissViewControllerAnimated:YES completion:nil];
+                             [[InstagramEngine sharedEngine] logout];
+                             
+                             UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNavVC"];
+                             [[APP_DELEGATE window] setRootViewController:viewController];
+                             [[APP_DELEGATE window] makeKeyAndVisible];
+                         }];
+    
+    UIAlertAction* No = [UIAlertAction
+                         actionWithTitle:@"No"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alertVC dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    [alertVC addAction:No];
+    [alertVC addAction:ok];
+   
+    [self presentViewController:alertVC animated:YES completion:^{
+        
+    }];
+    
+   
+}
+
 #pragma mark-
 #pragma mark- UIScrollDelegate
 
@@ -420,14 +464,6 @@
     }
 }
 
-
-- (IBAction)btnBuyTapped:(id)sender {
-    
-    InAppPurchaseVC *objScr=[self.storyboard instantiateViewControllerWithIdentifier:@"InAppPurchaseVC"];
-    [objScr setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:objScr animated:YES];
-    
-}
 
 #pragma mark-
 #pragma mark- In App Purchase Method

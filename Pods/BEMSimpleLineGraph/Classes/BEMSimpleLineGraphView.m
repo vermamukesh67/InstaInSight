@@ -18,7 +18,7 @@ const CGFloat BEMNullGraphValue = CGFLOAT_MAX;
 #endif
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define DEFAULT_FONT_NAME @"HelveticaNeue-Light"
+#define DEFAULT_FONT_NAME @"HelveticaNeue"
 
 
 typedef NS_ENUM(NSInteger, BEMInternalTags)
@@ -148,10 +148,14 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     // Set Color Values
     _colorXaxisLabel = [UIColor whiteColor];
     _colorYaxisLabel = [UIColor whiteColor];
+    
+    UIColor *topBot=[UIColor colorWithRed:201.0 green:0.0/255.0 blue:57.0/255 alpha:1];
+    //UIColor *topBot=[UIColor colorWithRed:117.0 green:32.0/255.0 blue:184.0/255 alpha:1];
+    
     //_colorTop = [UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
-    _colorBottom = [UIColor colorWithRed:117.0 green:32.0/255.0 blue:184.0/255 alpha:1];
+    _colorBottom = topBot;//;
     _colorLine = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
-    _colorTop = [UIColor colorWithRed:177.0 green:21.0/255.0 blue:126.0/255 alpha:1];
+    _colorTop = topBot;
     //_colorBottom = [UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
     _colorPoint = [UIColor whiteColor];
     _colorTouchInputLine = [UIColor grayColor];

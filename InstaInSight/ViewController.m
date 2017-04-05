@@ -51,7 +51,7 @@
                 if (arrUsers.count>0) {
                      [[InstaUser sharedUserInstance] setInstaUserId:[arrUsers firstObject]];
                 }
-               
+               //LoginNavVC
                 UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"freeNavVC"];
                 [[APP_DELEGATE window] setRootViewController:viewController];
                 [[APP_DELEGATE window] makeKeyAndVisible];

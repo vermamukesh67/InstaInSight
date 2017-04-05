@@ -22,6 +22,7 @@
     __weak IBOutlet UIButton *btnPro;
      UITableView *tblPaid;
     __weak IBOutlet UIScrollView *scrContainer;
+    __weak IBOutlet UIButton *btnLogout;
     
     NSMutableArray *arrRowData,*arrPaidData;
     BOOL isFreeSelected;
@@ -30,4 +31,5 @@
 - (IBAction)btnFreeTapped:(id)sender;
 - (IBAction)btnProTapped:(id)sender;
 - (IBAction)btnBuyTapped:(id)sender;
+- (IBAction)btnLogoutTapped:(id)sender;
 @end

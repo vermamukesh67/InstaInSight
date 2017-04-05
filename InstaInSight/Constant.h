@@ -48,6 +48,8 @@ __responder = [__responder nextResponder]; \
 #define ShowHideStatusBarVisible(value) [[UIApplication sharedApplication] setStatusBarHidden:value]
 #define COLOR_WITH_RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
+#define kAppRedColor [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1]
+
 #define MANAGED_OBJECT_CONTEXT [[CoreDataManager sharedInstance] managedObjectContext]
 
 #define kDefaultDateFormat @"yyyy-MM-dd HH:mm:ss"
