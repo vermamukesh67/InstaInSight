@@ -48,10 +48,15 @@
     
     [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
+    arrFollowers=[[NSMutableArray alloc] init];
+    arrFollowing=[[NSMutableArray alloc] init];
+    arrIMNotFollowingBack=[[NSMutableArray alloc] init];
+    arrNotFollowingBack=[[NSMutableArray alloc] init];
+    
     arrRowData=[[NSMutableArray alloc] initWithObjects:
         [NSDictionary dictionaryWithObjectsAndKeys:@"New Followers",@"title",@"newfollowers",@"imgName", nil],
         [NSDictionary dictionaryWithObjectsAndKeys:@"New Following",@"title",@"newfollowing",@"imgName", nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:@"Unfollowers",@"title",@"notfollowingback",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Not Following Back",@"title",@"notfollowingback",@"imgName", nil],
         [NSDictionary dictionaryWithObjectsAndKeys:@"I am not Following Back",@"title",@"iamnotfollowingback",@"imgName", nil],
         [NSDictionary dictionaryWithObjectsAndKeys:@"Like Trend",@"title",@"likegraphs",@"imgName", nil],
                 
@@ -85,6 +90,8 @@
     
     [scrContainer setShowsVerticalScrollIndicator:NO];
     [scrContainer setShowsHorizontalScrollIndicator:NO];
+    
+    [self GetFollowers];
     
 //    UISwipeGestureRecognizer *leftToRight=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLefttToRight:)];
 //    [leftToRight setDirection:UISwipeGestureRecognizerDirectionRight];
@@ -153,14 +160,137 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"featureCell"];
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:(tblFreeUser==tableView)?@"featureCell":@"paidCell"];
     if (cell==nil) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"featureCell"];
+        cell=[[UITableViewCell alloc] initWithStyle:(tableView==tblFreeUser)?UITableViewCellStyleSubtitle:UITableViewCellStyleDefault reuseIdentifier:@"featureCell"];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        
+        if (tblFreeUser==tableView) {
+        UILabel *lblCount=[[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width-93, 14, 62, 20)];
+        [lblCount setFont:[UIFont systemFontOfSize:10.0f]];
+        [lblCount setTag:10];
+        [[lblCount layer] setBorderColor:[UIColor lightGrayColor].CGColor];
+        [[lblCount layer] setBorderWidth:1.0f];
+        [lblCount setTextColor:[UIColor blackColor]];
+        [[lblCount layer] setCornerRadius:10.0f];
+        [lblCount setClipsToBounds:YES];
+        [lblCount setTextAlignment:NSTextAlignmentCenter];
+        [lblCount setAdjustsFontSizeToFitWidth:YES];
+        [lblCount setMinimumScaleFactor:0.25];
+        [cell addSubview:lblCount];
+      }
     }
     NSDictionary *diccData=(tableView==tblFreeUser)?[arrRowData objectAtIndex:indexPath.row]:[arrPaidData objectAtIndex:indexPath.row];
     [cell.imageView setImage:[UIImage imageNamed:[diccData objectForKey:@"imgName"]]];
-    [cell.textLabel setText:[diccData objectForKey:@"title"]];
+    
+    if (tblFreeUser==tableView) {
+        
+        [cell.textLabel setText:[diccData objectForKey:@"title"]];
+        
+        UILabel *lblCount=(UILabel *)[cell viewWithTag:10];
+        [lblCount setHidden:NO];
+        switch (indexPath.row) {
+            case 0:
+                [lblCount setText:[NSString stringWithFormat:@"%li New",arrFollowers.count]];
+                break;
+            case 1:
+                [lblCount setText:[NSString stringWithFormat:@"%li New",arrFollowing.count]];
+                break;
+            case 2:
+                if ([[NSUserDefaults standardUserDefaults] objectForKey:koldCountIMFollowing]) {
+                    
+                    NSString *text=[NSString stringWithFormat:@" %li (%li New) ",arrNotFollowingBack.count,[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]];
+                    
+                    NSString *text1=[NSString stringWithFormat:@" %li",arrNotFollowingBack.count];
+                    NSString *text2=[NSString stringWithFormat:@"(%li New) ",[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]];
+                    
+                    
+                    NSDictionary *attribs = @{
+                                              NSForegroundColorAttributeName: lblCount.textColor,
+                                              NSFontAttributeName: lblCount.font
+                                              };
+                    NSMutableAttributedString *attributedText =
+                    [[NSMutableAttributedString alloc] initWithString:text
+                                                           attributes:attribs];
+                    
+                    NSRange redTextRange = [text rangeOfString:text1];
+                    
+                    [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
+                                                    NSFontAttributeName:[UIFont boldSystemFontOfSize:10]}
+                                            range:redTextRange];
+                    
+                    redTextRange = [text rangeOfString:text2];
+                    
+                    [attributedText setAttributes:@{NSForegroundColorAttributeName:kAppRedColor,
+                                                    NSFontAttributeName:[UIFont systemFontOfSize:9]}
+                                            range:redTextRange];
+                    
+                    [lblCount setAttributedText:attributedText];
+                    
+//                    [lblCount setText:[NSString stringWithFormat:@"%li (%li New)",arrNotFollowingBack.count,[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]]];
+                }
+                else
+                {
+                    [lblCount setText:[NSString stringWithFormat:@"%li New",arrNotFollowingBack.count]];
+                }
+                
+                break;
+            case 3:
+                if ([[NSUserDefaults standardUserDefaults] objectForKey:koldCountIMNOTFollowing]) {
+                    
+                    NSString *text=[NSString stringWithFormat:@" %li (%li New) ",arrIMNotFollowingBack.count,[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]];
+                    
+                    
+                    NSString *text1=[NSString stringWithFormat:@" %li",arrIMNotFollowingBack.count];
+                    NSString *text2=[NSString stringWithFormat:@"(%li New) ",[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMNOTFollowing]];
+                    
+                    NSDictionary *attribs = @{
+                                              NSForegroundColorAttributeName: lblCount.textColor,
+                                              NSFontAttributeName: lblCount.font
+                                              };
+                    NSMutableAttributedString *attributedText =
+                    [[NSMutableAttributedString alloc] initWithString:text
+                                                           attributes:attribs];
+                    
+                    NSRange redTextRange = [text rangeOfString:text1];
+                    
+                    [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
+                                                    NSFontAttributeName:[UIFont boldSystemFontOfSize:10]}
+                                            range:redTextRange];
+                    
+                    redTextRange = [text rangeOfString:text2];
+                    
+                    [attributedText setAttributes:@{NSForegroundColorAttributeName:COLOR_WITH_RGBA(73.0f, 153.0f, 254.0f, 1.0f),NSFontAttributeName:[UIFont systemFontOfSize:9]}
+                                            range:redTextRange];
+                    
+                    [lblCount setAttributedText:attributedText];
+                    
+//                    [lblCount setText:[NSString stringWithFormat:@"%li (%li New)",arrIMNotFollowingBack.count,[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMNOTFollowing]]];
+                }
+                else
+                {
+                    [lblCount setText:[NSString stringWithFormat:@"%li New",arrIMNotFollowingBack.count]];
+                }
+                
+                break;
+                
+            default:
+                [lblCount setHidden:YES];
+                break;
+        }
+        
+    }
+    else
+    {
+        [cell.textLabel setText:[diccData objectForKey:@"title"]];
+    }
+    
+    
+    
+    if (tblFreeUser==tableView) {
+    
+        
+    }
     return cell;
 }
 
@@ -844,6 +974,120 @@
 }
 
 
+#pragma mark-
+#pragma mark- Web-Api Method
 
+-(void)GetFollowers
+{
+    
+    [[InstagramEngine sharedEngine] getFollowersOfUser:[[InstaUser sharedUserInstance] instaUserId] withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
+        
+        NSLog(@"users = %@",users);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [Followers saveFollowersList:obj];
+            }];
+            arrFollowers=[[NSMutableArray alloc] initWithArray:[Followers fetchFollowersByType:@"1"]];
+            
+            [self GetFollowings];
+          
+        });
+        
+        
+    } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+        
+       
+    }];
+    
+}
+
+-(void)GetFollowings
+{
+    
+    [[InstagramEngine sharedEngine] getUsersFollowedByUser:[[InstaUser sharedUserInstance] instaUserId] withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
+        
+        NSLog(@"users = %@",users);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [Following saveFollowingsList:obj];
+            }];
+            arrFollowing=[[NSMutableArray alloc] initWithArray:[Following fetchFollowingsByType:@"1"]];
+            
+            [self CheckNotFollowingBack];
+            [self CheckIamNotFollowingBack];
+            
+            [tblFreeUser reloadData];
+           
+        });
+        
+    } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+        
+       
+    }];
+    
+}
+
+-(void)CheckIamNotFollowingBack
+{
+    NSArray *arrNewFollowers=[Followers fetchFollowersDetails];
+    
+    [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([Following fetchFollowingsById:objF.followerId]==nil) {
+            [arrIMNotFollowingBack addObject:objF];
+        }
+    }];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:koldCountIMNOTFollowing]) {
+        
+        NSInteger count =(arrIMNotFollowingBack.count-([[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMNOTFollowing]));
+        if (count<0) {
+            count=0-count;
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setInteger:count forKey:koldCountIMNOTFollowing];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setInteger:arrIMNotFollowingBack.count forKey:koldCountIMNOTFollowing];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+   
+}
+
+-(void)CheckNotFollowingBack
+{
+    NSArray *arrNewFollowers=[Following fetchFollowingsDetails];
+    
+    [arrNewFollowers enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([Followers fetchFollowersById:objF.followingId]==nil) {
+            [arrNotFollowingBack addObject:objF];
+        }
+    }];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:koldCountIMFollowing]) {
+        
+        NSInteger count =(arrNotFollowingBack.count-([[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]));
+        if (count<0) {
+            count=0-count;
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setInteger:count forKey:koldCountIMFollowing];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setInteger:arrNotFollowingBack.count forKey:koldCountIMFollowing];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
+}
 
 @end

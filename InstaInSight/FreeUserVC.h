@@ -27,6 +27,7 @@
     NSMutableArray *arrRowData,*arrPaidData;
     BOOL isFreeSelected;
     __weak IBOutlet UIButton *btnBuy;
+    NSMutableArray *arrFollowers,*arrFollowing,*arrIMNotFollowingBack,*arrNotFollowingBack;
 }
 - (IBAction)btnFreeTapped:(id)sender;
 - (IBAction)btnProTapped:(id)sender;

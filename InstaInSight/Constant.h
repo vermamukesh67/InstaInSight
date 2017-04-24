@@ -48,7 +48,7 @@ __responder = [__responder nextResponder]; \
 #define ShowHideStatusBarVisible(value) [[UIApplication sharedApplication] setStatusBarHidden:value]
 #define COLOR_WITH_RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
-#define kAppRedColor [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1]
+#define kAppRedColor [UIColor colorWithRed:201.0/255.0 green:0.0/255.0 blue:57.0/255.0 alpha:1]
 
 #define MANAGED_OBJECT_CONTEXT [[CoreDataManager sharedInstance] managedObjectContext]
 
@@ -59,6 +59,9 @@ __responder = [__responder nextResponder]; \
 #define kIsProductPurchased @"IsProductPurchased"
 
 #define kProductNotLoaded @"No such product found on itunes store"
+
+#define koldCountIMNOTFollowing @"oldCountIMNOTFollowing"
+#define koldCountIMFollowing @"oldCountIMFollowing"
 
 // Upgrade to Pro Products Ids
 
