@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // Use Firebase library to configure APIs
-    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window setBackgroundColor:kAppRedColor];
     
     [FIRApp configure];
     
