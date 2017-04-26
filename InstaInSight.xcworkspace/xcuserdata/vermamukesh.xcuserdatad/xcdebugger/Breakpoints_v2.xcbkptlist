@@ -823,11 +823,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "514750729.935496"
+            timestampString = "514922273.231937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1046"
-            endingLineNumber = "1046"
+            startingLineNumber = "1053"
+            endingLineNumber = "1053"
             landmarkName = "-CheckIamNotFollowingBack"
             landmarkType = "7">
          </BreakpointContent>
@@ -839,11 +839,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "514750865.382512"
+            timestampString = "514922273.231937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1010"
-            endingLineNumber = "1010"
+            startingLineNumber = "1015"
+            endingLineNumber = "1015"
             landmarkName = "-GetFollowings"
             landmarkType = "7">
          </BreakpointContent>
@@ -855,11 +855,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "514750866.291584"
+            timestampString = "514922273.231937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1008"
-            endingLineNumber = "1008"
+            startingLineNumber = "1013"
+            endingLineNumber = "1013"
             landmarkName = "-GetFollowings"
             landmarkType = "7">
             <Locations>

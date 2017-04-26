@@ -57,7 +57,7 @@
         [NSDictionary dictionaryWithObjectsAndKeys:@"New Followers",@"title",@"newfollowers",@"imgName", nil],
         [NSDictionary dictionaryWithObjectsAndKeys:@"New Following",@"title",@"newfollowing",@"imgName", nil],
         [NSDictionary dictionaryWithObjectsAndKeys:@"Not Following Back",@"title",@"notfollowingback",@"imgName", nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:@"I am not Following Back",@"title",@"iamnotfollowingback",@"imgName", nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"I am not Following\nBack",@"title",@"iamnotfollowingback",@"imgName", nil],
         [NSDictionary dictionaryWithObjectsAndKeys:@"Like Trend",@"title",@"likegraphs",@"imgName", nil],
                 
                 nil];
@@ -91,7 +91,6 @@
     [scrContainer setShowsVerticalScrollIndicator:NO];
     [scrContainer setShowsHorizontalScrollIndicator:NO];
     
-    [self GetFollowers];
     
 //    UISwipeGestureRecognizer *leftToRight=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLefttToRight:)];
 //    [leftToRight setDirection:UISwipeGestureRecognizerDirectionRight];
@@ -110,7 +109,7 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
-    
+    [self GetFollowers];
 }
 
 -(void)swipeLefttToRight:(id)sender
@@ -166,7 +165,7 @@
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
         if (tblFreeUser==tableView) {
-        UILabel *lblCount=[[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width-93, 14, 62, 20)];
+        UILabel *lblCount=[[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width-93, 14, 63, 20)];
         [lblCount setFont:[UIFont systemFontOfSize:10.0f]];
         [lblCount setTag:10];
         [[lblCount layer] setBorderColor:[UIColor lightGrayColor].CGColor];
@@ -287,12 +286,18 @@
     
     
     
-    if (tblFreeUser==tableView) {
+    if (IS_IPHONE_5) {
     
+        [cell.textLabel setFont:[UIFont systemFontOfSize:14.0f]];
+        [cell.textLabel setLineBreakMode:NSLineBreakByWordWrapping];
+        [cell.textLabel setNumberOfLines:2];
+        [cell.textLabel setFrame:CGRectMake(cell.textLabel.frame.origin.x, cell.textLabel.frame.origin.y, cell.textLabel.frame.size.width-100, 30)];
         
     }
     return cell;
 }
+
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -1036,6 +1041,8 @@
     
     [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
         
+        
+        
         if ([Following fetchFollowingsById:objF.followerId]==nil) {
             [arrIMNotFollowingBack addObject:objF];
         }
@@ -1062,6 +1069,9 @@
 
 -(void)CheckNotFollowingBack
 {
+    [arrNotFollowingBack removeAllObjects];
+    [arrIMNotFollowingBack removeAllObjects];
+    
     NSArray *arrNewFollowers=[Following fetchFollowingsDetails];
     
     [arrNewFollowers enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {

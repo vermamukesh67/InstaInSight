@@ -938,7 +938,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.erdem.instainsight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bb985bc7-63df-4f72-b8c6-b441014b6006";
+				PROVISIONING_PROFILE = "018a3dfc-4c78-40c0-abb6-8611eed7a88e";
 				PROVISIONING_PROFILE_SPECIFIER = InstaInsight_Development;
 			};
 			name = Debug;
@@ -1024,7 +1024,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.erdem.instainsight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bb985bc7-63df-4f72-b8c6-b441014b6006";
+				PROVISIONING_PROFILE = "018a3dfc-4c78-40c0-abb6-8611eed7a88e";
 				PROVISIONING_PROFILE_SPECIFIER = InstaInsight_Development;
 			};
 			name = Release;
