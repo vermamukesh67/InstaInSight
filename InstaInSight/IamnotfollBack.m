@@ -74,6 +74,8 @@
                 [tblFollowing setHidden:NO];
                 [tblFollowing reloadData];
                 [actView stopAnimating];
+                AppDelegate *appDelegate=APP_DELEGATE;
+                appDelegate.isNewIMNOTFollowingBackSaw=TRUE;
                 if (arrIMNotFollowingBack.count==0) {
                     UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
                     

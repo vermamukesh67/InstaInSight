@@ -57,22 +57,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaInSight/LikeGraph.m"
-            timestampString = "507897577.038975"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "-lineGraph:valueForPointAtIndex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "InstaInSight/ProfileViewer.m"
             timestampString = "508495610.131457"
             startingColumnNumber = "9223372036854775807"
@@ -128,70 +112,6 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "-GetFollowers"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/NotFollowBack.m"
-            timestampString = "511289216.252469"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-CheckIamNotFollowingBack"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[NotFollowBack CheckIamNotFollowingBack]_block_invoke"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.05442"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "104">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[NotFollowBack CheckIamNotFollowingBack]_block_invoke_2"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.05693"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/NotFollowBack.m"
-            timestampString = "511289231.162542"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-CheckIamNotFollowingBack"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -378,7 +298,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "514930249.103301"
+                  timestampString = "515610893.72303"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -393,7 +313,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "514930249.105795"
+                  timestampString = "515610893.724885"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -426,7 +346,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "514930249.111857"
+                  timestampString = "515610893.728326"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
@@ -441,7 +361,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "514930249.114954"
+                  timestampString = "515610893.729961"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
@@ -506,7 +426,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "514930249.128273"
+                  timestampString = "515610893.739261"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -521,7 +441,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "514930249.131739"
+                  timestampString = "515610893.74087"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -618,7 +538,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "514930249.160224"
+                  timestampString = "515610893.758021"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
@@ -633,7 +553,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "514930249.162808"
+                  timestampString = "515610893.759662"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
@@ -681,12 +601,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaInSight/NotFollowBack.m"
-            timestampString = "514636212.808212"
+            filePath = "InstaInSight/FreeUserVC.m"
+            timestampString = "515610817.546151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "1065"
+            endingLineNumber = "1065"
             landmarkName = "-CheckIamNotFollowingBack"
             landmarkType = "7">
             <Locations>
@@ -694,30 +614,30 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__41-[NotFollowBack CheckIamNotFollowingBack]_block_invoke_2.166"
+                  symbolName = "-[FreeUserVC CheckIamNotFollowingBack]"
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.178535"
+                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/FreeUserVC.m"
+                  timestampString = "515610893.772926"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "144">
+                  startingLineNumber = "1065"
+                  endingLineNumber = "1065"
+                  offsetFromSymbolStart = "348">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__41-[NotFollowBack CheckIamNotFollowingBack]_block_invoke_4"
+                  symbolName = "__38-[FreeUserVC CheckIamNotFollowingBack]_block_invoke"
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.1808"
+                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/FreeUserVC.m"
+                  timestampString = "515610893.774598"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
+                  startingLineNumber = "1067"
+                  endingLineNumber = "1067"
                   offsetFromSymbolStart = "88">
                </Location>
             </Locations>
@@ -729,91 +649,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaInSight/NotFollowBack.m"
-            timestampString = "514638952.057318"
+            filePath = "InstaInSight/FreeUserVC.m"
+            timestampString = "515610822.509228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "1067"
+            endingLineNumber = "1067"
             landmarkName = "-CheckIamNotFollowingBack"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[NotFollowBack CheckIamNotFollowingBack]_block_invoke"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.18718"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "468">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[NotFollowBack CheckIamNotFollowingBack]_block_invoke.163"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.190154"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "272">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.220"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.193094"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.221"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.196164"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[NotFollowBack CheckIamNotFollowingBack]_block_invoke.224"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.198864"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -823,124 +666,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "514927425.895757"
+            timestampString = "515610985.990745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1016"
-            endingLineNumber = "1016"
-            landmarkName = "-GetFollowings"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "514927425.895757"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1014"
-            endingLineNumber = "1014"
-            landmarkName = "-GetFollowings"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[FreeUserVC GetFollowings]"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/FreeUserVC.m"
-                  timestampString = "514930249.209904"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1014"
-                  endingLineNumber = "1014"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__27-[FreeUserVC GetFollowings]_block_invoke"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/FreeUserVC.m"
-                  timestampString = "514930249.211861"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1014"
-                  endingLineNumber = "1014"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/NotFollowBack.m"
-            timestampString = "514929178.773857"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "1077"
+            endingLineNumber = "1077"
             landmarkName = "-CheckIamNotFollowingBack"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[NotFollowBack CheckIamNotFollowingBack]"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.215549"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[NotFollowBack CheckIamNotFollowingBack]_block_invoke"
-                  moduleName = "InstaInSight"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/NotFollowBack.m"
-                  timestampString = "514930249.217262"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "514930183.559022"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1082"
-            endingLineNumber = "1082"
-            landmarkName = "-CheckNotFollowingBack"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

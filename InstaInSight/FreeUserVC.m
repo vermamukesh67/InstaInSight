@@ -31,6 +31,10 @@
      isFreeSelected=YES;
     [btnBuy setHidden:isFreeSelected];
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redBG"] forBarMetrics:UIBarMetricsDefault];
+    
+//    notfollowingBack=[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing];
+//    iamnotfollowingBack=[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMNOTFollowing];
+    
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:
@@ -52,6 +56,33 @@
     arrFollowing=[[NSMutableArray alloc] init];
     arrIMNotFollowingBack=[[NSMutableArray alloc] init];
     arrNotFollowingBack=[[NSMutableArray alloc] init];
+    arrNewIMNotF=[[NSMutableArray alloc] init];
+    arrNewF=[[NSMutableArray alloc] init];
+    
+    arrFollowing=[[NSMutableArray alloc] initWithArray:[Following fetchFollowingsByType:@"1"]];
+    
+    // Total I am not following back
+    
+    NSArray *arrNewFollowers=[Followers fetchFollowersDetails];
+    
+    [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([Following fetchFollowingsById:objF.followerId]==nil) {
+            [arrIMNotFollowingBack addObject:objF];
+        }
+    }];
+    
+    // Total not following back
+    
+    NSArray *arrNewFollowings=[Following fetchFollowingsDetails];
+    
+    [arrNewFollowings enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([Followers fetchFollowersById:objF.followingId]==nil) {
+            [arrNotFollowingBack addObject:objF];
+        }
+    }];
+
     
     arrRowData=[[NSMutableArray alloc] initWithObjects:
         [NSDictionary dictionaryWithObjectsAndKeys:@"New Followers",@"title",@"newfollowers",@"imgName", nil],
@@ -196,80 +227,66 @@
                 [lblCount setText:[NSString stringWithFormat:@" %li New ",arrFollowing.count]];
                 break;
             case 2:
-                if ([[NSUserDefaults standardUserDefaults] objectForKey:koldCountIMFollowing]) {
-                    
-                    NSString *text=[NSString stringWithFormat:@" %li (%li New) ",arrNotFollowingBack.count,[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]];
-                    
-                    NSString *text1=[NSString stringWithFormat:@" %li",arrNotFollowingBack.count];
-                    NSString *text2=[NSString stringWithFormat:@"(%li New) ",[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]];
-                    
-                    
-                    NSDictionary *attribs = @{
-                                              NSForegroundColorAttributeName: lblCount.textColor,
-                                              NSFontAttributeName: lblCount.font
-                                              };
-                    NSMutableAttributedString *attributedText =
-                    [[NSMutableAttributedString alloc] initWithString:text
-                                                           attributes:attribs];
-                    
-                    NSRange redTextRange = [text rangeOfString:text1];
-                    
-                    [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
-                                                    NSFontAttributeName:[UIFont boldSystemFontOfSize:10]}
-                                            range:redTextRange];
-                    
-                    redTextRange = [text rangeOfString:text2];
-                    
-                    [attributedText setAttributes:@{NSForegroundColorAttributeName:kAppRedColor,
-                                                    NSFontAttributeName:[UIFont systemFontOfSize:9]}
-                                            range:redTextRange];
-                    
-                    [lblCount setAttributedText:attributedText];
-                    
-//                    [lblCount setText:[NSString stringWithFormat:@"%li (%li New)",arrNotFollowingBack.count,[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]]];
-                }
-                else
-                {
-                    [lblCount setText:[NSString stringWithFormat:@"%li New",arrNotFollowingBack.count]];
-                }
+            {
+                NSString *text=[NSString stringWithFormat:@" %li (%li New) ",arrNotFollowingBack.count,arrNewF.count];
+                
+                NSString *text1=[NSString stringWithFormat:@" %li",arrNotFollowingBack.count];
+                NSString *text2=[NSString stringWithFormat:@"(%li New) ",arrNewF.count];
+                
+                
+                NSDictionary *attribs = @{
+                                          NSForegroundColorAttributeName: lblCount.textColor,
+                                          NSFontAttributeName: lblCount.font
+                                          };
+                NSMutableAttributedString *attributedText =
+                [[NSMutableAttributedString alloc] initWithString:text
+                                                       attributes:attribs];
+                
+                NSRange redTextRange = [text rangeOfString:text1];
+                
+                [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
+                                                NSFontAttributeName:[UIFont boldSystemFontOfSize:10]}
+                                        range:redTextRange];
+                
+                redTextRange = [text rangeOfString:text2];
+                
+                [attributedText setAttributes:@{NSForegroundColorAttributeName:kAppRedColor,
+                                                NSFontAttributeName:[UIFont systemFontOfSize:9]}
+                                        range:redTextRange];
+                
+                [lblCount setAttributedText:attributedText];
+            }
                 
                 break;
             case 3:
-                if ([[NSUserDefaults standardUserDefaults] objectForKey:koldCountIMNOTFollowing]) {
-                    
-                    NSString *text=[NSString stringWithFormat:@" %li (%li New) ",arrIMNotFollowingBack.count,[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]];
-                    
-                    
-                    NSString *text1=[NSString stringWithFormat:@" %li",arrIMNotFollowingBack.count];
-                    NSString *text2=[NSString stringWithFormat:@"(%li New) ",[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMNOTFollowing]];
-                    
-                    NSDictionary *attribs = @{
-                                              NSForegroundColorAttributeName: lblCount.textColor,
-                                              NSFontAttributeName: lblCount.font
-                                              };
-                    NSMutableAttributedString *attributedText =
-                    [[NSMutableAttributedString alloc] initWithString:text
-                                                           attributes:attribs];
-                    
-                    NSRange redTextRange = [text rangeOfString:text1];
-                    
-                    [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
-                                                    NSFontAttributeName:[UIFont boldSystemFontOfSize:10]}
-                                            range:redTextRange];
-                    
-                    redTextRange = [text rangeOfString:text2];
-                    
-                    [attributedText setAttributes:@{NSForegroundColorAttributeName:COLOR_WITH_RGBA(73.0f, 153.0f, 254.0f, 1.0f),NSFontAttributeName:[UIFont systemFontOfSize:9]}
-                                            range:redTextRange];
-                    
-                    [lblCount setAttributedText:attributedText];
-                    
-//                    [lblCount setText:[NSString stringWithFormat:@"%li (%li New)",arrIMNotFollowingBack.count,[[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMNOTFollowing]]];
-                }
-                else
-                {
-                    [lblCount setText:[NSString stringWithFormat:@"%li New",arrIMNotFollowingBack.count]];
-                }
+            {
+                NSString *text=[NSString stringWithFormat:@" %li (%li New) ",arrIMNotFollowingBack.count,arrNewIMNotF.count];
+                
+                
+                NSString *text1=[NSString stringWithFormat:@" %li",arrIMNotFollowingBack.count];
+                NSString *text2=[NSString stringWithFormat:@"(%li New) ",arrNewIMNotF.count];
+                
+                NSDictionary *attribs = @{
+                                          NSForegroundColorAttributeName: lblCount.textColor,
+                                          NSFontAttributeName: lblCount.font
+                                          };
+                NSMutableAttributedString *attributedText =
+                [[NSMutableAttributedString alloc] initWithString:text
+                                                       attributes:attribs];
+                
+                NSRange redTextRange = [text rangeOfString:text1];
+                
+                [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],
+                                                NSFontAttributeName:[UIFont boldSystemFontOfSize:10]}
+                                        range:redTextRange];
+                
+                redTextRange = [text rangeOfString:text2];
+                
+                [attributedText setAttributes:@{NSForegroundColorAttributeName:COLOR_WITH_RGBA(73.0f, 153.0f, 254.0f, 1.0f),NSFontAttributeName:[UIFont systemFontOfSize:9]}
+                                        range:redTextRange];
+                
+                [lblCount setAttributedText:attributedText];
+            }
                 
                 break;
                 
@@ -1000,7 +1017,6 @@
           
         });
         
-        
     } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
         
        
@@ -1021,8 +1037,6 @@
                 [Following saveFollowingsList:obj];
             }];
             arrFollowing=[[NSMutableArray alloc] initWithArray:[Following fetchFollowingsByType:@"1"]];
-            [arrNotFollowingBack removeAllObjects];
-            [arrIMNotFollowingBack removeAllObjects];
             [self CheckNotFollowingBack];
             [self CheckIamNotFollowingBack];
             
@@ -1032,69 +1046,65 @@
         
     } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
         
-       
     }];
     
 }
 
 -(void)CheckIamNotFollowingBack
 {
+    AppDelegate *appDelegate=APP_DELEGATE;
     NSArray *arrNewFollowers=[Followers fetchFollowersDetails];
+    
+    NSMutableArray *arrTemp=[[NSMutableArray alloc] init];
+    
+    if (appDelegate.isNewIMNOTFollowingBackSaw) {
+    
+        arrNewIMNotF = [[NSMutableArray alloc] init];
+    }
     
     [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
                 
         if ([Following fetchFollowingsById:objF.followerId]==nil) {
-            [arrIMNotFollowingBack addObject:objF];
+            
+            if (![arrIMNotFollowingBack containsObject:objF]) {
+                
+                [arrNewIMNotF addObject:objF];
+            }
+            [arrTemp addObject:objF];
         }
     }];
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:koldCountIMNOTFollowing]) {
-        
-        NSInteger count =(arrIMNotFollowingBack.count-([[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMNOTFollowing]));
-        if (count<0) {
-            count=0-count;
-        }
-        
-        [[NSUserDefaults standardUserDefaults] setInteger:count forKey:koldCountIMNOTFollowing];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults] setInteger:arrIMNotFollowingBack.count forKey:koldCountIMNOTFollowing];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
+    arrIMNotFollowingBack=arrTemp;
     
-   
+    appDelegate.isNewIMNOTFollowingBackSaw=FALSE;
+    
 }
 
 -(void)CheckNotFollowingBack
 {
-   
+    AppDelegate *appDelegate=APP_DELEGATE;
     NSArray *arrNewFollowers=[Following fetchFollowingsDetails];
+    NSMutableArray *arrTemp=[[NSMutableArray alloc] init];
+    
+    if (appDelegate.isNewFollowingBackSaw) {
+    
+        arrNewF = [[NSMutableArray alloc] init];
+    }
     
     [arrNewFollowers enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if ([Followers fetchFollowersById:objF.followingId]==nil) {
-            [arrNotFollowingBack addObject:objF];
+            
+            if (![arrNotFollowingBack containsObject:objF]) {
+            
+                [arrNewF addObject:objF];
+            }
+            [arrTemp addObject:objF];
         }
     }];
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:koldCountIMFollowing]) {
-        
-        NSInteger count =(arrNotFollowingBack.count-([[NSUserDefaults standardUserDefaults] integerForKey:koldCountIMFollowing]));
-        if (count<0) {
-            count=0-count;
-        }
-        
-        [[NSUserDefaults standardUserDefaults] setInteger:count forKey:koldCountIMFollowing];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults] setInteger:arrNotFollowingBack.count forKey:koldCountIMFollowing];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    
+    arrNotFollowingBack=arrTemp;
+    appDelegate.isNewFollowingBackSaw=FALSE;
     
 }
 

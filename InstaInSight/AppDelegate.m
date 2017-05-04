@@ -23,6 +23,9 @@
     // Use Firebase library to configure APIs
     [self.window setBackgroundColor:kAppRedColor];
     
+    [self setIsNewFollowingBackSaw:YES];
+    [self setIsNewIMNOTFollowingBackSaw:YES];
+    
     [FIRApp configure];
     
     followunfollowCount=0;
@@ -39,7 +42,11 @@
     [[HungamaMisicInApp sharedHungamaMisicInAppInstance] setIsTransactionFailureHandling:YES];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:[HungamaMisicInApp sharedHungamaMisicInAppInstance]];
     
-   
+//    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:koldCountIMNOTFollowing];
+//    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:koldCountIMFollowing];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
     
     return YES;
 }

@@ -20,7 +20,7 @@
 }
 @property (strong, nonatomic) UIWindow *window;
 @property(nonatomic, strong) GADInterstitial *interstitial;
-@property (nonatomic) BOOL isProductISBeingPurchased;
+@property (nonatomic) BOOL isProductISBeingPurchased,isNewFollowingBackSaw,isNewIMNOTFollowingBackSaw;
 
 @property(nonatomic,assign) NSInteger followunfollowCount;
 
