@@ -66,7 +66,7 @@
                 
                 [arrNewFollowers enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
                     
-                    if ([Followers fetchFollowersById:objF.followingId]==nil) {
+                    if ([Followers fetchFollowersById:objF.followingId]==nil && (![objF.followingId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
                         [arrNotFollowingBack addObject:objF];
                     }
                 }];

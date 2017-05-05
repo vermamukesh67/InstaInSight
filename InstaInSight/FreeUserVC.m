@@ -67,7 +67,7 @@
     
     [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if ([Following fetchFollowingsById:objF.followerId]==nil) {
+         if ([Following fetchFollowingsById:objF.followerId]==nil && (![objF.followerId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
             [arrIMNotFollowingBack addObject:objF];
         }
     }];
@@ -78,7 +78,7 @@
     
     [arrNewFollowings enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if ([Followers fetchFollowersById:objF.followingId]==nil) {
+        if ([Followers fetchFollowersById:objF.followingId]==nil && (![objF.followingId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
             [arrNotFollowingBack addObject:objF];
         }
     }];
@@ -1064,7 +1064,7 @@
     
     [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
                 
-        if ([Following fetchFollowingsById:objF.followerId]==nil) {
+        if ([Following fetchFollowingsById:objF.followerId]==nil && (![objF.followerId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
             
             if (![arrIMNotFollowingBack containsObject:objF]) {
                 
@@ -1093,7 +1093,7 @@
     
     [arrNewFollowers enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if ([Followers fetchFollowersById:objF.followingId]==nil) {
+        if ([Followers fetchFollowersById:objF.followingId]==nil && (![objF.followingId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
             
             if (![arrNotFollowingBack containsObject:objF]) {
             
