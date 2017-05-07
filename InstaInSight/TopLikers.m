@@ -185,6 +185,37 @@
                     
                 }
                 
+                [arrTopLikers enumerateObjectsUsingBlock:^(InstagramUser *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    if (([objUser.userId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
+                        
+                        [arrTopLikers removeObjectAtIndex:idx];
+                        *stop = YES;
+                    }
+                    
+                }];
+                
+                if (arrTopLikers.count==0) {
+                    
+                    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction * action)
+                                         {
+                                             [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                             [self.navigationController popViewControllerAnimated:YES];
+                                             
+                                         }];
+                    
+                    [alertVC addAction:ok];
+                    [self presentViewController:alertVC animated:YES completion:^{
+                        
+                    }];
+                }
+
+                
                 [tblLikers reloadData];
                 [tblLikers setHidden:NO];
                 [actView stopAnimating];
@@ -248,6 +279,36 @@
                     [arrTopLikers addObject:[arrDatas firstObject]];
                 }
             }];
+            
+            [arrTopLikers enumerateObjectsUsingBlock:^(InstagramUser *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                if (([objUser.userId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
+                    
+                    [arrTopLikers removeObjectAtIndex:idx];
+                    *stop = YES;
+                }
+                
+            }];
+            
+            if (arrTopLikers.count==0) {
+                
+                UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction
+                                     actionWithTitle:@"OK"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         [alertVC dismissViewControllerAnimated:YES completion:nil];
+                                         [self.navigationController popViewControllerAnimated:YES];
+                                         
+                                     }];
+                
+                [alertVC addAction:ok];
+                [self presentViewController:alertVC animated:YES completion:^{
+                    
+                }];
+            }
             
             NSLog(@"arrTopLikers= %@",arrTopLikers);
             

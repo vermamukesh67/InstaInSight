@@ -169,6 +169,18 @@
     }
     
     
+    [arrProfileViewer enumerateObjectsUsingBlock:^(NSMutableDictionary *diccUser, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        InstagramUser *objUser=[diccUser objectForKey:@"user"];
+        
+        if (([objUser.userId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
+            
+            [arrProfileViewer removeObjectAtIndex:idx];
+            *stop = YES;
+        }
+        
+    }];
+    
     [actView stopAnimating];
     [tblProfile reloadData];
     [tblProfile setHidden:NO];
@@ -381,7 +393,6 @@
                     [self GetCommentsForMedia];
                     
                 }
-                
             }
             
         } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {

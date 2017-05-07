@@ -121,6 +121,16 @@
                     
                 }
                 
+                [arrFollowers enumerateObjectsUsingBlock:^(Followers *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    if (([objUser.followerId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
+                        
+                        [arrFollowers removeObjectAtIndex:idx];
+                        *stop = YES;
+                    }
+                    
+                }];
+                
                 if (arrFollowers.count==0) {
                     UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
                     
@@ -138,7 +148,7 @@
                     [self presentViewController:alertVC animated:YES completion:^{
                         
                     }];
-                }
+                }               
                 
                 [tblGhostFollowers reloadData];
                 [tblGhostFollowers setHidden:NO];
@@ -175,6 +185,16 @@
             }];
             
         }
+        
+        [arrFollowers enumerateObjectsUsingBlock:^(Followers *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if (([objUser.followerId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
+                
+                [arrFollowers removeObjectAtIndex:idx];
+                *stop = YES;
+            }
+            
+        }];
         
         if (arrFollowers.count==0) {
             UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];

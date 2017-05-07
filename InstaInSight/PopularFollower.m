@@ -79,6 +79,16 @@
             {
                 [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
                 
+                [arrPopularFollowers enumerateObjectsUsingBlock:^(Followers *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    if (([objUser.followerId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
+                        
+                        [arrPopularFollowers removeObjectAtIndex:idx];
+                        *stop = YES;
+                    }
+                    
+                }];
+                
                 [tblPopularsFollowers reloadData];
                 [tblPopularsFollowers setHidden:NO];
                 [actView stopAnimating];
@@ -117,6 +127,16 @@
             {
                 [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
                 
+                [arrPopularFollowers enumerateObjectsUsingBlock:^(Followers *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    if (([objUser.followerId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
+                        
+                        [arrPopularFollowers removeObjectAtIndex:idx];
+                        *stop = YES;
+                    }
+                    
+                }];
+                
                 [tblPopularsFollowers reloadData];
                 [tblPopularsFollowers setHidden:NO];
                 [actView stopAnimating];
@@ -147,6 +167,16 @@
     else
     {
         [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
+        
+        [arrPopularFollowers enumerateObjectsUsingBlock:^(Followers *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if (([objUser.followerId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
+                
+                [arrPopularFollowers removeObjectAtIndex:idx];
+                *stop = YES;
+            }
+            
+        }];
         
         [tblPopularsFollowers reloadData];
         [tblPopularsFollowers setHidden:NO];
