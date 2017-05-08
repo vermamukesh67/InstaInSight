@@ -31,6 +31,10 @@
 		7ED6C5571E0BFA0F00329E98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED6C5561E0BFA0F00329E98 /* GoogleService-Info.plist */; };
 		856A2020960220428C2AA51F /* libPods-InstaInSightTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6204F4D92F3FE2A9001AC864 /* libPods-InstaInSightTests.a */; };
 		A5BC34930E83EA73E76D6AF0 /* libPods-InstaInSightUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1518163E3AF88076329988D6 /* libPods-InstaInSightUITests.a */; };
+		C001F02D1EC0FCC900B204FF /* OriginalFollowers+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C001F0261EC0FCC900B204FF /* OriginalFollowers+CoreDataClass.m */; };
+		C001F02E1EC0FCC900B204FF /* OriginalFollowers+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C001F0281EC0FCC900B204FF /* OriginalFollowers+CoreDataProperties.m */; };
+		C001F02F1EC0FCC900B204FF /* OriginalFollowings+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C001F02A1EC0FCC900B204FF /* OriginalFollowings+CoreDataClass.m */; };
+		C001F0301EC0FCC900B204FF /* OriginalFollowings+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C001F02C1EC0FCC900B204FF /* OriginalFollowings+CoreDataProperties.m */; };
 		C013173E1E2D1AF200B9CFDB /* TopLikers.m in Sources */ = {isa = PBXBuildFile; fileRef = C013173D1E2D1AF200B9CFDB /* TopLikers.m */; };
 		C01667761E268D1000DE95FD /* NSDate+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C01667751E268D1000DE95FD /* NSDate+Extra.m */; };
 		C04B91B41E42497E0016B328 /* PopularFollower.m in Sources */ = {isa = PBXBuildFile; fileRef = C04B91B31E42497E0016B328 /* PopularFollower.m */; };
@@ -120,6 +124,14 @@
 		93A79B55ADC026A90BC0969D /* Pods-InstaInSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightTests/Pods-InstaInSightTests.release.xcconfig"; sourceTree = "<group>"; };
 		A64E167DDC60D1CC4FE34586 /* Pods-InstaInSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSightUITests/Pods-InstaInSightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B545FDC3256975B37B741FA5 /* Pods-InstaInSight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaInSight.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaInSight/Pods-InstaInSight.release.xcconfig"; sourceTree = "<group>"; };
+		C001F0251EC0FCC900B204FF /* OriginalFollowers+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OriginalFollowers+CoreDataClass.h"; sourceTree = "<group>"; };
+		C001F0261EC0FCC900B204FF /* OriginalFollowers+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OriginalFollowers+CoreDataClass.m"; sourceTree = "<group>"; };
+		C001F0271EC0FCC900B204FF /* OriginalFollowers+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OriginalFollowers+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C001F0281EC0FCC900B204FF /* OriginalFollowers+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OriginalFollowers+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C001F0291EC0FCC900B204FF /* OriginalFollowings+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OriginalFollowings+CoreDataClass.h"; sourceTree = "<group>"; };
+		C001F02A1EC0FCC900B204FF /* OriginalFollowings+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OriginalFollowings+CoreDataClass.m"; sourceTree = "<group>"; };
+		C001F02B1EC0FCC900B204FF /* OriginalFollowings+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OriginalFollowings+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C001F02C1EC0FCC900B204FF /* OriginalFollowings+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OriginalFollowings+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C013173C1E2D1AF200B9CFDB /* TopLikers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLikers.h; sourceTree = "<group>"; };
 		C013173D1E2D1AF200B9CFDB /* TopLikers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLikers.m; sourceTree = "<group>"; };
 		C01667741E268D1000DE95FD /* NSDate+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extra.h"; sourceTree = "<group>"; };
@@ -214,6 +226,14 @@
 		7E9BE4981E0D222200E2189D /* CoreDataBase Model */ = {
 			isa = PBXGroup;
 			children = (
+				C001F0251EC0FCC900B204FF /* OriginalFollowers+CoreDataClass.h */,
+				C001F0261EC0FCC900B204FF /* OriginalFollowers+CoreDataClass.m */,
+				C001F0271EC0FCC900B204FF /* OriginalFollowers+CoreDataProperties.h */,
+				C001F0281EC0FCC900B204FF /* OriginalFollowers+CoreDataProperties.m */,
+				C001F0291EC0FCC900B204FF /* OriginalFollowings+CoreDataClass.h */,
+				C001F02A1EC0FCC900B204FF /* OriginalFollowings+CoreDataClass.m */,
+				C001F02B1EC0FCC900B204FF /* OriginalFollowings+CoreDataProperties.h */,
+				C001F02C1EC0FCC900B204FF /* OriginalFollowings+CoreDataProperties.m */,
 				C0A5E5311E2D16F600CA1D77 /* MyProfileViewer+CoreDataProperties.h */,
 				C0A5E5321E2D16F600CA1D77 /* MyProfileViewer+CoreDataProperties.m */,
 				C0A5E5331E2D16F600CA1D77 /* MyProfileViewer.h */,
@@ -673,6 +693,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C001F02F1EC0FCC900B204FF /* OriginalFollowings+CoreDataClass.m in Sources */,
 				7EA1FB171E03C517001BC519 /* ViewController.m in Sources */,
 				7E79BBB01E28B7F7005BF950 /* IamnotfollBack.m in Sources */,
 				C08615FD1E1C10D800A6A3B7 /* Followers.m in Sources */,
@@ -699,10 +720,13 @@
 				C04D493C1E0541DC0094F749 /* PaidUserVC.m in Sources */,
 				7E9BE4B61E0D2B3C00E2189D /* CoreDataManager.m in Sources */,
 				7EA1FB111E03C517001BC519 /* main.m in Sources */,
+				C001F02E1EC0FCC900B204FF /* OriginalFollowers+CoreDataProperties.m in Sources */,
+				C001F0301EC0FCC900B204FF /* OriginalFollowings+CoreDataProperties.m in Sources */,
 				C0A5E5351E2D16F600CA1D77 /* MyProfileViewer+CoreDataProperties.m in Sources */,
 				C04B91B41E42497E0016B328 /* PopularFollower.m in Sources */,
 				C04D49341E053BB90094F749 /* AppTabBarVC.m in Sources */,
 				C0A5E5361E2D16F600CA1D77 /* MyProfileViewer.m in Sources */,
+				C001F02D1EC0FCC900B204FF /* OriginalFollowers+CoreDataClass.m in Sources */,
 				C04D49481E0588FB0094F749 /* HelperMethod.m in Sources */,
 				C04D49421E0583EC0094F749 /* NewFollowerVC.m in Sources */,
 				C08615FC1E1C10D800A6A3B7 /* Followers+CoreDataProperties.m in Sources */,

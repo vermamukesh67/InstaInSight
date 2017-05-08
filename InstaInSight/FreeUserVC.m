@@ -140,7 +140,30 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
+    
+    if ([[[InstagramEngine sharedEngine] accessToken] length]>0) {
+        [[InstagramEngine sharedEngine] getSelfUserDetailsWithSuccess:^(InstagramUser * _Nonnull user) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [[InstaUser sharedUserInstance] setObjInstaUser:user];
+                NSArray *arrUsers=[[[InstagramEngine sharedEngine] accessToken] componentsSeparatedByString:@"."];
+                if (arrUsers.count>0) {
+                    [[InstaUser sharedUserInstance] setInstaUserId:[arrUsers firstObject]];
+                }
+                
+                [lblName setText:[[[InstaUser sharedUserInstance] objInstaUser] fullName]];
+                [lblFollowerCount setText:[NSString stringWithFormat:@"%li Followers",[[[InstaUser sharedUserInstance] objInstaUser] followsCount]]];
+                [lblFollowingCount setText:[NSString stringWithFormat:@"%li Followings",[[[InstaUser sharedUserInstance] objInstaUser] followedByCount]]];
+                
+                [imgProfileView sd_setImageWithURL:[[[InstaUser sharedUserInstance] objInstaUser] profilePictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
+            });
+            
+        } failure:^(NSError * _Nonnull error, NSInteger serverStatusCode) {
+        }];
+    }
+    
     [self GetFollowers];
+    
 }
 
 -(void)swipeLefttToRight:(id)sender
@@ -1007,11 +1030,25 @@
     [[InstagramEngine sharedEngine] getFollowersOfUser:[[InstaUser sharedUserInstance] instaUserId] withSuccess:^(NSArray<InstagramUser *> * _Nonnull users, InstagramPaginationInfo * _Nonnull paginationInfo) {
         
         NSLog(@"users = %@",users);
+        
+        arrLatestFollowers=[[NSMutableArray alloc] init];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [Followers saveFollowersList:obj];
+                [arrLatestFollowers addObject:[Followers saveFollowersList:obj]];
             }];
+            
+            
+            NSArray *arrNewFollowers=[Followers fetchFollowersDetails];
+            [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                if (![arrLatestFollowers containsObject:objF]) {
+                    
+                    [Followers DeleteFollowersDetailsById:objF.followerId];
+                }
+            }];
+            
             arrFollowers=[[NSMutableArray alloc] initWithArray:[Followers fetchFollowersByType:@"1"]];
             
             [self GetFollowings];
@@ -1032,11 +1069,24 @@
         
         NSLog(@"users = %@",users);
         
+        arrLatestFollowings=[[NSMutableArray alloc] initWithArray:users];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [Following saveFollowingsList:obj];
+                
+                [arrLatestFollowings addObject:[Following saveFollowingsList:obj]];
             }];
+            
+            NSArray *arrNewFollowers=[Following fetchFollowingsDetails];
+            [arrNewFollowers enumerateObjectsUsingBlock:^(Following  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                if (![arrLatestFollowings containsObject:objF]) {
+                    
+                    [Following DeleteFollowingsDetailsById:objF.followingId];
+                }
+            }];
+            
             arrFollowing=[[NSMutableArray alloc] initWithArray:[Following fetchFollowingsByType:@"1"]];
             [self CheckNotFollowingBack];
             [self CheckIamNotFollowingBack];
@@ -1064,7 +1114,7 @@
     }
     
     [arrNewFollowers enumerateObjectsUsingBlock:^(Followers  *_Nonnull objF, NSUInteger idx, BOOL * _Nonnull stop) {
-                
+        
         if ([Following fetchFollowingsById:objF.followerId]==nil && (![objF.followerId isEqualToString:[InstaUser sharedUserInstance].objInstaUser.userId])) {
             
             if (![arrIMNotFollowingBack containsObject:objF]) {
@@ -1076,6 +1126,10 @@
     }];
     
     arrIMNotFollowingBack=arrTemp;
+    
+    if (arrIMNotFollowingBack.count==0) {
+        [arrNewIMNotF removeAllObjects];
+    }
     
     appDelegate.isNewIMNOTFollowingBackSaw=FALSE;
     
@@ -1105,6 +1159,11 @@
     }];
     
     arrNotFollowingBack=arrTemp;
+    
+    if (arrNotFollowingBack.count==0) {
+        [arrNewF removeAllObjects];
+    }
+    
     appDelegate.isNewFollowingBackSaw=FALSE;
     
 }

@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)fetchAndUpdateIsNewFlagFollowersDetails;
 + (Followers *)fetchAndUpdateHasFollowFlagForId:(NSString *)followerId AndCount:(NSString *)strMutualCount;
 + (NSArray *)fetchFollowersByHasMutualFollow;
++(BOOL)DeleteFollowersDetailsById:(NSString *)userId;
 @end
 
 NS_ASSUME_NONNULL_END

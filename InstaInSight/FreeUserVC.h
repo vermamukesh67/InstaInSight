@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OriginalFollowings+CoreDataProperties.h"
+#import "OriginalFollowers+CoreDataProperties.h"
 
 @interface FreeUserVC : GAITrackedViewController<UITableViewDelegate,UITableViewDataSource>
 {
@@ -25,6 +27,7 @@
     __weak IBOutlet UIButton *btnLogout;
     
     NSMutableArray *arrRowData,*arrPaidData;
+    NSMutableArray *arrLatestFollowers,*arrLatestFollowings;
     BOOL isFreeSelected;
     __weak IBOutlet UIButton *btnBuy;
     NSMutableArray *arrFollowers,*arrFollowing,*arrIMNotFollowingBack,*arrNotFollowingBack,*arrNewF,*arrNewIMNotF;

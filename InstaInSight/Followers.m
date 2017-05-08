@@ -223,6 +223,43 @@
     }
 }
 
++(BOOL)DeleteFollowersDetailsById:(NSString *)userId
+{
+    @try {
+        
+        NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowers inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entity];
+        [request setReturnsObjectsAsFaults:NO];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(followerId = %@)", userId];
+        [request setPredicate:predicate];
+        NSError *error;
+        NSArray *objects = [context executeFetchRequest:request error:&error];
+        if([objects count] > 0)
+        {
+            [objects enumerateObjectsUsingBlock:^(Followers *obj, NSUInteger idx, BOOL *stop) {
+                [context deleteObject:obj];
+            }];
+        }
+        
+        if ([context save:&error]) {
+            NSLog(@" Deleted Succesfully!");
+            return YES;
+        } else {
+            NSLog(@" Deletion Failed : %@", [error userInfo]);
+            return NO;
+        }
+        
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+}
+
 +(BOOL)DeleteFollowersDetails
 {
     @try {

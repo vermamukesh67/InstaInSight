@@ -1,25 +1,35 @@
 //
-//  Following.m
+//  OriginalFollowings+CoreDataProperties.m
 //  InstaInSight
 //
-//  Created by Verma Mukesh on 03/01/17.
+//  Created by Verma Mukesh on 09/05/17.
 //  Copyright © 2017 Mukesh Verma. All rights reserved.
 //
 
-#import "Following.h"
+#import "OriginalFollowings+CoreDataProperties.h"
 
-#define kFollowings @"Following"
+#define kOriginalFollowings @"OriginalFollowings"
 
-@implementation Following
+@implementation OriginalFollowings (CoreDataProperties)
 
-// Insert code here to add functionality to your managed object subclass
++ (NSFetchRequest<OriginalFollowings *> *)fetchRequest {
+	return [[NSFetchRequest alloc] initWithEntityName:@"OriginalFollowings"];
+}
 
-+ (Following *)saveFollowingsList:(InstagramUser *)objInstaUser
+@dynamic followingId;
+@dynamic fullName;
+@dynamic isNew;
+@dynamic isUnfollowedByMe;
+@dynamic profilePictureURL;
+@dynamic userName;
+
+
++ (OriginalFollowings *)saveFollowingsList:(InstagramUser *)objInstaUser
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
         
-        Following *objUpdate=[self fetchFollowingsById:objInstaUser.userId];
+        OriginalFollowings *objUpdate=[self fetchFollowingsById:objInstaUser.userId];
         
         if (objUpdate!=nil) {
             objUpdate.followingId=objInstaUser.userId;
@@ -39,7 +49,7 @@
             }
         }
         else{
-            Following *objInsert = [NSEntityDescription insertNewObjectForEntityForName:kFollowings inManagedObjectContext:context];
+            OriginalFollowings *objInsert = [NSEntityDescription insertNewObjectForEntityForName:kOriginalFollowings inManagedObjectContext:context];
             objInsert.followingId=objInstaUser.userId;
             objInsert.fullName=objInstaUser.fullName;
             objInsert.profilePictureURL=[objInstaUser.profilePictureURL absoluteString];
@@ -65,11 +75,11 @@
         
     }
 }
-+ (Following *)fetchFollowingsById:(NSString *)userId
++ (OriginalFollowings *)fetchFollowingsById:(NSString *)userId
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kOriginalFollowings inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entity];
         
@@ -96,7 +106,7 @@
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kOriginalFollowings inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entity];
         
@@ -120,7 +130,7 @@
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kOriginalFollowings inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entity];
         
@@ -145,7 +155,7 @@
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kOriginalFollowings inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entity];
         
@@ -169,7 +179,7 @@
 {
     @try {
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kOriginalFollowings inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entity];
         
@@ -178,7 +188,7 @@
         [request setReturnsObjectsAsFaults:NO];
         NSError *error;
         NSArray *objects = [context executeFetchRequest:request error:&error];
-        [objects enumerateObjectsUsingBlock:^(Following   * _Nonnull objFollowing, NSUInteger idx, BOOL * _Nonnull stop) {
+        [objects enumerateObjectsUsingBlock:^(OriginalFollowings   * _Nonnull objFollowing, NSUInteger idx, BOOL * _Nonnull stop) {
             
             [objFollowing setIsNew:@"0"];
         }];
@@ -196,49 +206,12 @@
     }
 }
 
-+(BOOL)DeleteFollowingsDetailsById:(NSString *)userId
-{
-    @try {
-        
-        NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        [request setEntity:entity];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(followingId = %@)", userId];
-        [request setPredicate:predicate];
-        [request setReturnsObjectsAsFaults:NO];
-        NSError *error;
-        NSArray *objects = [context executeFetchRequest:request error:&error];
-        if([objects count] > 0)
-        {
-            [objects enumerateObjectsUsingBlock:^(Following *obj, NSUInteger idx, BOOL *stop) {
-                [context deleteObject:obj];
-            }];
-        }
-        
-        if ([context save:&error]) {
-            NSLog(@" Deleted Succesfully!");
-            return YES;
-        } else {
-            NSLog(@" Deletion Failed : %@", [error userInfo]);
-            return NO;
-        }
-        
-    }
-    @catch (NSException *exception) {
-        
-    }
-    @finally {
-        
-    }
-}
-
 +(BOOL)DeleteFollowingsDetails
 {
     @try {
         
         NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:kOriginalFollowings inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entity];
         [request setReturnsObjectsAsFaults:NO];
@@ -246,7 +219,7 @@
         NSArray *objects = [context executeFetchRequest:request error:&error];
         if([objects count] > 0)
         {
-            [objects enumerateObjectsUsingBlock:^(Following *obj, NSUInteger idx, BOOL *stop) {
+            [objects enumerateObjectsUsingBlock:^(OriginalFollowings *obj, NSUInteger idx, BOOL *stop) {
                 [context deleteObject:obj];
             }];
         }
@@ -270,13 +243,14 @@
 +(id)CreateDemoObjectWithoutSaving:(InstagramUser *)objInstaUser
 {
     NSManagedObjectContext *context = MANAGED_OBJECT_CONTEXT;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:kFollowings inManagedObjectContext:context];
-    Following *objInsert = (Following *)[[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kOriginalFollowings inManagedObjectContext:context];
+    OriginalFollowings *objInsert = (OriginalFollowings *)[[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
     objInsert.followingId=objInstaUser.userId;
     objInsert.fullName=objInstaUser.fullName;
     objInsert.profilePictureURL=[objInstaUser.profilePictureURL absoluteString];
     objInsert.userName=objInstaUser.username;
     return objInsert;
 }
+
 
 @end
