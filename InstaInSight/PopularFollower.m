@@ -77,7 +77,7 @@
             }
             else
             {
-                [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
+               
                 
                 [arrPopularFollowers enumerateObjectsUsingBlock:^(Followers *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
                     
@@ -88,6 +88,22 @@
                     }
                     
                 }];
+                
+                NSArray *arrSortedData= [arrPopularFollowers sortedArrayUsingComparator: ^(Followers *obj1, Followers *obj2) {
+                    NSInteger n1 = [obj1.hisFollowerCount integerValue];
+                    NSInteger n2 = [obj2.hisFollowerCount integerValue];
+                    if (n1 > n2) {
+                        return (NSComparisonResult)NSOrderedAscending;
+                    }
+                    
+                    if (n1 < n2) {
+                        return (NSComparisonResult)NSOrderedDescending;
+                    }
+                    
+                    return (NSComparisonResult)NSOrderedSame;
+                }];
+                
+                arrPopularFollowers=[[NSMutableArray alloc] initWithArray:arrSortedData];
                 
                 [tblPopularsFollowers reloadData];
                 [tblPopularsFollowers setHidden:NO];
@@ -125,7 +141,7 @@
             }
             else
             {
-                [arrPopularFollowers sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"hisFollowerCount" ascending:NO]]];
+               
                 
                 [arrPopularFollowers enumerateObjectsUsingBlock:^(Followers *objUser, NSUInteger idx, BOOL * _Nonnull stop) {
                     
@@ -136,6 +152,22 @@
                     }
                     
                 }];
+                
+                NSArray *arrSortedData= [arrPopularFollowers sortedArrayUsingComparator: ^(Followers *obj1, Followers *obj2) {
+                    NSInteger n1 = [obj1.hisFollowerCount integerValue];
+                    NSInteger n2 = [obj2.hisFollowerCount integerValue];
+                    if (n1 > n2) {
+                        return (NSComparisonResult)NSOrderedAscending;
+                    }
+                    
+                    if (n1 < n2) {
+                        return (NSComparisonResult)NSOrderedDescending;
+                    }
+                    
+                    return (NSComparisonResult)NSOrderedSame;
+                }];
+                
+                arrPopularFollowers=[[NSMutableArray alloc] initWithArray:arrSortedData];
                 
                 [tblPopularsFollowers reloadData];
                 [tblPopularsFollowers setHidden:NO];

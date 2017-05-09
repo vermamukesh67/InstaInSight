@@ -9,54 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaInSight/PopularFollower.m"
-            timestampString = "507665742.999316"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-GetAllUserDetails"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/PopularFollower.m"
-            timestampString = "507665744.490896"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-GetAllUserDetails"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/PopularFollower.m"
-            timestampString = "515836441.417174"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-GetAllUserDetails"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "InstaInSight/ProfileViewer.m"
             timestampString = "515835562.671253"
             startingColumnNumber = "9223372036854775807"
@@ -80,38 +32,6 @@
             startingLineNumber = "253"
             endingLineNumber = "253"
             landmarkName = "-failedTransaction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/PopularFollower.m"
-            timestampString = "511288932.705572"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-GetAllUserDetails"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaInSight/PopularFollower.m"
-            timestampString = "511288976.151894"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-GetFollowers"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -298,7 +218,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "515967609.875467"
+                  timestampString = "516041460.058531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -313,7 +233,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "515967609.877097"
+                  timestampString = "516041460.060742"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -346,7 +266,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "515967609.88172"
+                  timestampString = "516041460.06554"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
@@ -361,7 +281,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "515967609.883448"
+                  timestampString = "516041460.067209"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
@@ -410,7 +330,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "515967609.892903"
+                  timestampString = "516041460.076092"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -425,7 +345,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "515967609.89457"
+                  timestampString = "516041460.077786"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -522,7 +442,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "515967609.915623"
+                  timestampString = "516041460.097797"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
@@ -537,7 +457,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/GhostFollowers.m"
-                  timestampString = "515967609.917423"
+                  timestampString = "516041460.099472"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
@@ -602,7 +522,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/ProfileViewer.m"
-                  timestampString = "515967609.931551"
+                  timestampString = "516041460.112335"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -617,7 +537,7 @@
                   moduleName = "InstaInSight"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/ProfileViewer.m"
-                  timestampString = "515967609.933258"
+                  timestampString = "516041460.114005"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "174"
@@ -649,13 +569,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "515967437.217982"
+            filePath = "InstaInSight/PopularFollower.m"
+            timestampString = "516040417.406655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-GetAllUserDetails"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -665,13 +585,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "515967632.652318"
+            filePath = "InstaInSight/PopularFollower.m"
+            timestampString = "516040417.406655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "-GetAllUserDetails"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -681,13 +601,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaInSight/FreeUserVC.m"
-            timestampString = "515967648.011166"
+            filePath = "InstaInSight/PopularFollower.m"
+            timestampString = "516041462.542263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-GetAllUserDetails"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PopularFollower GetAllUserDetails]"
+                  moduleName = "InstaInSight"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/PopularFollower.m"
+                  timestampString = "516041462.775976"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PopularFollower GetAllUserDetails]_block_invoke"
+                  moduleName = "InstaInSight"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vermamukesh/Documents/Client%20project/Turky%20Client/Project%20Source%20Code/InstaInSight/InstaInSight/PopularFollower.m"
+                  timestampString = "516041462.78139"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaInSight/PopularFollower.m"
+            timestampString = "516041579.814694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-GetAllUserDetails"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
