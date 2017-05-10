@@ -75,6 +75,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSInteger followedByCount;
 
 /**
+ *  Followers count of this User.
+ *  This value is not persisted while saving the state of the User object.
+ */
+@property (nonatomic, assign) NSInteger likeCountForTesting;
+
+/**
  *  Convenience method to load details and update object.
  *  @param info JSON dictionary
  */

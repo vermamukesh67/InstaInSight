@@ -177,7 +177,9 @@
                        
                         NSArray *arrDatas=[arrTotalLikers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"userId = %@",[objDicc valueForKey:@"userId"]]];
                         if (arrDatas.count>0) {
-                            [arrTopLikers addObject:[arrDatas firstObject]];
+                            InstagramUser *objInsta=[arrDatas firstObject];
+                            [objInsta setLikeCountForTesting:[[objDicc objectForKey:@"count"] integerValue]];
+                            [arrTopLikers addObject:objInsta];
                         }
                     }];
                     
@@ -194,6 +196,8 @@
                     }
                     
                 }];
+                
+               
                 
                 if (arrTopLikers.count==0) {
                     
@@ -214,7 +218,27 @@
                         
                     }];
                 }
-
+                else
+                {
+                    if (arrTopLikers.count>1) {
+                        
+                        NSArray *arrSortedData= [arrTopLikers sortedArrayUsingComparator: ^(InstagramUser *obj1, InstagramUser *obj2) {
+                            NSInteger n1 = obj1.likeCountForTesting;
+                            NSInteger n2 = obj2.likeCountForTesting;
+                            if (n1 > n2) {
+                                return (NSComparisonResult)NSOrderedAscending;
+                            }
+                            
+                            if (n1 < n2) {
+                                return (NSComparisonResult)NSOrderedDescending;
+                            }
+                            
+                            return (NSComparisonResult)NSOrderedSame;
+                        }];
+                        
+                        arrTopLikers=[arrSortedData mutableCopy];
+                    }
+                }
                 
                 [tblLikers reloadData];
                 [tblLikers setHidden:NO];
