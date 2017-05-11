@@ -163,7 +163,16 @@
         {
             arrFinalArray = [[arrFinalArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"point" ascending:NO]]] mutableCopy];
             
-            arrProfileViewer=[[arrFinalArray subarrayWithRange:NSMakeRange(0, numberOfPeopleToShow)] mutableCopy];
+            if (arrFinalArray.count>=numberOfPeopleToShow) {
+            
+                arrProfileViewer=[[arrFinalArray subarrayWithRange:NSMakeRange(0, numberOfPeopleToShow)] mutableCopy];
+            }
+            else
+            {
+                arrProfileViewer=[arrFinalArray mutableCopy];
+            }
+            
+            
         }
         
     }
