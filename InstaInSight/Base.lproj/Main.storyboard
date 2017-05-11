@@ -328,8 +328,8 @@
                         <outlet property="btnPro" destination="HMU-8c-RzF" id="Ee0-qT-yBA"/>
                         <outlet property="headerView" destination="gRk-A2-BAD" id="SOv-fD-p3S"/>
                         <outlet property="imgProfileView" destination="7OK-px-MD4" id="46x-yQ-9m3"/>
-                        <outlet property="lblFollowerCount" destination="H6x-qb-Ib7" id="LXY-zk-34W"/>
-                        <outlet property="lblFollowingCount" destination="CsK-qV-jGB" id="yrQ-Pg-2xq"/>
+                        <outlet property="lblFollowerCount" destination="CsK-qV-jGB" id="kch-WY-nom"/>
+                        <outlet property="lblFollowingCount" destination="H6x-qb-Ib7" id="DQI-fe-hDT"/>
                         <outlet property="lblName" destination="DjL-KQ-zt3" id="Fy0-Nq-Lut"/>
                         <outlet property="scrContainer" destination="4gH-K7-r8e" id="L5i-W2-mQJ"/>
                         <outlet property="whiteBox" destination="8W7-tT-zhc" id="frW-Df-qQZ"/>
@@ -474,7 +474,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" shadowImage="redBG" id="JfZ-35-nfZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" shadowImage="redBG" id="JfZ-35-nfZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.78823529410000004" green="0.0" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
