@@ -573,6 +573,9 @@
                          style:UIAlertActionStyleDestructive
                          handler:^(UIAlertAction * action)
                          {
+                             [Followers DeleteFollowersDetails];
+                             [Following DeleteFollowingsDetails];
+                             
                              [alertVC dismissViewControllerAnimated:YES completion:nil];
                              [[InstagramEngine sharedEngine] logout];
                              
