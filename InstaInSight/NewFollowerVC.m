@@ -50,6 +50,7 @@
             
             [users enumerateObjectsUsingBlock:^(InstagramUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [Followers saveFollowersList:obj];
+                
             }];
             arrFollowers=[[NSMutableArray alloc] initWithArray:[Followers fetchFollowersByType:@"1"]];
             [tblFollowers setHidden:NO];

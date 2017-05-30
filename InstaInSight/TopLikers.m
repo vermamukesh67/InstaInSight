@@ -47,64 +47,8 @@
        
     [[InstagramEngine sharedEngine] getSelfRecentMediaWithCount:50 maxId:nil success:^(NSArray<InstagramMedia *> * _Nonnull media, InstagramPaginationInfo * _Nonnull paginationInfo) {
         
+        //[self setTitle:[NSString stringWithFormat:@"Top Likers (%li)",media.count]];
         NSLog(@"media = %@",media);
-        /*
-        [media enumerateObjectsUsingBlock:^(InstagramMedia * _Nonnull objMedia, NSUInteger idx, BOOL * _Nonnull stop) {
-             [arrTotalLikers addObjectsFromArray:objMedia.likes];
-        }];
-        
-        
-        if (arrTotalLikers.count==0) {
-            
-            UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:nil message:@"No record found" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* ok = [UIAlertAction
-                                 actionWithTitle:@"OK"
-                                 style:UIAlertActionStyleDefault
-                                 handler:^(UIAlertAction * action)
-                                 {
-                                     [alertVC dismissViewControllerAnimated:YES completion:nil];
-                                     [self.navigationController popViewControllerAnimated:YES];
-                                     
-                                 }];
-            
-            [alertVC addAction:ok];
-            [self presentViewController:alertVC animated:YES completion:^{
-                
-            }];
-        }
-        else
-        {
-            NSMutableArray *arrUsersId=[[NSMutableArray alloc] init];
-            [arrTotalLikers enumerateObjectsUsingBlock:^(InstagramUser  *_Nonnull objuser, NSUInteger idx, BOOL * _Nonnull stop) {
-                [arrUsersId addObject:objuser.userId];
-            }];
-            
-            NSCountedSet *totalSet = [NSCountedSet setWithArray:arrUsersId];
-            NSMutableArray *dictArray = [NSMutableArray array];
-            for (NSString *userId in totalSet) {
-                NSDictionary *dict = @{@"userId":userId, @"count":@([totalSet countForObject:userId])};
-                [dictArray addObject:dict];
-            }
-            NSArray *final = [dictArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"count" ascending:NO]]];
-            NSLog(@"%@",final);
-            
-            [final enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull objDicc, NSUInteger idx, BOOL * _Nonnull stop) {
-                
-                NSArray *arrDatas=[arrTotalLikers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"userId = %@",[objDicc valueForKey:@"userId"]]];
-                if (arrDatas.count>0) {
-                    [arrTopLikers addObject:[arrDatas firstObject]];
-                }
-            }];
-            
-            NSLog(@"arrTopLikers= %@",arrTopLikers);
-            
-        }
-        
-        [tblLikers reloadData];
-        [tblLikers setHidden:NO];
-        [actView stopAnimating]; */
-        
         arrTopMedia=[[NSMutableArray alloc] initWithArray:media];
         [self GetLikesForMedia];
         
@@ -173,6 +117,7 @@
                     NSArray *final = [dictArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"count" ascending:NO]]];
                     NSLog(@"%@",final);
                     
+                    
                     [final enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull objDicc, NSUInteger idx, BOOL * _Nonnull stop) {
                        
                         NSArray *arrDatas=[arrTotalLikers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"userId = %@",[objDicc valueForKey:@"userId"]]];
@@ -239,6 +184,8 @@
                         arrTopLikers=[arrSortedData mutableCopy];
                     }
                 }
+                
+               
                 
                 [tblLikers reloadData];
                 [tblLikers setHidden:NO];
@@ -360,8 +307,10 @@
     UserCell *cell=[tableView dequeueReusableCellWithIdentifier:@"UserCell"];
     InstagramUser *objUser=[arrTopLikers objectAtIndex:indexPath.row];
     [cell.imgProfile sd_setImageWithURL:objUser.profilePictureURL placeholderImage:[UIImage imageNamed:@"defaultlist"]];
-    [cell.lblName setText:[objUser fullName]];
+    [cell.lblName setText:[NSString stringWithFormat:@"%@",[objUser fullName]]];
+   // [cell.lblName setText:[NSString stringWithFormat:@"%@ (%li)",[objUser fullName],objUser.likeCountForTesting]];
     [cell CheckForFollowUnFollow:objUser.userId];
+    
     return cell;
 }
 
